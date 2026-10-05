@@ -109,7 +109,7 @@ export function Hero() {
 
         {/* Live Countdown Timer - Clean 4-Column Grid */}
         <div className="w-full max-w-xl mx-auto mb-8 px-2">
-          <p className="text-xs sm:text-sm uppercase tracking-[0.25em] text-gold-bright font-black mb-4">
+          <p className="text-xs sm:text-sm uppercase tracking-[0.25em] text-gold-bright/90 font-bold mb-4 font-display">
             The Connection Begins In
           </p>
           <div className="grid grid-cols-4 gap-2 sm:gap-4 md:gap-5 w-full place-items-center">

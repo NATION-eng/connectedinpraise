@@ -19,8 +19,11 @@ export default {
       },
       fontFamily: {
         script: ['Pacifico', 'cursive'],
-        display: ['Cormorant Garamond', 'Cinzel', 'serif'],
+        display: ['Cinzel', 'Cormorant Garamond', 'serif'],
         cinzel: ['Cinzel', 'serif'],
+        marcellus: ['Marcellus', 'serif'],
+        playfair: ['Playfair Display', 'serif'],
+        cormorant: ['Cormorant Garamond', 'serif'],
         syne: ['Syne', 'sans-serif'],
         body: ['Jost', 'sans-serif'],
       },
