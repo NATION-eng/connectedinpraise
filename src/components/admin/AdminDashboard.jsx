@@ -21,6 +21,7 @@ import {
   ChevronRight,
 } from "lucide-react";
 import { Logo } from "../ui/Logo";
+import { CustomCloseEmoji } from "../ui/CustomEmoji";
 import {
   getAllPrayersAdmin,
   deletePrayerAdmin,
@@ -463,8 +464,9 @@ export function AdminDashboard({ onBackToHome }) {
                   <button
                     onClick={() => setIsChangingPasscode(false)}
                     className="text-ivory/60 hover:text-ivory p-1 cursor-pointer"
+                    aria-label="Close"
                   >
-                    ✕
+                    <CustomCloseEmoji className="w-4 h-4" />
                   </button>
                 </div>
                 <form onSubmit={handleUpdatePasscode} className="grid grid-cols-1 sm:grid-cols-3 gap-4">

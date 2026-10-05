@@ -2,6 +2,12 @@ import React, { useState, useEffect } from "react";
 import { MessageSquare, Send, Quote, Sparkles, CheckCircle, Database } from "lucide-react";
 import { testimonials } from "../../data/testimonials";
 import { getLatestPrayers, savePrayerRequest } from "../../services/db";
+import {
+  CustomSparkleEmoji,
+  CustomPrayingHandsEmoji,
+  CustomPraiseHandsEmoji,
+  CustomSacredHeartEmoji,
+} from "../ui/CustomEmoji";
 
 export function Stories() {
   const [prayers, setPrayers] = useState([]);
@@ -198,12 +204,18 @@ export function Stories() {
                     <p className="text-sm sm:text-base text-ivory/95 leading-relaxed font-semibold mb-3">
                       &ldquo;{prayer.text}&rdquo;
                     </p>
-                    <div className="flex items-center justify-between text-xs text-ivory/60 pt-2.5 border-t border-gold/15">
-                      <span className="text-gold-bright font-extrabold flex items-center gap-1">
-                        <span>✦</span>
+                    <div className="flex items-center justify-between text-xs text-ivory/60 pt-2.5 border-t border-gold/15 gap-2 flex-wrap">
+                      <span className="text-gold-bright font-extrabold flex items-center gap-1.5">
+                        <CustomSparkleEmoji className="w-3.5 h-3.5 text-gold-bright flex-shrink-0" />
                         <span>{prayer.author}</span>
                       </span>
-                      <span className="text-[11px] font-bold text-ivory/50">{prayer.time}</span>
+                      <div className="flex items-center gap-2.5">
+                        <span className="inline-flex items-center gap-1 text-[11px] font-bold text-gold-bright/80 bg-gold/10 px-2.5 py-0.5 rounded-full border border-gold/20 shadow-sm">
+                          <CustomPrayingHandsEmoji className="w-3.5 h-3.5" />
+                          <span>Praying</span>
+                        </span>
+                        <span className="text-[11px] font-bold text-ivory/50">{prayer.time}</span>
+                      </div>
                     </div>
                   </div>
                 ))}

@@ -1,14 +1,22 @@
 import React, { useState } from "react";
-import { Sparkles, Heart, Shield, BookOpen, Smile, Flame } from "lucide-react";
+import { Sparkles } from "lucide-react";
 import { praiseReasons } from "../../data/reasons";
 import { Waveform } from "../ui/Waveform";
+import {
+  CustomGoldenCrownEmoji,
+  CustomWorshipNotesEmoji,
+  CustomSacredHeartEmoji,
+  CustomPraiseHandsEmoji,
+  CustomHolyFlameEmoji,
+  CustomSparkleEmoji,
+} from "../ui/CustomEmoji";
 
 const iconMap = {
-  saved: <Shield className="w-6 h-6" />,
-  story: <BookOpen className="w-6 h-6" />,
-  nobarrier: <Heart className="w-6 h-6" />,
-  grateful: <Smile className="w-6 h-6" />,
-  neverleft: <Flame className="w-6 h-6" />,
+  saved: <CustomGoldenCrownEmoji className="w-6 h-6" />,
+  story: <CustomWorshipNotesEmoji className="w-6 h-6" />,
+  nobarrier: <CustomSacredHeartEmoji className="w-6 h-6" />,
+  grateful: <CustomPraiseHandsEmoji className="w-6 h-6" />,
+  neverleft: <CustomHolyFlameEmoji className="w-6 h-6" />,
 };
 
 export function WhyPraise() {
@@ -101,8 +109,10 @@ export function WhyPraise() {
               <Waveform bars={24} className="h-full" />
             </div>
 
-            <p className="text-xs sm:text-sm text-gold-bright font-semibold tracking-wide">
-              ✦ Your sound matters. Your story belongs in this praise. ✦
+            <p className="text-xs sm:text-sm text-gold-bright font-semibold tracking-wide flex items-center justify-center gap-2">
+              <CustomSparkleEmoji className="w-3.5 h-3.5 text-neon" />
+              <span>Your sound matters. Your story belongs in this praise.</span>
+              <CustomSparkleEmoji className="w-3.5 h-3.5 text-neon" />
             </p>
           </div>
         </div>

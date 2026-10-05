@@ -1,5 +1,10 @@
 import React from "react";
-import { Music, Users, Target, Award, ArrowUpRight } from "lucide-react";
+import { Music, ArrowUpRight } from "lucide-react";
+import {
+  CustomGoldenCrownEmoji,
+  CustomPraiseHandsEmoji,
+  CustomInclusionStarEmoji,
+} from "../ui/CustomEmoji";
 
 export function JerusalemChoir() {
   return (
@@ -79,10 +84,10 @@ export function JerusalemChoir() {
               welcoming every voice into God&apos;s holy sanctuary.
             </p>
 
-            {/* Key Accomplishments Badges - Mobile Optimized */}
+            {/* Key Accomplishments Badges - Mobile Optimized with Custom Emojis */}
             <div className="grid grid-cols-3 gap-2 sm:gap-4 w-full">
-              <div className="glass-card p-2.5 sm:p-4 rounded-xl sm:rounded-2xl text-center border border-gold/20 flex flex-col items-center justify-center min-w-0 overflow-hidden">
-                <Award className="w-4 h-4 sm:w-5 sm:h-5 text-gold-bright mb-1.5 flex-shrink-0" />
+              <div className="glass-card p-2.5 sm:p-4 rounded-xl sm:rounded-2xl text-center border border-gold/20 flex flex-col items-center justify-center min-w-0 overflow-hidden shadow-md">
+                <CustomGoldenCrownEmoji className="w-5 h-5 sm:w-6 sm:h-6 mb-1.5 flex-shrink-0" />
                 <div className="font-cinzel font-black text-xs sm:text-base text-ivory truncate w-full">
                   Annual
                 </div>
@@ -91,8 +96,8 @@ export function JerusalemChoir() {
                 </div>
               </div>
 
-              <div className="glass-card p-2.5 sm:p-4 rounded-xl sm:rounded-2xl text-center border border-gold/20 flex flex-col items-center justify-center min-w-0 overflow-hidden">
-                <Users className="w-4 h-4 sm:w-5 sm:h-5 text-neon mb-1.5 flex-shrink-0" />
+              <div className="glass-card p-2.5 sm:p-4 rounded-xl sm:rounded-2xl text-center border border-gold/20 flex flex-col items-center justify-center min-w-0 overflow-hidden shadow-md">
+                <CustomPraiseHandsEmoji className="w-5 h-5 sm:w-6 sm:h-6 mb-1.5 flex-shrink-0" />
                 <div className="font-cinzel font-black text-xs sm:text-base text-ivory truncate w-full">
                   Thousands
                 </div>
@@ -101,8 +106,8 @@ export function JerusalemChoir() {
                 </div>
               </div>
 
-              <div className="glass-card p-2.5 sm:p-4 rounded-xl sm:rounded-2xl text-center border border-gold/20 flex flex-col items-center justify-center min-w-0 overflow-hidden">
-                <Target className="w-4 h-4 sm:w-5 sm:h-5 text-gold-bright mb-1.5 flex-shrink-0" />
+              <div className="glass-card p-2.5 sm:p-4 rounded-xl sm:rounded-2xl text-center border border-gold/20 flex flex-col items-center justify-center min-w-0 overflow-hidden shadow-md">
+                <CustomInclusionStarEmoji className="w-5 h-5 sm:w-6 sm:h-6 mb-1.5 flex-shrink-0" />
                 <div className="font-cinzel font-black text-xs sm:text-base text-ivory truncate w-full">
                   Inclusion
                 </div>

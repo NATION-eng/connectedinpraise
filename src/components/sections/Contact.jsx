@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Mail, Phone, MapPin, Send, MessageCircle, Youtube, Facebook, ShieldCheck, Database } from "lucide-react";
 import { saveContactMessage } from "../../services/db";
+import { CustomTikTokEmoji } from "../ui/CustomEmoji";
 
 export function Contact() {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
@@ -142,7 +143,7 @@ export function Contact() {
                   rel="noopener noreferrer"
                   className="px-2.5 sm:px-4 py-2 sm:py-2.5 rounded-xl sm:rounded-2xl glass border border-gold/30 flex items-center justify-center gap-1.5 sm:gap-2 text-xs font-bold text-ivory hover:text-gold-bright hover:border-gold/60 transition-all"
                 >
-                  <span className="text-sm font-black">♪</span>
+                  <CustomTikTokEmoji className="w-3.5 h-3.5 text-gold-bright flex-shrink-0" />
                   <span>TikTok</span>
                 </a>
 

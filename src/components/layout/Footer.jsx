@@ -1,6 +1,7 @@
 import React from "react";
 import { Heart, Youtube, Facebook, ArrowUp, Lock } from "lucide-react";
 import { Logo } from "../ui/Logo";
+import { CustomTikTokEmoji } from "../ui/CustomEmoji";
 
 export function Footer({ onOpenAdmin }) {
   const scrollToTop = () => {
@@ -80,11 +81,11 @@ export function Footer({ onOpenAdmin }) {
                 href="https://www.tiktok.com/@connectedinpraise?_r=1&_t=ZS-99v3wfSwKz"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-2xl glass border border-gold/30 flex items-center justify-center text-ivory hover:text-gold-bright hover:bg-gold/20 transition-all font-black text-sm"
+                className="w-10 h-10 rounded-2xl glass border border-gold/30 flex items-center justify-center text-ivory hover:text-gold-bright hover:bg-gold/20 transition-all group"
                 aria-label="TikTok"
                 title="Follow on TikTok"
               >
-                ♪
+                <CustomTikTokEmoji className="w-4 h-4 text-ivory group-hover:text-gold-bright transition-colors" />
               </a>
 
               {/* Facebook */}

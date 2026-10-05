@@ -1,6 +1,7 @@
 import React from "react";
 import { ArrowRight, Radio, Sparkles, Heart } from "lucide-react";
 import { Waveform } from "../ui/Waveform";
+import { CustomSparkleEmoji } from "../ui/CustomEmoji";
 
 export function CallToAction() {
   const scrollTo = (id) => {
@@ -38,8 +39,10 @@ export function CallToAction() {
           digitally from across the globe — there is an anointed place reserved specifically for you.
         </p>
 
-        <p className="text-xs sm:text-sm text-gold-bright font-extrabold mb-10 tracking-wider">
-          ✦ Nov 4–6: 6:00 PM – 8:00 PM · Sabbath Nov 7: 8:00 AM – 12:00 PM ✦
+        <p className="text-xs sm:text-sm text-gold-bright font-extrabold mb-10 tracking-wider flex items-center justify-center gap-2">
+          <CustomSparkleEmoji className="w-3.5 h-3.5 text-neon" />
+          <span>Nov 4–6: 6:00 PM – 8:00 PM · Sabbath Nov 7: 8:00 AM – 12:00 PM</span>
+          <CustomSparkleEmoji className="w-3.5 h-3.5 text-neon" />
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-md mx-auto">
