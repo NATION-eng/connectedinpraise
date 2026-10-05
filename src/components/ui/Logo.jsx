@@ -2,6 +2,19 @@ import React from "react";
 import { Sparkles } from "lucide-react";
 
 export function Logo({ size = "nav" }) {
+  if (size === "nav") {
+    return (
+      <div className="inline-flex items-center gap-2 select-none group" aria-label="CIP 2026">
+        <span className="font-script text-2xl sm:text-3xl tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-gold-bright via-gold to-neon group-hover:scale-105 transition-transform duration-300 drop-shadow-[0_2px_10px_rgba(255,196,0,0.3)]">
+          CIP
+        </span>
+        <span className="text-[11px] sm:text-xs font-black text-gold-bright tracking-wider px-2 py-0.5 rounded-full border border-gold/40 bg-gold/15 shadow-sm group-hover:border-gold-bright transition-colors">
+          2026
+        </span>
+      </div>
+    );
+  }
+
   const isHero = size === "hero";
 
   return (
@@ -14,7 +27,7 @@ export function Logo({ size = "nav" }) {
       <div className={`relative flex items-center justify-center ${isHero ? "mb-2" : "mb-0.5"}`}>
         <span
           className={`font-script leading-none text-transparent bg-clip-text bg-gradient-to-b from-gold-bright via-gold to-neon transition-transform duration-300 ${
-            isHero ? "text-5xl sm:text-6xl md:text-7xl" : "text-[1.45rem] md:text-[1.7rem]"
+            isHero ? "text-5xl sm:text-6xl md:text-7xl" : "text-2xl sm:text-3xl"
           }`}
         >
           Connected
@@ -27,7 +40,7 @@ export function Logo({ size = "nav" }) {
       <div className={`flex items-center ${isHero ? "gap-3" : "gap-1.5"}`}>
         <span
           className={`font-script leading-none text-gold-bright transition-colors duration-300 ${
-            isHero ? "text-4xl sm:text-5xl md:text-6xl" : "text-[1.2rem] md:text-[1.35rem]"
+            isHero ? "text-4xl sm:text-5xl md:text-6xl" : "text-xl sm:text-2xl"
           }`}
         >
           in Praise
@@ -40,3 +53,4 @@ export function Logo({ size = "nav" }) {
     </div>
   );
 }
+

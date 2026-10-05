@@ -68,36 +68,40 @@ export function Experience() {
           </p>
         </div>
 
-        {/* Timeline Sessions List */}
-        <div className="max-w-4xl mx-auto relative">
-          {/* Vertical Glowing Guide Line */}
-          <div className="absolute left-6 md:left-8 top-4 bottom-4 w-0.5 bg-gradient-to-b from-gold via-neon to-transparent opacity-40 pointer-events-none" />
-
-          <div className="space-y-4">
+        {/* Timeline Sessions List - Seamless Connected Track */}
+        <div className="max-w-3xl mx-auto">
+          <div className="space-y-4 sm:space-y-6">
             {currentSchedule.sessions.map((session, sIdx) => (
-              <div key={sIdx} className="relative pl-14 md:pl-20 group">
-                {/* Timeline Dot Marker */}
-                <div className="absolute left-4 md:left-6 top-6 -translate-x-1/2 w-4 h-4 rounded-full bg-maroon-deep border-2 border-gold flex items-center justify-center group-hover:border-gold-bright transition-colors">
-                  <div className="w-1.5 h-1.5 rounded-full bg-neon group-hover:scale-125 transition-transform" />
+              <div key={sIdx} className="flex items-start gap-3 sm:gap-5 group">
+                {/* Connected Timeline Track & Node Column */}
+                <div className="flex flex-col items-center self-stretch flex-shrink-0 pt-4">
+                  {/* Glowing Node Marker */}
+                  <div className="w-5 h-5 rounded-full bg-maroon-deep border-2 border-gold-bright flex items-center justify-center shadow-[0_0_14px_rgba(255,196,0,0.5)] group-hover:scale-115 group-hover:border-neon transition-all z-10">
+                    <div className="w-2 h-2 rounded-full bg-neon group-hover:scale-125 transition-transform" />
+                  </div>
+                  {/* Continuous Spine Line to Next Node */}
+                  {sIdx !== currentSchedule.sessions.length - 1 && (
+                    <div className="w-0.5 flex-1 bg-gradient-to-b from-gold-bright via-gold/40 to-gold/15 my-1.5 group-hover:from-neon transition-colors" />
+                  )}
                 </div>
 
-                {/* Session Card */}
-                <div className="glass-card p-5 sm:p-6 rounded-3xl border border-gold/15 hover:border-gold/40 transition-all duration-300 group-hover:translate-x-1 shadow-md">
-                  <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-3">
+                {/* Session Card - Seamlessly Connected */}
+                <div className="flex-1 glass-card p-4 sm:p-6 rounded-2xl sm:rounded-3xl border border-gold/20 hover:border-gold-bright transition-all duration-300 group-hover:translate-x-1 shadow-lg">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2.5">
                     <div className="flex items-center gap-2">
-                      <Clock className="w-4 h-4 text-gold-bright" />
-                      <span className="font-display font-bold text-gold-bright text-base">
+                      <Clock className="w-4 h-4 text-gold-bright flex-shrink-0" />
+                      <span className="font-display font-extrabold text-gold-bright text-sm sm:text-base">
                         {session.time}
                       </span>
                     </div>
 
-                    <div className="flex items-center gap-3 flex-wrap">
-                      <div className="flex items-center gap-1.5 text-xs text-ivory/60">
-                        <MapPin className="w-3.5 h-3.5 text-neon" />
+                    <div className="flex items-center gap-2.5 flex-wrap">
+                      <div className="flex items-center gap-1.5 text-xs text-ivory/70">
+                        <MapPin className="w-3.5 h-3.5 text-neon flex-shrink-0" />
                         <span>{session.venue}</span>
                       </div>
                       {session.livestream && (
-                        <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-gold-bright bg-gold/10 px-2.5 py-0.5 rounded-full border border-gold/20">
+                        <span className="inline-flex items-center gap-1 text-[10px] sm:text-[11px] font-bold text-gold-bright bg-gold/15 px-2.5 py-0.5 rounded-full border border-gold/30 shadow-sm">
                           <Video className="w-3 h-3 text-gold-bright" />
                           <span>Livestreamed</span>
                         </span>
@@ -105,10 +109,10 @@ export function Experience() {
                     </div>
                   </div>
 
-                  <h4 className="font-display font-bold text-lg sm:text-xl text-ivory mb-2 group-hover:text-gold-bright transition-colors">
+                  <h4 className="font-cinzel font-black text-lg sm:text-xl text-ivory mb-2 group-hover:text-gold-bright transition-colors">
                     {session.name}
                   </h4>
-                  <p className="text-ivory/70 text-xs sm:text-sm leading-relaxed font-normal">
+                  <p className="text-ivory/80 text-xs sm:text-sm leading-relaxed font-medium">
                     {session.focus}
                   </p>
                 </div>

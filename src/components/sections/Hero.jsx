@@ -63,7 +63,7 @@ export function Hero() {
         </div>
 
         {/* Powerful Tagline with Bolder Weight */}
-        <h1 className="font-display font-extrabold text-3xl sm:text-5xl md:text-6xl lg:text-7xl text-ivory leading-[1.1] max-w-4xl mb-6">
+        <h1 className="font-cinzel font-black text-3xl sm:text-5xl md:text-6xl lg:text-7xl text-ivory leading-[1.1] max-w-4xl mb-6">
           Every Voice. Every Story.
           <br />
           <span className="bg-gradient-to-r from-neon via-gold-bright to-neon bg-clip-text text-transparent gold-text font-black">
@@ -81,8 +81,8 @@ export function Hero() {
         </p>
 
         {/* Time schedule badge */}
-        <div className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-gold-bright bg-black/40 border border-gold/30 px-4 py-1.5 rounded-full mb-8">
-          <Clock className="w-3.5 h-3.5 text-neon" />
+        <div className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-gold-bright bg-black/40 border border-gold/30 px-4 py-1.5 rounded-full mb-8 max-w-full text-center">
+          <Clock className="w-3.5 h-3.5 text-neon flex-shrink-0" />
           <span>Nov 4–6: 6:00 PM – 8:00 PM · Sabbath Nov 7: 8:00 AM – 12:00 PM</span>
         </div>
 
@@ -90,7 +90,7 @@ export function Hero() {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12 w-full max-w-lg">
           <button
             onClick={() => scrollTo("#experience")}
-            className="btn-gold w-full sm:w-auto inline-flex items-center justify-center gap-2 group cursor-pointer text-sm sm:text-base font-extrabold py-3.5 px-7"
+            className="btn-gold w-full sm:w-auto inline-flex items-center justify-center gap-2 group cursor-pointer text-sm sm:text-base font-extrabold py-3.5 px-7 shadow-xl"
           >
             <span>Explore Program</span>
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -100,31 +100,28 @@ export function Hero() {
             href="https://youtube.com/@connectedinpraise?si=JpVeFaqQFqMPO_fL"
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-outline w-full sm:w-auto inline-flex items-center justify-center gap-2 group cursor-pointer text-sm sm:text-base font-extrabold py-3 px-6"
+            className="btn-outline w-full sm:w-auto inline-flex items-center justify-center gap-2 group cursor-pointer text-sm sm:text-base font-extrabold py-3 px-6 shadow-xl"
           >
             <Radio className="w-4 h-4 text-neon animate-pulse" />
             <span>Livestream Channel</span>
           </a>
         </div>
 
-        {/* Live Countdown Timer */}
-        <div className="w-full max-w-xl mx-auto mb-8">
-          <p className="text-xs uppercase tracking-widest text-gold-bright font-black mb-4">
+        {/* Live Countdown Timer - Clean 4-Column Grid */}
+        <div className="w-full max-w-xl mx-auto mb-8 px-2">
+          <p className="text-xs sm:text-sm uppercase tracking-[0.25em] text-gold-bright font-black mb-4">
             The Connection Begins In
           </p>
-          <div className="flex items-center justify-center gap-2 sm:gap-4 md:gap-6">
+          <div className="grid grid-cols-4 gap-2 sm:gap-4 md:gap-5 w-full place-items-center">
             <CountdownUnit value={days} label="Days" />
-            <span className="text-gold/50 text-2xl sm:text-3xl font-black -mt-5">:</span>
             <CountdownUnit value={hours} label="Hours" />
-            <span className="text-gold/50 text-2xl sm:text-3xl font-black -mt-5">:</span>
             <CountdownUnit value={minutes} label="Minutes" />
-            <span className="text-gold/50 text-2xl sm:text-3xl font-black -mt-5">:</span>
             <CountdownUnit value={seconds} label="Seconds" />
           </div>
         </div>
 
         {/* Accurate Venue Location Pill */}
-        <div className="inline-flex items-center gap-2 text-ivory/90 text-xs sm:text-sm font-bold bg-black/40 border border-gold/30 px-5 py-2.5 rounded-full shadow-lg">
+        <div className="inline-flex items-center gap-2 text-ivory/90 text-xs sm:text-sm font-bold bg-black/40 border border-gold/30 px-4 sm:px-5 py-2.5 rounded-full shadow-lg max-w-full text-center">
           <MapPin className="w-4 h-4 text-neon flex-shrink-0" />
           <span>Convocation Arena, Rivers State University, Oroworukwo, Port Harcourt</span>
         </div>

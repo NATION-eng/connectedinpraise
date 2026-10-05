@@ -58,31 +58,28 @@ export function Navbar() {
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
             ? "glass shadow-2xl shadow-black/80 py-2.5 sm:py-3 border-b border-gold/20"
-            : "bg-gradient-to-b from-maroon-deep/95 via-maroon-deep/70 to-transparent py-4 sm:py-5"
+            : "bg-gradient-to-b from-maroon-deep/95 via-maroon-deep/75 to-transparent py-3.5 sm:py-5"
         }`}
       >
-        <nav className="container-max flex items-center justify-between px-4 sm:px-6 lg:px-8">
-          {/* Logo with 2026 Badge */}
+        <nav className="container-max flex items-center justify-between flex-nowrap gap-2 sm:gap-4 px-3 sm:px-6 lg:px-8 w-full">
+          {/* CIP 2026 Logo */}
           <a
             href="#home"
             onClick={(e) => handleNavClick(e, "#home")}
-            className="flex items-center gap-2 group flex-shrink-0"
-            aria-label="Connected in Praise 2026 Home"
+            className="flex items-center group flex-shrink-0"
+            aria-label="CIP 2026 Home"
           >
             <Logo size="nav" />
-            <span className="hidden sm:inline-block ml-1.5 text-[11px] font-extrabold text-gold-bright tracking-wider px-2 py-0.5 rounded-full border border-gold/40 bg-gold/15 shadow-sm">
-              2026
-            </span>
           </a>
 
           {/* Desktop Nav Items */}
-          <ul className="hidden lg:flex items-center gap-5 xl:gap-7">
+          <ul className="hidden xl:flex items-center gap-3.5 2xl:gap-5 flex-shrink-0">
             {navLinks.map((link) => (
-              <li key={link.href}>
+              <li key={link.href} className="flex-shrink-0">
                 <a
                   href={link.href}
                   onClick={(e) => handleNavClick(e, link.href)}
-                  className="text-sm font-bold text-ivory/80 hover:text-gold-bright transition-colors duration-200 relative group py-1 tracking-wide"
+                  className="text-xs 2xl:text-sm font-extrabold text-ivory/85 hover:text-gold-bright transition-colors duration-200 relative group py-1 tracking-wide whitespace-nowrap"
                 >
                   {link.label}
                   <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-neon group-hover:w-full transition-all duration-300 rounded-full" />
@@ -92,35 +89,35 @@ export function Navbar() {
           </ul>
 
           {/* Action Area: Contrast Toggle + Watch Live CTA */}
-          <div className="flex items-center gap-2.5 sm:gap-3">
+          <div className="flex items-center gap-2 sm:gap-3 flex-shrink-0">
             <button
               onClick={() => setIsHighContrast(!isHighContrast)}
-              className="hidden md:flex items-center gap-1.5 text-xs font-bold text-ivory/70 hover:text-gold-bright transition-colors px-3 py-1.5 rounded-full border border-gold/25 hover:border-gold/60 bg-black/20"
+              className="hidden sm:inline-flex items-center gap-1.5 text-xs font-bold text-ivory/85 hover:text-gold-bright transition-colors px-3 py-1.5 rounded-full border border-gold/30 hover:border-gold-bright bg-black/40 flex-shrink-0 cursor-pointer"
               aria-label="Toggle High Contrast Mode"
               title="Toggle High Contrast Mode"
             >
-              <Eye className="w-3.5 h-3.5 text-gold-bright" />
-              <span>{isHighContrast ? "Normal Mode" : "Contrast"}</span>
+              <Eye className={`w-3.5 h-3.5 ${isHighContrast ? "text-neon" : "text-gold-bright"}`} />
+              <span className="whitespace-nowrap">{isHighContrast ? "Contrast: On" : "Contrast"}</span>
             </button>
 
             <a
               href={SOCIAL_LINKS.youtube}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-gold inline-flex items-center gap-2 text-xs sm:text-sm font-extrabold px-4 sm:px-5 py-2 sm:py-2.5 shadow-lg group"
+              className="btn-gold inline-flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm font-black px-3.5 sm:px-5 py-2 sm:py-2.5 shadow-lg group flex-shrink-0 whitespace-nowrap"
             >
               <Radio className="w-3.5 h-3.5 text-maroon-deep animate-pulse" />
               <span>Watch Live</span>
-              <ExternalLink className="w-3 h-3 text-maroon-deep/70 group-hover:translate-x-0.5 transition-transform" />
+              <ExternalLink className="hidden sm:inline w-3 h-3 text-maroon-deep/70 group-hover:translate-x-0.5 transition-transform" />
             </a>
 
             {/* Mobile Hamburger */}
             <button
               onClick={() => setIsMenuOpen(true)}
-              className="lg:hidden text-ivory p-2 rounded-xl bg-gold/10 hover:bg-gold/20 transition-colors border border-gold/20"
+              className="xl:hidden text-ivory p-2 rounded-xl bg-gold/15 hover:bg-gold/25 transition-colors border border-gold/30 flex-shrink-0 cursor-pointer"
               aria-label="Open navigation menu"
             >
-              <Menu className="w-6 h-6 text-gold-bright" />
+              <Menu className="w-5 h-5 sm:w-6 sm:h-6 text-gold-bright" />
             </button>
           </div>
         </nav>
@@ -128,7 +125,7 @@ export function Navbar() {
 
       {/* Full-Screen Mobile Drawer */}
       <div
-        className={`fixed inset-0 z-[60] lg:hidden transition-all duration-300 ${
+        className={`fixed inset-0 z-[60] xl:hidden transition-all duration-300 ${
           isMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
       >
@@ -141,13 +138,10 @@ export function Navbar() {
           <div className="flex items-center justify-between pb-4 border-b border-gold/20">
             <div className="flex items-center gap-2">
               <Logo size="nav" />
-              <span className="text-xs font-black text-gold-bright px-2 py-0.5 rounded-full border border-gold/40 bg-gold/20">
-                2026
-              </span>
             </div>
             <button
               onClick={() => setIsMenuOpen(false)}
-              className="text-ivory p-2 rounded-full glass border border-gold/30 hover:bg-gold/20"
+              className="text-ivory p-2 rounded-full glass border border-gold/30 hover:bg-gold/20 cursor-pointer"
               aria-label="Close menu"
             >
               <X className="w-6 h-6 text-gold-bright" />

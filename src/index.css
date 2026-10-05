@@ -10,11 +10,11 @@
   }
 
   body {
-    @apply bg-maroon-deep font-body text-ivory font-semibold overflow-x-hidden;
+    @apply bg-maroon-deep font-body text-ivory font-medium overflow-x-hidden;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-display font-extrabold tracking-tight;
+    @apply font-display font-black tracking-wide;
   }
 
   ::-webkit-scrollbar {
@@ -115,6 +115,10 @@
 }
 
 /* High contrast mode */
+.high-contrast header nav {
+  flex-wrap: nowrap !important;
+}
+
 .high-contrast body,
 .high-contrast .text-ivory\/70,
 .high-contrast .text-ivory\/60 {
