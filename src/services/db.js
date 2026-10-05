@@ -117,13 +117,16 @@ export async function savePrayerRequest(name, text) {
   // Also push to cloud Supabase if configured
   if (isSupabaseConfigured && supabase) {
     try {
-      await supabase.from("prayer_requests").insert([
+      const { error } = await supabase.from("prayer_requests").insert([
         {
           name: author,
           text: prayerText,
           created_at: createdAt,
         },
       ]);
+      if (error) {
+        console.warn("Cloud Supabase insert note:", error.message);
+      }
     } catch (err) {
       console.warn("Cloud Supabase insert warning:", err);
     }
@@ -158,7 +161,7 @@ export async function saveContactMessage({ name, email, message }) {
   // Push to cloud Supabase if configured
   if (isSupabaseConfigured && supabase) {
     try {
-      await supabase.from("contact_messages").insert([
+      const { error } = await supabase.from("contact_messages").insert([
         {
           name: newMsg.name,
           email: newMsg.email,
@@ -166,6 +169,9 @@ export async function saveContactMessage({ name, email, message }) {
           created_at: createdAt,
         },
       ]);
+      if (error) {
+        console.warn("Cloud Supabase contact insert note:", error.message);
+      }
     } catch (err) {
       console.warn("Cloud Supabase contact insert warning:", err);
     }
