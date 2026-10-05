@@ -45,14 +45,10 @@ export function Hero() {
 
       {/* Main Hero Container */}
       <div className="relative z-10 container-max px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center">
-        {/* Date & Partnership Badge */}
-        <div className="inline-flex items-center gap-2 glass rounded-full px-5 py-2 mb-6 border border-gold/40 shadow-[0_0_20px_rgba(242,169,0,0.25)] animate-fade-in">
-          <Calendar className="w-4 h-4 text-gold-bright" />
-          <span className="text-xs sm:text-sm font-extrabold text-ivory tracking-wide">
-            4–7 NOVEMBER 2026
-          </span>
-          <span className="w-1.5 h-1.5 rounded-full bg-neon animate-ping" />
-          <span className="text-xs sm:text-sm font-bold text-gold-bright">
+        {/* Partnership Badge */}
+        <div className="inline-flex items-center gap-2.5 glass rounded-full px-5 py-2 mb-6 border border-gold/40 shadow-[0_0_20px_rgba(242,169,0,0.25)] animate-fade-in">
+          <span className="w-2 h-2 rounded-full bg-neon animate-pulse" />
+          <span className="text-xs sm:text-sm font-extrabold text-gold-bright tracking-wider uppercase font-display">
             Jerusalem Choir × APM
           </span>
         </div>
@@ -80,10 +76,23 @@ export function Hero() {
           dedicated this year to <span className="underline decoration-neon decoration-2 font-black text-ivory">breaking disability barriers</span>.
         </p>
 
-        {/* Time schedule badge */}
-        <div className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-gold-bright bg-black/40 border border-gold/30 px-4 py-1.5 rounded-full mb-8 max-w-full text-center">
-          <Clock className="w-3.5 h-3.5 text-neon flex-shrink-0" />
-          <span>Nov 4–6: 6:00 PM – 8:00 PM · Sabbath Nov 7: 8:00 AM – 12:00 PM</span>
+        {/* Properly Structured Schedule Times */}
+        <div className="inline-flex flex-col sm:flex-row items-center gap-2 sm:gap-4 p-2 sm:py-2.5 sm:px-6 rounded-2xl sm:rounded-full bg-black/60 border border-gold/35 shadow-xl mb-8 max-w-full">
+          <div className="flex items-center gap-2 px-2 py-0.5">
+            <Clock className="w-3.5 h-3.5 text-gold-bright flex-shrink-0" />
+            <span className="text-xs sm:text-sm text-ivory font-medium">
+              <strong className="text-gold-bright font-extrabold">Nov 4–6:</strong> 6:00 PM – 8:00 PM
+            </span>
+          </div>
+
+          <div className="hidden sm:block w-px h-4 bg-gold/40" />
+
+          <div className="flex items-center gap-2 px-2 py-0.5">
+            <Calendar className="w-3.5 h-3.5 text-neon flex-shrink-0" />
+            <span className="text-xs sm:text-sm text-ivory font-medium">
+              <strong className="text-neon font-extrabold">Sabbath Nov 7:</strong> 8:00 AM – 12:00 PM
+            </span>
+          </div>
         </div>
 
         {/* Call to Action Buttons */}
