@@ -41,7 +41,7 @@ export function WhyPraise() {
         </div>
 
         {/* 5 Interactive Selectable Cards */}
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-12 max-w-5xl mx-auto">
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-3 sm:gap-4 mb-12 max-w-5xl mx-auto">
           {praiseReasons.map((reason) => {
             const isSelected = selectedId === reason.id;
             return (
@@ -49,7 +49,7 @@ export function WhyPraise() {
                 key={reason.id}
                 type="button"
                 onClick={() => setSelectedId(reason.id)}
-                className={`p-6 rounded-3xl flex flex-col items-center text-center transition-all duration-300 cursor-pointer ${
+                className={`p-4 sm:p-6 rounded-2xl sm:rounded-3xl flex flex-col items-center text-center transition-all duration-300 cursor-pointer last:col-span-2 md:last:col-span-1 ${
                   isSelected
                     ? "glass-card-warm border-2 border-gold-bright shadow-[0_0_25px_rgba(255,196,0,0.3)] scale-105"
                     : "glass-card border border-gold/15 hover:border-gold/30 hover:-translate-y-1 opacity-70 hover:opacity-100"
@@ -57,23 +57,23 @@ export function WhyPraise() {
                 aria-pressed={isSelected}
               >
                 <div
-                  className={`w-12 h-12 rounded-2xl flex items-center justify-center mb-4 transition-colors ${
+                  className={`w-11 h-11 sm:w-12 sm:h-12 rounded-2xl flex items-center justify-center mb-3 sm:mb-4 transition-colors ${
                     isSelected
                       ? "bg-gold-bright text-maroon-deep shadow-md"
                       : "bg-white/5 text-gold-bright"
                   }`}
                 >
-                  {iconMap[reason.id] || <Heart className="w-6 h-6" />}
+                  {iconMap[reason.id] || <Heart className="w-5 h-5 sm:w-6 sm:h-6" />}
                 </div>
                 <h4 className="text-xs sm:text-sm font-bold text-ivory leading-snug">
                   {reason.title}
                 </h4>
-                <span className="text-[10px] text-ivory/50 mt-1 uppercase tracking-wider font-semibold">
+                <span className="text-[9px] sm:text-[10px] text-ivory/60 mt-1 uppercase tracking-wider font-semibold">
                   {reason.short}
                 </span>
 
                 {isSelected && (
-                  <div className="mt-3 w-8 h-1 rounded-full bg-gold-bright shadow-[0_0_8px_#FFC400]" />
+                  <div className="mt-2.5 sm:mt-3 w-8 h-1 rounded-full bg-gold-bright shadow-[0_0_8px_#FFC400]" />
                 )}
               </button>
             );
@@ -82,7 +82,7 @@ export function WhyPraise() {
 
         {/* Expanded Revelation Card */}
         <div className="max-w-3xl mx-auto">
-          <div className="glass-card-warm p-8 sm:p-10 rounded-3xl border border-gold/30 shadow-2xl relative overflow-hidden text-center transition-all duration-500">
+          <div className="glass-card-warm p-5 sm:p-10 rounded-2xl sm:rounded-3xl border border-gold/30 shadow-2xl relative overflow-hidden text-center transition-all duration-500">
             <div className="absolute top-0 right-0 w-44 h-44 bg-gradient-to-bl from-gold/15 to-transparent rounded-full blur-2xl pointer-events-none" />
 
             <div className="inline-block px-3 py-1 rounded-full border border-gold/30 bg-gold/10 text-[10px] sm:text-xs font-bold text-gold-bright uppercase tracking-widest mb-3">

@@ -29,8 +29,8 @@ export function Experience() {
           </p>
         </div>
 
-        {/* Day Selector Tabs */}
-        <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 mb-14">
+        {/* Day Selector Tabs - Balanced 2x2 on Mobile, 4 Cols on Desktop */}
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-4 max-w-3xl mx-auto mb-12 w-full">
           {scheduleData.map((item, idx) => {
             const isActive = activeDayIdx === idx;
             return (
@@ -38,21 +38,21 @@ export function Experience() {
                 key={idx}
                 type="button"
                 onClick={() => setActiveDayIdx(idx)}
-                className={`flex flex-col items-center px-5 sm:px-7 py-3.5 rounded-2xl transition-all duration-300 cursor-pointer ${
+                className={`flex flex-col items-center p-3 sm:px-6 sm:py-3.5 rounded-2xl transition-all duration-300 cursor-pointer w-full text-center ${
                   isActive
-                    ? "glass-card-warm border-2 border-gold-bright shadow-[0_0_20px_rgba(255,196,0,0.35)] scale-105"
+                    ? "glass-card-warm border-2 border-gold-bright shadow-[0_0_20px_rgba(255,196,0,0.35)] scale-102 sm:scale-105"
                     : "glass-card border border-gold/20 opacity-70 hover:opacity-100 hover:border-gold/40"
                 }`}
               >
                 <span
-                  className={`font-display font-extrabold text-base sm:text-lg ${
+                  className={`font-cinzel font-black text-sm sm:text-lg ${
                     isActive ? "text-gold-bright" : "text-ivory"
                   }`}
                 >
                   {item.day}
                 </span>
-                <span className="text-xs text-ivory/80 font-bold">{item.date}</span>
-                <span className="text-[10px] text-neon font-black mt-0.5">{item.timeSpan}</span>
+                <span className="text-[11px] sm:text-xs text-ivory/80 font-bold mt-0.5">{item.date}</span>
+                <span className="text-[9px] sm:text-[10px] text-neon font-black mt-0.5">{item.timeSpan}</span>
               </button>
             );
           })}

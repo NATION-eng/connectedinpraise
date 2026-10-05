@@ -134,13 +134,13 @@ export function Contact() {
               <p className="text-xs uppercase tracking-wider text-ivory/60 font-bold mb-3">
                 Official Media Channels
               </p>
-              <div className="flex items-center gap-3">
+              <div className="grid grid-cols-3 gap-2 w-full">
                 {/* TikTok */}
                 <a
                   href="https://www.tiktok.com/@connectedinpraise?_r=1&_t=ZS-99v3wfSwKz"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-4 py-2.5 rounded-2xl glass border border-gold/30 flex items-center gap-2 text-xs font-bold text-ivory hover:text-gold-bright hover:border-gold/60 transition-all"
+                  className="px-2.5 sm:px-4 py-2 sm:py-2.5 rounded-xl sm:rounded-2xl glass border border-gold/30 flex items-center justify-center gap-1.5 sm:gap-2 text-xs font-bold text-ivory hover:text-gold-bright hover:border-gold/60 transition-all"
                 >
                   <span className="text-sm font-black">♪</span>
                   <span>TikTok</span>
@@ -151,9 +151,9 @@ export function Contact() {
                   href="https://www.facebook.com/profile.php?id=61578565720573"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-4 py-2.5 rounded-2xl glass border border-gold/30 flex items-center gap-2 text-xs font-bold text-ivory hover:text-gold-bright hover:border-gold/60 transition-all"
+                  className="px-2.5 sm:px-4 py-2 sm:py-2.5 rounded-xl sm:rounded-2xl glass border border-gold/30 flex items-center justify-center gap-1.5 sm:gap-2 text-xs font-bold text-ivory hover:text-gold-bright hover:border-gold/60 transition-all"
                 >
-                  <Facebook className="w-4 h-4 text-blue-400" />
+                  <Facebook className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-blue-400" />
                   <span>Facebook</span>
                 </a>
 
@@ -162,9 +162,9 @@ export function Contact() {
                   href="https://youtube.com/@connectedinpraise?si=JpVeFaqQFqMPO_fL"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-4 py-2.5 rounded-2xl glass border border-gold/30 flex items-center gap-2 text-xs font-bold text-ivory hover:text-gold-bright hover:border-gold/60 transition-all"
+                  className="px-2.5 sm:px-4 py-2 sm:py-2.5 rounded-xl sm:rounded-2xl glass border border-gold/30 flex items-center justify-center gap-1.5 sm:gap-2 text-xs font-bold text-ivory hover:text-gold-bright hover:border-gold/60 transition-all"
                 >
-                  <Youtube className="w-4 h-4 text-red-500" />
+                  <Youtube className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-red-500" />
                   <span>YouTube</span>
                 </a>
               </div>
@@ -173,7 +173,7 @@ export function Contact() {
 
           {/* Right Message Form Column */}
           <div className="lg:col-span-7">
-            <div className="glass-card p-8 rounded-3xl border border-gold/30 shadow-2xl">
+            <div className="glass-card p-5 sm:p-8 rounded-2xl sm:rounded-3xl border border-gold/30 shadow-2xl">
               <h3 className="font-display font-extrabold text-2xl text-ivory mb-2">Send a Message</h3>
               <p className="text-xs sm:text-sm text-ivory/70 mb-6 font-semibold">
                 Let us know how we can best welcome you or your group to Connected in Praise 2026.

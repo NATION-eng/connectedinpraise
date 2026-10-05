@@ -64,9 +64,9 @@ export function About() {
           </div>
 
           <div className="lg:col-span-5">
-            <div className="glass-card-warm p-8 relative overflow-hidden rounded-3xl border border-gold/30 shadow-[0_0_25px_rgba(242,169,0,0.15)] group hover:border-gold/50 transition-all duration-300">
-              <Quote className="w-10 h-10 text-gold-bright/30 mb-4" />
-              <blockquote className="font-display text-xl sm:text-2xl text-ivory/95 italic leading-relaxed mb-4">
+            <div className="glass-card-warm p-5 sm:p-8 relative overflow-hidden rounded-2xl sm:rounded-3xl border border-gold/30 shadow-[0_0_25px_rgba(242,169,0,0.15)] group hover:border-gold/50 transition-all duration-300">
+              <Quote className="w-8 h-8 sm:w-10 sm:h-10 text-gold-bright/30 mb-3 sm:mb-4" />
+              <blockquote className="font-display text-lg sm:text-2xl text-ivory/95 italic leading-relaxed mb-4">
                 &ldquo;Praise has no barrier. Where there is a heart to worship, there is a way to
                 include. Possibility is infinitely greater than limitation.&rdquo;
               </blockquote>
@@ -85,7 +85,7 @@ export function About() {
           {pillars.map((pillar, idx) => (
             <div
               key={idx}
-              className="glass-card p-8 h-full flex flex-col justify-between rounded-3xl border border-gold/15 hover:border-gold/40 transition-all duration-300 hover:-translate-y-2 group shadow-lg"
+              className="glass-card p-5 sm:p-8 h-full flex flex-col justify-between rounded-2xl sm:rounded-3xl border border-gold/15 hover:border-gold/40 transition-all duration-300 hover:-translate-y-2 group shadow-lg"
             >
               <div>
                 <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-gold/15 to-neon/15 flex items-center justify-center mb-6 border border-gold/25 group-hover:scale-110 transition-transform duration-300">

@@ -74,7 +74,7 @@ export function Stories() {
           {testimonials.map((item) => (
             <div
               key={item.id}
-              className="glass-card-warm p-8 rounded-3xl border border-gold/25 flex flex-col justify-between relative shadow-xl group hover:border-gold/50 transition-all duration-300"
+              className="glass-card-warm p-5 sm:p-8 rounded-2xl sm:rounded-3xl border border-gold/25 flex flex-col justify-between relative shadow-xl group hover:border-gold/50 transition-all duration-300"
             >
               <Quote className="w-8 h-8 text-gold-bright/40 mb-4" />
               <p className="font-display italic text-base sm:text-lg text-ivory/95 leading-relaxed mb-6 font-semibold">
@@ -101,7 +101,7 @@ export function Stories() {
         <div className="grid lg:grid-cols-12 gap-8 items-start">
           {/* Left: Prayer Request Submission Form */}
           <div className="lg:col-span-5">
-            <div className="glass-card p-8 rounded-3xl border border-gold/30 shadow-2xl">
+            <div className="glass-card p-5 sm:p-8 rounded-2xl sm:rounded-3xl border border-gold/30 shadow-2xl">
               <div className="flex items-center justify-between mb-4">
                 <div className="flex items-center gap-2">
                   <Sparkles className="w-5 h-5 text-gold-bright" />

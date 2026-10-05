@@ -79,22 +79,36 @@ export function JerusalemChoir() {
               welcoming every voice into God&apos;s holy sanctuary.
             </p>
 
-            {/* Key Accomplishments Badges */}
-            <div className="grid grid-cols-3 gap-3 sm:gap-4">
-              <div className="glass-card p-4 rounded-2xl text-center border border-gold/15">
-                <Award className="w-5 h-5 text-gold-bright mx-auto mb-2" />
-                <div className="font-display font-bold text-lg text-ivory">Annual</div>
-                <div className="text-[10px] text-ivory/60 uppercase tracking-wider">Since 2019</div>
+            {/* Key Accomplishments Badges - Mobile Optimized */}
+            <div className="grid grid-cols-3 gap-2 sm:gap-4 w-full">
+              <div className="glass-card p-2.5 sm:p-4 rounded-xl sm:rounded-2xl text-center border border-gold/20 flex flex-col items-center justify-center min-w-0 overflow-hidden">
+                <Award className="w-4 h-4 sm:w-5 sm:h-5 text-gold-bright mb-1.5 flex-shrink-0" />
+                <div className="font-cinzel font-black text-xs sm:text-base text-ivory truncate w-full">
+                  Annual
+                </div>
+                <div className="text-[9px] sm:text-[11px] text-ivory/60 uppercase tracking-wider truncate w-full mt-0.5">
+                  Since 2019
+                </div>
               </div>
-              <div className="glass-card p-4 rounded-2xl text-center border border-gold/15">
-                <Users className="w-5 h-5 text-neon mx-auto mb-2" />
-                <div className="font-display font-bold text-lg text-ivory">Thousands</div>
-                <div className="text-[10px] text-ivory/60 uppercase tracking-wider">Reachable</div>
+
+              <div className="glass-card p-2.5 sm:p-4 rounded-xl sm:rounded-2xl text-center border border-gold/20 flex flex-col items-center justify-center min-w-0 overflow-hidden">
+                <Users className="w-4 h-4 sm:w-5 sm:h-5 text-neon mb-1.5 flex-shrink-0" />
+                <div className="font-cinzel font-black text-xs sm:text-base text-ivory truncate w-full">
+                  Thousands
+                </div>
+                <div className="text-[9px] sm:text-[11px] text-ivory/60 uppercase tracking-wider truncate w-full mt-0.5">
+                  Reached
+                </div>
               </div>
-              <div className="glass-card p-4 rounded-2xl text-center border border-gold/15">
-                <Target className="w-5 h-5 text-gold-bright mx-auto mb-2" />
-                <div className="font-display font-bold text-lg text-ivory">Inclusion</div>
-                <div className="text-[10px] text-ivory/60 uppercase tracking-wider">APM 2026</div>
+
+              <div className="glass-card p-2.5 sm:p-4 rounded-xl sm:rounded-2xl text-center border border-gold/20 flex flex-col items-center justify-center min-w-0 overflow-hidden">
+                <Target className="w-4 h-4 sm:w-5 sm:h-5 text-gold-bright mb-1.5 flex-shrink-0" />
+                <div className="font-cinzel font-black text-xs sm:text-base text-ivory truncate w-full">
+                  Inclusion
+                </div>
+                <div className="text-[9px] sm:text-[11px] text-ivory/60 uppercase tracking-wider truncate w-full mt-0.5">
+                  APM 2026
+                </div>
               </div>
             </div>
           </div>

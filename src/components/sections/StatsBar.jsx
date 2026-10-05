@@ -30,7 +30,7 @@ export function StatsBar() {
       <div className="absolute inset-0 bg-grid opacity-10 pointer-events-none" />
 
       <div className="relative container-max px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-8 md:gap-10">
           {stats.map((stat, idx) => (
             <div
               key={idx}
@@ -38,14 +38,14 @@ export function StatsBar() {
             >
               <div className="relative mb-3">
                 <div className="absolute inset-0 bg-gold/20 blur-xl rounded-full group-hover:bg-gold/35 transition-all" />
-                <div className="relative w-14 h-14 rounded-full glass-card-warm flex items-center justify-center border border-gold/30 shadow-md">
+                <div className="relative w-12 h-12 sm:w-14 sm:h-14 rounded-full glass-card-warm flex items-center justify-center border border-gold/30 shadow-md">
                   {stat.icon}
                 </div>
               </div>
-              <div className="font-display font-bold text-3xl sm:text-4xl md:text-5xl text-ivory tracking-tight">
+              <div className="font-cinzel font-black text-2xl sm:text-4xl md:text-5xl text-ivory tracking-tight truncate max-w-full">
                 {stat.value}
               </div>
-              <div className="text-xs sm:text-sm text-ivory/60 mt-2 max-w-[180px] leading-snug">
+              <div className="text-[11px] sm:text-sm text-ivory/70 mt-1.5 max-w-[170px] leading-snug">
                 {stat.label}
               </div>
             </div>
