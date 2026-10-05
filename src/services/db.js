@@ -4,7 +4,7 @@ const PRAYERS_STORAGE_KEY = "cip_prayer_wall_notes";
 const CONTACTS_STORAGE_KEY = "cip_contact_messages";
 
 /**
- * Fetch the latest 4-5 prayer requests
+ * Fetch the latest 5 prayer requests for the public prayer wall
  */
 export async function getLatestPrayers(limit = 5) {
   if (isSupabaseConfigured && supabase) {
@@ -33,7 +33,7 @@ export async function getLatestPrayers(limit = 5) {
     }
   }
 
-  // Local fallback
+  // Local fallback strictly capped to limit
   return getLocalPrayers().slice(0, limit);
 }
 
@@ -77,20 +77,19 @@ export async function savePrayerRequest(name, text) {
           time: "Just now",
           created_at: row.created_at || createdAt,
         };
-        console.log("Successfully saved prayer to Supabase cloud:", createdEntry);
       }
     } catch (err) {
       console.error("Supabase prayer insert exception:", err);
     }
   }
 
-  // Also cache locally for immediate offline/speed fallback
+  // Always update local persistent storage so refresh NEVER loses it
   try {
     const existing = getLocalPrayers();
     const updated = [createdEntry, ...existing.filter((p) => p.id !== createdEntry.id)];
-    localStorage.setItem(PRAYERS_STORAGE_KEY, JSON.stringify(updated.slice(0, 20)));
+    localStorage.setItem(PRAYERS_STORAGE_KEY, JSON.stringify(updated.slice(0, 50)));
   } catch (err) {
-    console.error("Local storage sync note:", err);
+    console.error("Local storage error:", err);
   }
 
   return createdEntry;
@@ -108,6 +107,7 @@ export async function saveContactMessage({ name, email, message }) {
     message: message.trim(),
     created_at: createdAt,
     time: "Just now",
+    is_read: false,
   };
 
   // Push to cloud Supabase
@@ -128,7 +128,6 @@ export async function saveContactMessage({ name, email, message }) {
         console.error("Supabase contact insert error:", error);
       } else if (data && data.length > 0) {
         newMsg.id = data[0].id;
-        console.log("Successfully saved contact message to Supabase cloud:", newMsg);
       }
     } catch (err) {
       console.error("Supabase contact insert exception:", err);
@@ -145,6 +144,113 @@ export async function saveContactMessage({ name, email, message }) {
   }
 
   return newMsg;
+}
+
+/**
+ * ADMIN: Get ALL prayer requests from Supabase
+ */
+export async function getAllPrayersAdmin() {
+  if (isSupabaseConfigured && supabase) {
+    try {
+      const { data, error } = await supabase
+        .from("prayer_requests")
+        .select("*")
+        .order("created_at", { ascending: false });
+
+      if (!error && Array.isArray(data)) {
+        return data.map((item) => ({
+          id: item.id,
+          author: item.name || "A Believer",
+          text: item.text || "",
+          time: formatRelativeTime(item.created_at),
+          created_at: item.created_at,
+          is_approved: item.is_approved !== false,
+        }));
+      }
+    } catch (err) {
+      console.error("Admin fetch prayers error:", err);
+    }
+  }
+
+  return getLocalPrayers();
+}
+
+/**
+ * ADMIN: Delete a prayer request
+ */
+export async function deletePrayerAdmin(id) {
+  if (isSupabaseConfigured && supabase) {
+    try {
+      await supabase.from("prayer_requests").delete().eq("id", id);
+    } catch (err) {
+      console.error("Supabase delete prayer error:", err);
+    }
+  }
+
+  try {
+    const local = getLocalPrayers().filter((p) => p.id !== id);
+    localStorage.setItem(PRAYERS_STORAGE_KEY, JSON.stringify(local));
+  } catch (err) {
+    console.error("Local delete prayer error:", err);
+  }
+}
+
+/**
+ * ADMIN: Get ALL contact messages from Supabase
+ */
+export async function getAllContactMessagesAdmin() {
+  if (isSupabaseConfigured && supabase) {
+    try {
+      const { data, error } = await supabase
+        .from("contact_messages")
+        .select("*")
+        .order("created_at", { ascending: false });
+
+      if (!error && Array.isArray(data)) {
+        return data.map((item) => ({
+          id: item.id,
+          name: item.name || "Anonymous",
+          email: item.email || "No email",
+          message: item.message || "",
+          time: formatRelativeTime(item.created_at),
+          created_at: item.created_at,
+          is_read: Boolean(item.is_read),
+        }));
+      }
+    } catch (err) {
+      console.error("Admin fetch contact messages error:", err);
+    }
+  }
+
+  try {
+    const raw = localStorage.getItem(CONTACTS_STORAGE_KEY);
+    return raw ? JSON.parse(raw) : [];
+  } catch {
+    return [];
+  }
+}
+
+/**
+ * ADMIN: Delete a contact message
+ */
+export async function deleteContactMessageAdmin(id) {
+  if (isSupabaseConfigured && supabase) {
+    try {
+      await supabase.from("contact_messages").delete().eq("id", id);
+    } catch (err) {
+      console.error("Supabase delete contact error:", err);
+    }
+  }
+
+  try {
+    const raw = localStorage.getItem(CONTACTS_STORAGE_KEY);
+    if (raw) {
+      const filtered = JSON.parse(raw).filter((m) => m.id !== id);
+      localStorage.setItem(CONTACTS_STORAGE_KEY, JSON.stringify(filtered));
+    }
+  } catch (err) {
+    console.error("Local delete contact error:", err);
+  }
 }
 
 /**

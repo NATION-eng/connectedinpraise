@@ -1,8 +1,8 @@
 import React from "react";
-import { Heart, Youtube, Facebook, ArrowUp } from "lucide-react";
+import { Heart, Youtube, Facebook, ArrowUp, Lock } from "lucide-react";
 import { Logo } from "../ui/Logo";
 
-export function Footer() {
+export function Footer({ onOpenAdmin }) {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
@@ -120,20 +120,33 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Bottom Bar with Back to Top */}
+        {/* Bottom Bar with Back to Top & Admin */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-ivory/60 font-semibold">
           <p>
             &copy; 2026 Connected in Praise & Jerusalem Choir. All rights reserved. Worship movement for
             God&apos;s glory.
           </p>
 
-          <button
-            onClick={scrollToTop}
-            className="flex items-center gap-1.5 text-gold-bright hover:text-white transition-colors cursor-pointer font-bold"
-          >
-            <span>Back to top</span>
-            <ArrowUp className="w-4 h-4" />
-          </button>
+          <div className="flex items-center gap-5">
+            {onOpenAdmin && (
+              <button
+                onClick={onOpenAdmin}
+                className="flex items-center gap-1.5 text-xs text-ivory/40 hover:text-gold-bright transition-colors cursor-pointer"
+                title="Admin Database Portal"
+              >
+                <Lock className="w-3.5 h-3.5 text-gold/60" />
+                <span>Admin Portal</span>
+              </button>
+            )}
+
+            <button
+              onClick={scrollToTop}
+              className="flex items-center gap-1.5 text-gold-bright hover:text-white transition-colors cursor-pointer font-bold"
+            >
+              <span>Back to top</span>
+              <ArrowUp className="w-4 h-4" />
+            </button>
+          </div>
         </div>
       </div>
     </footer>
