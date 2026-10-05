@@ -14,8 +14,8 @@ const galleryItems = [
     id: 2,
     title: "Jerusalem Choir Ministry",
     category: "Choir",
-    src: "https://images.pexels.com/photos/8815037/pexels-photo-8815037.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    caption: "Ministers of the choir pouring out praise during the evening concert.",
+    src: "/images/jerusalem-choir.jpg",
+    caption: "The consecrated ministers of Jerusalem Choir in holy convocation and praise.",
   },
   {
     id: 3,

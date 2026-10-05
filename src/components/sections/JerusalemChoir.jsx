@@ -12,9 +12,9 @@ export function JerusalemChoir() {
           <div className="lg:col-span-6 relative">
             <div className="relative rounded-3xl overflow-hidden border border-gold/20 shadow-2xl group">
               <img
-                src="https://images.pexels.com/photos/8815037/pexels-photo-8815037.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                src="/images/jerusalem-choir.jpg"
                 alt="Jerusalem Choir in worship performance"
-                className="w-full h-[420px] sm:h-[500px] object-cover filter brightness-90 group-hover:scale-105 transition-transform duration-700"
+                className="w-full h-[420px] sm:h-[500px] object-cover object-top filter brightness-95 group-hover:scale-105 transition-transform duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-maroon-deep via-maroon-deep/30 to-transparent" />
 
