@@ -7,10 +7,23 @@
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
   }
 
   body {
-    @apply bg-maroon-deep font-body text-ivory font-medium overflow-x-hidden;
+    @apply bg-maroon-deep font-body text-ivory font-medium;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  #root {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
   }
 
   h1, h2, h3, h4, h5, h6 {

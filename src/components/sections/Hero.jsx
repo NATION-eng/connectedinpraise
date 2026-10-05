@@ -130,7 +130,7 @@ export function Hero() {
         </div>
 
         {/* Accurate Venue Location Pill */}
-        <div className="inline-flex items-center gap-2 text-ivory/90 text-xs sm:text-sm font-bold bg-black/40 border border-gold/30 px-4 sm:px-5 py-2.5 rounded-full shadow-lg max-w-full text-center">
+        <div className="inline-flex items-center justify-center gap-2 text-ivory/90 text-xs sm:text-sm font-bold bg-black/40 border border-gold/30 px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-2xl sm:rounded-full shadow-lg max-w-full text-center">
           <MapPin className="w-4 h-4 text-neon flex-shrink-0" />
           <span>Convocation Arena, Rivers State University, Oroworukwo, Port Harcourt</span>
         </div>

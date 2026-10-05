@@ -252,7 +252,7 @@ export function AdminDashboard({ onBackToHome }) {
   );
 
   return (
-    <div className="min-h-screen bg-maroon-deep text-ivory flex flex-col relative selection:bg-gold-bright selection:text-maroon-deep">
+    <div className="min-h-screen bg-maroon-deep text-ivory flex flex-col relative w-full max-w-full overflow-x-hidden selection:bg-gold-bright selection:text-maroon-deep">
       {/* Background Lighting & Atmosphere */}
       <div className="fixed inset-0 pointer-events-none z-0">
         <div className="absolute top-0 right-1/4 w-[600px] h-[600px] bg-gold/5 rounded-full blur-[160px]" />
@@ -262,23 +262,22 @@ export function AdminDashboard({ onBackToHome }) {
       </div>
 
       {/* Full-Page Admin Top Bar */}
-      <header className="relative z-30 sticky top-0 glass border-b border-gold/25 backdrop-blur-2xl">
+      <header className="relative z-30 sticky top-0 glass border-b border-gold/25 backdrop-blur-2xl w-full max-w-full">
         <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between flex-nowrap gap-2 sm:gap-4 w-full">
           {/* Left: Brand Identity & Portal Indicator */}
           <div className="flex items-center gap-2 sm:gap-3 flex-shrink-0 min-w-0">
             <button
               onClick={onBackToHome}
-              className="flex items-center gap-2 group cursor-pointer focus:outline-none transition-transform hover:scale-[1.02]"
+              className="flex items-center gap-1.5 sm:gap-2 group cursor-pointer focus:outline-none transition-transform hover:scale-[1.02]"
               title="Return to Connected in Praise 2026 Homepage"
               aria-label="CIP 2026 Home"
             >
               <Logo size="nav" />
             </button>
-            <span className="hidden xs:inline-block w-px h-5 bg-gold/30 flex-shrink-0" />
-            <div className="inline-flex items-center gap-1.5 text-[10px] sm:text-xs font-black uppercase tracking-wider text-gold-bright bg-gold/15 px-2 sm:px-2.5 py-1 rounded-full border border-gold/30 shadow-sm flex-shrink-0">
-              <ShieldCheck className="w-3 sm:w-3.5 h-3 sm:h-3.5 text-neon" />
-              <span className="hidden sm:inline">Administrator Portal</span>
-              <span className="sm:hidden">Admin Portal</span>
+            <span className="hidden sm:inline-block w-px h-5 bg-gold/30 flex-shrink-0" />
+            <div className="hidden sm:inline-flex items-center gap-1.5 text-xs font-black uppercase tracking-wider text-gold-bright bg-gold/15 px-2.5 py-1 rounded-full border border-gold/30 shadow-sm flex-shrink-0">
+              <ShieldCheck className="w-3.5 h-3.5 text-neon" />
+              <span>Administrator Portal</span>
             </div>
           </div>
 
@@ -290,7 +289,7 @@ export function AdminDashboard({ onBackToHome }) {
                 <button
                   onClick={loadAllData}
                   disabled={isLoading}
-                  className="inline-flex items-center gap-1.5 text-xs font-bold text-ivory/80 hover:text-gold-bright transition-colors p-2 sm:px-3 sm:py-1.5 rounded-xl border border-gold/25 hover:border-gold/50 bg-black/40 cursor-pointer disabled:opacity-50 shadow-sm"
+                  className="inline-flex items-center gap-1.5 text-xs font-bold text-ivory/80 hover:text-gold-bright transition-colors p-1.5 sm:px-3 sm:py-1.5 rounded-xl border border-gold/25 hover:border-gold/50 bg-black/40 cursor-pointer disabled:opacity-50 shadow-sm"
                   title="Reload records from database"
                   aria-label="Refresh records"
                 >
@@ -301,7 +300,7 @@ export function AdminDashboard({ onBackToHome }) {
                 {/* Change Passcode */}
                 <button
                   onClick={() => setIsChangingPasscode(!isChangingPasscode)}
-                  className={`inline-flex items-center gap-1.5 text-xs font-bold transition-colors p-2 sm:px-3 sm:py-1.5 rounded-xl border cursor-pointer shadow-sm ${
+                  className={`inline-flex items-center gap-1.5 text-xs font-bold transition-colors p-1.5 sm:px-3 sm:py-1.5 rounded-xl border cursor-pointer shadow-sm ${
                     isChangingPasscode
                       ? "border-neon bg-neon/10 text-gold-bright"
                       : "border-gold/30 hover:border-gold-bright bg-black/40 text-gold-bright"
@@ -316,7 +315,7 @@ export function AdminDashboard({ onBackToHome }) {
                 {/* Lock Session */}
                 <button
                   onClick={handleLogout}
-                  className="inline-flex items-center gap-1.5 text-xs font-bold text-red-400 hover:text-red-300 transition-colors p-2 sm:px-3 sm:py-1.5 rounded-xl border border-red-500/30 hover:bg-red-500/15 bg-black/40 cursor-pointer shadow-sm"
+                  className="inline-flex items-center gap-1.5 text-xs font-bold text-red-400 hover:text-red-300 transition-colors p-1.5 sm:px-3 sm:py-1.5 rounded-xl border border-red-500/30 hover:bg-red-500/15 bg-black/40 cursor-pointer shadow-sm"
                   title="Lock session"
                   aria-label="Lock admin session"
                 >
@@ -336,7 +335,7 @@ export function AdminDashboard({ onBackToHome }) {
             {/* Back to Public Website CTA */}
             <button
               onClick={onBackToHome}
-              className="inline-flex items-center gap-1.5 text-xs font-black text-ivory/90 hover:text-gold-bright transition-all px-2.5 sm:px-4 py-1.5 sm:py-2 rounded-full border border-gold/40 hover:border-gold-bright bg-black/50 hover:bg-gold/10 cursor-pointer shadow-sm group flex-shrink-0"
+              className="inline-flex items-center gap-1 sm:gap-1.5 text-xs font-black text-ivory/90 hover:text-gold-bright transition-all px-2.5 sm:px-4 py-1.5 sm:py-2 rounded-full border border-gold/40 hover:border-gold-bright bg-black/50 hover:bg-gold/10 cursor-pointer shadow-sm group flex-shrink-0"
               title="Return to Connected in Praise 2026 website"
             >
               <ArrowLeft className="w-3.5 sm:w-4 h-3.5 sm:h-4 text-gold-bright group-hover:-translate-x-1 transition-transform" />
@@ -348,7 +347,7 @@ export function AdminDashboard({ onBackToHome }) {
       </header>
 
       {/* Main Full-Page Body Content */}
-      <main className="relative z-10 flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 w-full flex flex-col">
+      <main className="relative z-10 flex-1 max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-6 sm:py-12 w-full max-w-full flex flex-col">
         {!isAuthenticated ? (
           /* =========================================================================
              FULL-PAGE LOGIN EXPERIENCE
@@ -445,32 +444,33 @@ export function AdminDashboard({ onBackToHome }) {
             )}
 
             {/* Dashboard Header Banner */}
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-gold/20">
-              <div>
-                <h1 className="font-cinzel font-black text-2xl sm:text-3xl lg:text-4xl text-ivory tracking-wide mb-1.5">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4 pb-6 border-b border-gold/20">
+              <div className="min-w-0">
+                <h1 className="font-cinzel font-black text-2xl sm:text-3xl lg:text-4xl text-ivory tracking-wide mb-1.5 break-words">
                   Central Operations Dashboard
                 </h1>
-                <div className="flex items-center gap-3 flex-wrap text-xs sm:text-sm text-ivory/70 font-semibold">
-                  <span className="flex items-center gap-1.5 text-green-400 font-bold">
-                    <span className="w-2 h-2 rounded-full bg-green-500 animate-ping" />
+                <div className="flex items-center gap-2 sm:gap-3 flex-wrap text-xs sm:text-sm text-ivory/70 font-semibold">
+                  <span className="flex items-center gap-1.5 text-green-400 font-bold whitespace-nowrap">
+                    <span className="w-2 h-2 rounded-full bg-green-500 animate-ping flex-shrink-0" />
                     <span>Database Synchronized</span>
                   </span>
                   {lastRefreshed && (
                     <>
-                      <span className="text-gold/40">•</span>
-                      <span>Last checked at {lastRefreshed}</span>
+                      <span className="text-gold/40 hidden xs:inline">•</span>
+                      <span className="whitespace-nowrap">Last checked at {lastRefreshed}</span>
                     </>
                   )}
                 </div>
               </div>
 
-              <div className="flex items-center gap-2.5">
+              <div className="flex items-center gap-2.5 flex-shrink-0 w-full sm:w-auto">
                 <button
                   onClick={() => exportData(activeTab)}
-                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl glass border border-gold/30 text-xs sm:text-sm font-bold text-gold-bright hover:border-gold-bright hover:bg-gold/10 transition-colors cursor-pointer shadow-md"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-xl glass border border-gold/30 text-xs sm:text-sm font-bold text-gold-bright hover:border-gold-bright hover:bg-gold/10 transition-colors cursor-pointer shadow-md"
                 >
-                  <Download className="w-4 h-4" />
-                  <span>Export {activeTab === "prayers" ? "Prayers" : "Messages"} (JSON)</span>
+                  <Download className="w-4 h-4 flex-shrink-0" />
+                  <span className="hidden sm:inline">Export {activeTab === "prayers" ? "Prayers" : "Messages"} (JSON)</span>
+                  <span className="sm:hidden">Export {activeTab === "prayers" ? "Prayers" : "Messages"}</span>
                 </button>
               </div>
             </div>
@@ -595,24 +595,25 @@ export function AdminDashboard({ onBackToHome }) {
             </div>
 
             {/* Main Data Section: Toolbar + Records */}
-            <div className="glass-card p-6 sm:p-8 rounded-3xl border border-gold/25 shadow-2xl">
+            <div className="glass-card p-4 sm:p-8 rounded-2xl sm:rounded-3xl border border-gold/25 shadow-2xl">
               {/* Toolbar: Tabs & Search */}
-              <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-gold/20">
+              <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 sm:gap-4 pb-6 border-b border-gold/20">
                 {/* Tabs */}
-                <div className="flex items-center gap-2 sm:gap-3">
+                <div className="flex items-center gap-2 sm:gap-3 w-full md:w-auto">
                   <button
                     onClick={() => {
                       setActiveTab("prayers");
                       setSearchQuery("");
                     }}
-                    className={`flex items-center gap-2 px-5 py-3 rounded-2xl text-xs sm:text-sm font-black transition-all cursor-pointer ${
+                    className={`flex-1 md:flex-none flex items-center justify-center gap-1.5 sm:gap-2 px-3 sm:px-5 py-2.5 sm:py-3 rounded-2xl text-xs sm:text-sm font-black transition-all cursor-pointer ${
                       activeTab === "prayers"
                         ? "bg-gradient-to-r from-gold-deep via-gold-bright to-gold-deep text-maroon-deep shadow-lg"
                         : "glass text-ivory/70 hover:text-ivory hover:border-gold/40"
                     }`}
                   >
-                    <MessageSquare className="w-4 h-4" />
-                    <span>Prayer Petitions ({prayers.length})</span>
+                    <MessageSquare className="w-4 h-4 flex-shrink-0" />
+                    <span className="hidden sm:inline">Prayer Petitions ({prayers.length})</span>
+                    <span className="sm:hidden">Prayers ({prayers.length})</span>
                   </button>
 
                   <button
@@ -620,26 +621,27 @@ export function AdminDashboard({ onBackToHome }) {
                       setActiveTab("messages");
                       setSearchQuery("");
                     }}
-                    className={`flex items-center gap-2 px-5 py-3 rounded-2xl text-xs sm:text-sm font-black transition-all cursor-pointer ${
+                    className={`flex-1 md:flex-none flex items-center justify-center gap-1.5 sm:gap-2 px-3 sm:px-5 py-2.5 sm:py-3 rounded-2xl text-xs sm:text-sm font-black transition-all cursor-pointer ${
                       activeTab === "messages"
                         ? "bg-gradient-to-r from-gold-deep via-gold-bright to-gold-deep text-maroon-deep shadow-lg"
                         : "glass text-ivory/70 hover:text-ivory hover:border-gold/40"
                     }`}
                   >
-                    <Mail className="w-4 h-4" />
-                    <span>Contact Inquiries ({messages.length})</span>
+                    <Mail className="w-4 h-4 flex-shrink-0" />
+                    <span className="hidden sm:inline">Contact Inquiries ({messages.length})</span>
+                    <span className="sm:hidden">Messages ({messages.length})</span>
                   </button>
                 </div>
 
                 {/* Search Field */}
                 <div className="relative w-full md:w-80">
-                  <Search className="w-4 h-4 text-ivory/40 absolute left-4 top-1/2 -translate-y-1/2" />
+                  <Search className="w-4 h-4 text-ivory/40 absolute left-4 top-1/2 -translate-y-1/2 flex-shrink-0" />
                   <input
                     type="text"
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     placeholder="Search by name, email, or content..."
-                    className="w-full bg-black/50 border border-gold/30 rounded-2xl pl-11 pr-4 py-3 text-xs sm:text-sm font-semibold text-ivory placeholder-ivory/30 focus:outline-none focus:border-gold-bright transition-colors shadow-inner"
+                    className="w-full bg-black/50 border border-gold/30 rounded-2xl pl-11 pr-4 py-2.5 sm:py-3 text-xs sm:text-sm font-semibold text-ivory placeholder-ivory/30 focus:outline-none focus:border-gold-bright transition-colors shadow-inner"
                   />
                 </div>
               </div>
@@ -719,7 +721,7 @@ export function AdminDashboard({ onBackToHome }) {
                               </span>
                               <a
                                 href={`mailto:${msg.email}`}
-                                className="text-xs sm:text-sm text-gold-bright hover:underline font-bold bg-gold/10 px-3 py-0.5 rounded-full border border-gold/25"
+                                className="text-xs sm:text-sm text-gold-bright hover:underline font-bold bg-gold/10 px-3 py-0.5 rounded-full border border-gold/25 break-all max-w-full"
                               >
                                 {msg.email}
                               </a>
