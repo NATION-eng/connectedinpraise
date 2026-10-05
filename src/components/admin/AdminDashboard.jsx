@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef, useCallback } from "react";
 import {
   ShieldCheck,
   Lock,
-  X,
+  ArrowLeft,
   MessageSquare,
   Mail,
   Trash2,
@@ -15,7 +15,12 @@ import {
   KeyRound,
   AlertTriangle,
   Clock,
+  Database,
+  Calendar,
+  LogOut,
+  ChevronRight,
 } from "lucide-react";
+import { Logo } from "../ui/Logo";
 import {
   getAllPrayersAdmin,
   deletePrayerAdmin,
@@ -28,7 +33,7 @@ const MAX_FAILED_ATTEMPTS = 3;
 const LOCKOUT_DURATION_MS = 5 * 60 * 1000; // 5 minutes
 const INACTIVITY_TIMEOUT_MS = 10 * 60 * 1000; // 10 minutes auto-lock
 
-export function AdminDashboard({ isOpen, onClose }) {
+export function AdminDashboard({ onBackToHome }) {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [passcode, setPasscode] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -51,6 +56,7 @@ export function AdminDashboard({ isOpen, onClose }) {
   const [isLoading, setIsLoading] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [actionNotice, setActionNotice] = useState("");
+  const [lastRefreshed, setLastRefreshed] = useState(null);
 
   const inactivityTimerRef = useRef(null);
 
@@ -126,6 +132,7 @@ export function AdminDashboard({ isOpen, onClose }) {
       ]);
       setPrayers(allPrayers);
       setMessages(allMsgs);
+      setLastRefreshed(new Date().toLocaleTimeString());
     } catch (err) {
       console.error("Failed to load admin data:", err);
     } finally {
@@ -134,10 +141,10 @@ export function AdminDashboard({ isOpen, onClose }) {
   };
 
   useEffect(() => {
-    if (isOpen && isAuthenticated) {
+    if (isAuthenticated) {
       loadAllData();
     }
-  }, [isOpen, isAuthenticated]);
+  }, [isAuthenticated]);
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -229,8 +236,6 @@ export function AdminDashboard({ isOpen, onClose }) {
     notify(`Exported ${type} archive successfully!`);
   };
 
-  if (!isOpen) return null;
-
   // Filter items based on search query
   const filteredPrayers = prayers.filter(
     (p) =>
@@ -246,168 +251,238 @@ export function AdminDashboard({ isOpen, onClose }) {
   );
 
   return (
-    <div className="fixed inset-0 z-[120] bg-maroon-deep/95 backdrop-blur-2xl flex items-center justify-center p-3 sm:p-6 overflow-y-auto">
-      <div className="relative w-full max-w-5xl glass-card-warm p-5 sm:p-8 rounded-3xl border border-gold/40 shadow-2xl my-auto">
-        {/* Modal Close Button */}
-        <button
-          onClick={onClose}
-          className="absolute top-4 right-4 sm:top-5 sm:right-5 text-ivory/70 hover:text-gold-bright p-2 rounded-full glass cursor-pointer z-10"
-          aria-label="Close Admin Modal"
-        >
-          <X className="w-5 h-5" />
-        </button>
+    <div className="min-h-screen bg-maroon-deep text-ivory flex flex-col relative selection:bg-gold-bright selection:text-maroon-deep">
+      {/* Background Lighting & Atmosphere */}
+      <div className="fixed inset-0 pointer-events-none z-0">
+        <div className="absolute top-0 right-1/4 w-[600px] h-[600px] bg-gold/5 rounded-full blur-[160px]" />
+        <div className="absolute bottom-0 left-1/4 w-[500px] h-[500px] bg-neon/5 rounded-full blur-[140px]" />
+        <div className="absolute inset-0 bg-grid opacity-20" />
+        <div className="absolute inset-0 vignette pointer-events-none" />
+      </div>
 
-        {/* Not Authenticated: Secure Login Screen */}
-        {!isAuthenticated ? (
-          <div className="max-w-md mx-auto py-8 sm:py-12 text-center">
-            <div className="w-16 h-16 rounded-3xl bg-gold/20 flex items-center justify-center text-gold-bright mx-auto mb-4 border border-gold/40 shadow-lg">
-              <Lock className="w-8 h-8" />
-            </div>
+      {/* Full-Page Admin Top Bar */}
+      <header className="relative z-30 sticky top-0 glass border-b border-gold/25 backdrop-blur-2xl">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between gap-4">
+          {/* Back to Public Concert Website */}
+          <button
+            onClick={onBackToHome}
+            className="inline-flex items-center gap-2 text-xs sm:text-sm font-extrabold text-ivory/85 hover:text-gold-bright transition-colors px-3.5 sm:px-4 py-2 rounded-full border border-gold/30 hover:border-gold-bright bg-black/40 cursor-pointer shadow-sm group"
+          >
+            <ArrowLeft className="w-4 h-4 text-gold-bright group-hover:-translate-x-1 transition-transform" />
+            <span>Back to CIP 2026</span>
+          </button>
 
-            <h3 className="font-cinzel font-black text-2xl sm:text-3xl text-ivory mb-2">
-              Protected Admin Portal
-            </h3>
-            <p className="text-xs sm:text-sm text-ivory/70 mb-6 font-semibold">
-              Authorized personnel only. Submissions and petitions are encrypted and access-logged.
-            </p>
-
-            {lockoutRemaining > 0 ? (
-              <div className="bg-red-500/20 border border-red-500/40 rounded-2xl p-5 mb-6 text-center animate-pulse">
-                <AlertTriangle className="w-8 h-8 text-red-400 mx-auto mb-2" />
-                <h4 className="font-bold text-red-200 text-sm mb-1">Security Lockout Active</h4>
-                <p className="text-xs text-red-300 font-semibold mb-3">
-                  Too many failed attempts. The portal is locked to protect records.
-                </p>
-                <div className="inline-flex items-center gap-2 bg-black/40 px-3 py-1.5 rounded-full border border-red-400/30 text-xs font-black text-gold-bright">
-                  <Clock className="w-3.5 h-3.5 text-neon" />
-                  <span>Retry in {lockoutRemaining}s</span>
-                </div>
-              </div>
-            ) : (
-              <form onSubmit={handleLogin} className="space-y-4">
-                <div className="relative">
-                  <input
-                    type={showPassword ? "text" : "password"}
-                    required
-                    value={passcode}
-                    onChange={(e) => setPasscode(e.target.value)}
-                    placeholder="Enter security passcode"
-                    className="w-full bg-black/60 border border-gold/30 rounded-2xl pl-4 pr-11 py-3.5 text-center text-sm font-bold text-ivory placeholder-ivory/30 focus:outline-none focus:border-gold-bright transition-colors"
-                  />
-                  <button
-                    type="button"
-                    onClick={() => setShowPassword(!showPassword)}
-                    className="absolute right-3.5 top-1/2 -translate-y-1/2 text-ivory/50 hover:text-gold-bright transition-colors cursor-pointer"
-                    aria-label="Toggle password visibility"
-                  >
-                    {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
-                  </button>
-                </div>
-
-                {errorMsg && (
-                  <div className="flex items-center justify-center gap-1.5 text-xs text-red-400 font-bold bg-red-950/40 border border-red-500/20 py-2 px-3 rounded-xl">
-                    <AlertTriangle className="w-3.5 h-3.5 flex-shrink-0" />
-                    <span>{errorMsg}</span>
-                  </div>
-                )}
-
-                <button
-                  type="submit"
-                  className="btn-gold w-full py-3.5 text-sm font-black uppercase tracking-wider cursor-pointer shadow-xl"
-                >
-                  Verify & Unlock Portal
-                </button>
-              </form>
-            )}
-
-            <div className="mt-8 text-[11px] text-ivory/40 font-semibold flex items-center justify-center gap-2">
-              <ShieldCheck className="w-3.5 h-3.5 text-green-400" />
-              <span>TLS Encrypted · Rate Limited · Auto-lock on Inactivity</span>
-            </div>
+          {/* Center Brand Identity */}
+          <div className="flex items-center gap-2 sm:gap-3 select-none">
+            <Logo size="nav" />
+            <span className="hidden sm:inline-block w-px h-5 bg-gold/30" />
+            <span className="hidden sm:inline-flex items-center gap-1.5 text-xs font-black uppercase tracking-wider text-gold-bright bg-gold/15 px-2.5 py-0.5 rounded-full border border-gold/30">
+              <ShieldCheck className="w-3.5 h-3.5 text-neon" />
+              <span>Admin Center</span>
+            </span>
           </div>
-        ) : (
-          /* Authenticated Dashboard */
-          <div>
-            {/* Header Strip */}
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-gold/20">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-2xl bg-gold/20 flex items-center justify-center text-gold-bright border border-gold/40 flex-shrink-0">
-                  <ShieldCheck className="w-5 h-5" />
-                </div>
-                <div>
-                  <h3 className="font-cinzel font-black text-xl sm:text-2xl text-ivory flex items-center gap-2">
-                    <span>Admin Central Dashboard</span>
-                  </h3>
-                  <p className="text-xs text-green-400 font-semibold flex items-center gap-1.5">
-                    <span className="w-2 h-2 rounded-full bg-green-500 animate-ping" />
-                    <span>Secure Encrypted Session · Database Active</span>
-                  </p>
-                </div>
-              </div>
 
-              <div className="flex items-center gap-2 flex-wrap">
+          {/* Right Action Area */}
+          <div className="flex items-center gap-2 sm:gap-3">
+            {isAuthenticated ? (
+              <>
                 <button
                   onClick={loadAllData}
                   disabled={isLoading}
-                  className="px-3.5 py-2 rounded-xl glass border border-gold/30 text-xs font-bold text-ivory hover:text-gold-bright flex items-center gap-1.5 cursor-pointer disabled:opacity-50"
+                  className="inline-flex items-center gap-1.5 text-xs font-bold text-ivory/80 hover:text-gold-bright transition-colors px-3 py-1.5 rounded-xl border border-gold/25 hover:border-gold/50 bg-black/30 cursor-pointer disabled:opacity-50"
                   title="Reload from database"
                 >
                   <RefreshCw className={`w-3.5 h-3.5 ${isLoading ? "animate-spin" : ""}`} />
-                  <span>Refresh</span>
+                  <span className="hidden sm:inline">Refresh</span>
                 </button>
 
                 <button
-                  onClick={() => setIsChangingPasscode(true)}
-                  className="px-3.5 py-2 rounded-xl glass border border-gold/30 text-xs font-bold text-gold-bright hover:border-gold-bright flex items-center gap-1.5 cursor-pointer"
-                  title="Change your admin passcode"
+                  onClick={() => setIsChangingPasscode(!isChangingPasscode)}
+                  className="inline-flex items-center gap-1.5 text-xs font-bold text-gold-bright transition-colors px-3 py-1.5 rounded-xl border border-gold/30 hover:border-gold-bright bg-black/30 cursor-pointer"
+                  title="Change master passcode"
                 >
-                  <KeyRound className="w-3.5 h-3.5" />
-                  <span>Change Passcode</span>
+                  <KeyRound className="w-3.5 h-3.5 text-neon" />
+                  <span className="hidden md:inline">Change Passcode</span>
                 </button>
 
                 <button
                   onClick={handleLogout}
-                  className="px-3.5 py-2 rounded-xl glass border border-red-500/40 text-xs font-bold text-red-400 hover:bg-red-500/20 cursor-pointer"
+                  className="inline-flex items-center gap-1.5 text-xs font-bold text-red-400 hover:text-red-300 transition-colors px-3 py-1.5 rounded-xl border border-red-500/30 hover:bg-red-500/10 cursor-pointer"
+                  title="Lock session"
                 >
-                  Lock Portal
+                  <LogOut className="w-3.5 h-3.5" />
+                  <span>Lock</span>
+                </button>
+              </>
+            ) : (
+              <div className="inline-flex items-center gap-1.5 text-[11px] font-bold text-ivory/60 bg-black/30 px-3 py-1 rounded-full border border-gold/20">
+                <Lock className="w-3 h-3 text-gold-bright" />
+                <span>Protected</span>
+              </div>
+            )}
+          </div>
+        </div>
+      </header>
+
+      {/* Main Full-Page Body Content */}
+      <main className="relative z-10 flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 w-full flex flex-col">
+        {!isAuthenticated ? (
+          /* =========================================================================
+             FULL-PAGE LOGIN EXPERIENCE
+             ========================================================================= */
+          <div className="flex-1 flex items-center justify-center py-12">
+            <div className="w-full max-w-md glass-card-warm p-8 sm:p-10 rounded-3xl border border-gold/40 shadow-2xl text-center">
+              {/* Shield Icon with Glowing Aura */}
+              <div className="w-20 h-20 rounded-3xl bg-gold/15 flex items-center justify-center text-gold-bright mx-auto mb-6 border-2 border-gold/40 shadow-[0_0_30px_rgba(242,169,0,0.25)]">
+                <Lock className="w-10 h-10" />
+              </div>
+
+              <h2 className="font-cinzel font-black text-2xl sm:text-3xl text-ivory mb-2">
+                Administrator Portal
+              </h2>
+              <p className="text-xs sm:text-sm text-ivory/70 mb-8 font-medium leading-relaxed">
+                Enter your administrative security credentials to manage prayer petitions, public intercessions,
+                and contact submissions.
+              </p>
+
+              {lockoutRemaining > 0 ? (
+                <div className="bg-red-500/20 border border-red-500/40 rounded-2xl p-5 mb-6 text-center animate-pulse">
+                  <AlertTriangle className="w-8 h-8 text-red-400 mx-auto mb-2" />
+                  <h4 className="font-bold text-red-200 text-sm mb-1">Security Lockout Active</h4>
+                  <p className="text-xs text-red-300 font-semibold mb-3">
+                    Too many failed attempts. The portal is locked to protect records.
+                  </p>
+                  <div className="inline-flex items-center gap-2 bg-black/40 px-3 py-1.5 rounded-full border border-red-400/30 text-xs font-black text-gold-bright">
+                    <Clock className="w-3.5 h-3.5 text-neon" />
+                    <span>Retry in {lockoutRemaining}s</span>
+                  </div>
+                </div>
+              ) : (
+                <form onSubmit={handleLogin} className="space-y-5">
+                  <div className="relative">
+                    <input
+                      type={showPassword ? "text" : "password"}
+                      required
+                      value={passcode}
+                      onChange={(e) => setPasscode(e.target.value)}
+                      placeholder="Enter security passcode"
+                      className="w-full bg-black/60 border border-gold/35 rounded-2xl pl-5 pr-12 py-4 text-center text-sm font-bold text-ivory placeholder-ivory/30 focus:outline-none focus:border-gold-bright transition-colors shadow-inner"
+                    />
+                    <button
+                      type="button"
+                      onClick={() => setShowPassword(!showPassword)}
+                      className="absolute right-4 top-1/2 -translate-y-1/2 text-ivory/50 hover:text-gold-bright transition-colors cursor-pointer"
+                      aria-label="Toggle password visibility"
+                    >
+                      {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
+                    </button>
+                  </div>
+
+                  {errorMsg && (
+                    <div className="flex items-center justify-center gap-1.5 text-xs text-red-400 font-bold bg-red-950/40 border border-red-500/30 py-2.5 px-3 rounded-xl animate-fade-in">
+                      <AlertTriangle className="w-4 h-4 flex-shrink-0" />
+                      <span>{errorMsg}</span>
+                    </div>
+                  )}
+
+                  <button
+                    type="submit"
+                    className="btn-gold w-full py-4 text-sm font-black uppercase tracking-wider cursor-pointer shadow-xl"
+                  >
+                    Authenticate & Enter
+                  </button>
+                </form>
+              )}
+
+              <div className="mt-8 pt-6 border-t border-gold/15 flex flex-col items-center gap-2">
+                <div className="text-[11px] text-ivory/50 font-semibold flex items-center justify-center gap-2">
+                  <ShieldCheck className="w-4 h-4 text-green-400" />
+                  <span>TLS 1.3 Encrypted · Cloud DB · Auto-Lock on Idle</span>
+                </div>
+                <button
+                  onClick={onBackToHome}
+                  className="text-xs text-gold-bright/80 hover:text-gold-bright hover:underline font-semibold mt-1"
+                >
+                  Return to Connected in Praise Homepage
+                </button>
+              </div>
+            </div>
+          </div>
+        ) : (
+          /* =========================================================================
+             FULL-PAGE AUTHENTICATED WORKSTATION
+             ========================================================================= */
+          <div className="space-y-8 animate-fade-in">
+            {/* Action Notice Notification */}
+            {actionNotice && (
+              <div className="p-3.5 rounded-2xl bg-gold/15 border border-gold/40 text-gold-bright text-xs sm:text-sm font-bold text-center flex items-center justify-center gap-2 shadow-lg animate-fade-in">
+                <CheckCircle className="w-4 h-4 text-neon flex-shrink-0" />
+                <span>{actionNotice}</span>
+              </div>
+            )}
+
+            {/* Dashboard Header Banner */}
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-gold/20">
+              <div>
+                <h1 className="font-cinzel font-black text-2xl sm:text-3xl lg:text-4xl text-ivory tracking-wide mb-1.5">
+                  Central Operations Dashboard
+                </h1>
+                <div className="flex items-center gap-3 flex-wrap text-xs sm:text-sm text-ivory/70 font-semibold">
+                  <span className="flex items-center gap-1.5 text-green-400 font-bold">
+                    <span className="w-2 h-2 rounded-full bg-green-500 animate-ping" />
+                    <span>Database Synchronized</span>
+                  </span>
+                  {lastRefreshed && (
+                    <>
+                      <span className="text-gold/40">•</span>
+                      <span>Last checked at {lastRefreshed}</span>
+                    </>
+                  )}
+                </div>
+              </div>
+
+              <div className="flex items-center gap-2.5">
+                <button
+                  onClick={() => exportData(activeTab)}
+                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl glass border border-gold/30 text-xs sm:text-sm font-bold text-gold-bright hover:border-gold-bright hover:bg-gold/10 transition-colors cursor-pointer shadow-md"
+                >
+                  <Download className="w-4 h-4" />
+                  <span>Export {activeTab === "prayers" ? "Prayers" : "Messages"} (JSON)</span>
                 </button>
               </div>
             </div>
 
-            {/* Change Passcode Modal Drawer */}
+            {/* Change Passcode Panel (Expandable) */}
             {isChangingPasscode && (
-              <div className="my-4 p-5 rounded-2xl bg-black/60 border border-gold/40 shadow-xl animate-fade-in">
-                <div className="flex items-center justify-between mb-3">
-                  <h4 className="font-cinzel font-bold text-sm text-gold-bright flex items-center gap-2">
+              <div className="p-6 rounded-3xl bg-black/60 border border-gold/40 shadow-2xl animate-fade-in">
+                <div className="flex items-center justify-between mb-4">
+                  <h3 className="font-cinzel font-bold text-base text-gold-bright flex items-center gap-2">
                     <KeyRound className="w-4 h-4 text-neon" />
-                    <span>Update Security Passcode</span>
-                  </h4>
+                    <span>Update Administrative Passcode</span>
+                  </h3>
                   <button
                     onClick={() => setIsChangingPasscode(false)}
-                    className="text-ivory/60 hover:text-ivory p-1"
+                    className="text-ivory/60 hover:text-ivory p-1 cursor-pointer"
                   >
-                    <X className="w-4 h-4" />
+                    ✕
                   </button>
                 </div>
-                <form
-                  onSubmit={handleUpdatePasscode}
-                  className="grid grid-cols-1 sm:grid-cols-3 gap-3"
-                >
+                <form onSubmit={handleUpdatePasscode} className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                   <input
                     type="password"
                     required
                     placeholder="Current Passcode"
                     value={oldPasscode}
                     onChange={(e) => setOldPasscode(e.target.value)}
-                    className="bg-black/50 border border-gold/25 rounded-xl px-3 py-2 text-xs text-ivory placeholder-ivory/30 focus:outline-none focus:border-gold-bright"
+                    className="bg-black/60 border border-gold/30 rounded-2xl px-4 py-3 text-xs sm:text-sm text-ivory placeholder-ivory/30 focus:outline-none focus:border-gold-bright"
                   />
                   <input
                     type="password"
                     required
-                    placeholder="New Passcode (min 6)"
+                    placeholder="New Passcode (min 6 chars)"
                     value={newPasscode}
                     onChange={(e) => setNewPasscode(e.target.value)}
-                    className="bg-black/50 border border-gold/25 rounded-xl px-3 py-2 text-xs text-ivory placeholder-ivory/30 focus:outline-none focus:border-gold-bright"
+                    className="bg-black/60 border border-gold/30 rounded-2xl px-4 py-3 text-xs sm:text-sm text-ivory placeholder-ivory/30 focus:outline-none focus:border-gold-bright"
                   />
                   <input
                     type="password"
@@ -415,223 +490,261 @@ export function AdminDashboard({ isOpen, onClose }) {
                     placeholder="Confirm New Passcode"
                     value={confirmPasscode}
                     onChange={(e) => setConfirmPasscode(e.target.value)}
-                    className="bg-black/50 border border-gold/25 rounded-xl px-3 py-2 text-xs text-ivory placeholder-ivory/30 focus:outline-none focus:border-gold-bright"
+                    className="bg-black/60 border border-gold/30 rounded-2xl px-4 py-3 text-xs sm:text-sm text-ivory placeholder-ivory/30 focus:outline-none focus:border-gold-bright"
                   />
-                  <div className="sm:col-span-3 flex items-center justify-between gap-3 pt-1">
+                  <div className="sm:col-span-3 flex items-center justify-between gap-3 pt-2">
                     {changeError && <p className="text-xs text-red-400 font-bold">{changeError}</p>}
                     <button
                       type="submit"
-                      className="btn-gold ml-auto px-5 py-2 text-xs font-black uppercase tracking-wider cursor-pointer"
+                      className="btn-gold ml-auto px-6 py-2.5 text-xs font-black uppercase tracking-wider cursor-pointer"
                     >
-                      Save New Passcode
+                      Save New Security Passcode
                     </button>
                   </div>
                 </form>
               </div>
             )}
 
-            {/* Notification Banner */}
-            {actionNotice && (
-              <div className="mt-3 p-2.5 rounded-xl bg-gold/15 border border-gold/40 text-gold-bright text-xs font-bold text-center flex items-center justify-center gap-2 animate-fade-in">
-                <CheckCircle className="w-4 h-4 text-neon" />
-                <span>{actionNotice}</span>
-              </div>
-            )}
-
-            {/* Overview Stats Cards */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4 my-6">
-              <div className="glass-card p-4 rounded-2xl border border-gold/20">
-                <span className="text-[10px] uppercase tracking-wider text-ivory/60 font-bold block mb-1">
-                  Total Prayers
-                </span>
-                <span className="font-syne font-black text-2xl sm:text-3xl text-gold-bright">
-                  {prayers.length}
-                </span>
+            {/* 4 Overview Statistics Cards */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+              {/* Card 1: Total Prayers */}
+              <div className="glass-card-warm p-6 rounded-3xl border border-gold/25 shadow-lg flex items-center justify-between">
+                <div>
+                  <span className="text-[11px] uppercase tracking-wider text-ivory/70 font-bold block mb-1">
+                    Prayer Petitions
+                  </span>
+                  <span className="font-marcellus text-3xl sm:text-4xl text-gold-bright font-black">
+                    {prayers.length}
+                  </span>
+                </div>
+                <div className="w-12 h-12 rounded-2xl bg-gold/15 flex items-center justify-center border border-gold/30 text-gold-bright">
+                  <MessageSquare className="w-6 h-6" />
+                </div>
               </div>
 
-              <div className="glass-card p-4 rounded-2xl border border-gold/20">
-                <span className="text-[10px] uppercase tracking-wider text-ivory/60 font-bold block mb-1">
-                  Contact Messages
-                </span>
-                <span className="font-syne font-black text-2xl sm:text-3xl text-neon">
-                  {messages.length}
-                </span>
+              {/* Card 2: Contact Messages */}
+              <div className="glass-card-warm p-6 rounded-3xl border border-gold/25 shadow-lg flex items-center justify-between">
+                <div>
+                  <span className="text-[11px] uppercase tracking-wider text-ivory/70 font-bold block mb-1">
+                    Contact Inquiries
+                  </span>
+                  <span className="font-marcellus text-3xl sm:text-4xl text-neon font-black">
+                    {messages.length}
+                  </span>
+                </div>
+                <div className="w-12 h-12 rounded-2xl bg-neon/15 flex items-center justify-center border border-neon/30 text-neon">
+                  <Mail className="w-6 h-6" />
+                </div>
               </div>
 
-              <div className="col-span-2 sm:col-span-1 glass-card p-4 rounded-2xl border border-gold/20 flex flex-col justify-center">
-                <span className="text-[10px] uppercase tracking-wider text-ivory/60 font-bold block mb-1">
-                  Security Status
-                </span>
-                <span className="text-xs font-black text-green-400 flex items-center gap-1.5">
-                  <ShieldCheck className="w-4 h-4 text-green-400" />
-                  Protected & Encrypted
-                </span>
+              {/* Card 3: Cloud Database Status */}
+              <div className="glass-card-warm p-6 rounded-3xl border border-gold/25 shadow-lg flex items-center justify-between">
+                <div>
+                  <span className="text-[11px] uppercase tracking-wider text-ivory/70 font-bold block mb-1">
+                    Database Engine
+                  </span>
+                  <span className="text-sm font-black text-green-400 flex items-center gap-1.5 mt-2">
+                    <Database className="w-4 h-4 text-green-400" />
+                    Cloud Active
+                  </span>
+                </div>
+                <div className="w-12 h-12 rounded-2xl bg-green-500/15 flex items-center justify-center border border-green-500/30 text-green-400">
+                  <CheckCircle className="w-6 h-6" />
+                </div>
+              </div>
+
+              {/* Card 4: Session Security */}
+              <div className="glass-card-warm p-6 rounded-3xl border border-gold/25 shadow-lg flex items-center justify-between">
+                <div>
+                  <span className="text-[11px] uppercase tracking-wider text-ivory/70 font-bold block mb-1">
+                    Security Session
+                  </span>
+                  <span className="text-xs font-black text-ivory/90 flex items-center gap-1.5 mt-2">
+                    <ShieldCheck className="w-4 h-4 text-gold-bright" />
+                    Strict Lockout On
+                  </span>
+                </div>
+                <div className="w-12 h-12 rounded-2xl bg-gold/15 flex items-center justify-center border border-gold/30 text-gold-bright">
+                  <Lock className="w-6 h-6" />
+                </div>
               </div>
             </div>
 
-            {/* Navigation Tabs & Search Toolbar */}
-            <div className="flex flex-col sm:flex-row items-center justify-between gap-3 mb-6">
-              <div className="flex items-center gap-2 w-full sm:w-auto">
-                <button
-                  onClick={() => {
-                    setActiveTab("prayers");
-                    setSearchQuery("");
-                  }}
-                  className={`flex-1 sm:flex-initial px-5 py-2.5 rounded-xl text-xs font-black transition-all cursor-pointer ${
-                    activeTab === "prayers"
-                      ? "bg-gold-bright text-maroon-deep shadow-md"
-                      : "glass text-ivory/70 hover:text-ivory"
-                  }`}
-                >
-                  <span className="flex items-center gap-2 justify-center">
+            {/* Main Data Section: Toolbar + Records */}
+            <div className="glass-card p-6 sm:p-8 rounded-3xl border border-gold/25 shadow-2xl">
+              {/* Toolbar: Tabs & Search */}
+              <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-gold/20">
+                {/* Tabs */}
+                <div className="flex items-center gap-2 sm:gap-3">
+                  <button
+                    onClick={() => {
+                      setActiveTab("prayers");
+                      setSearchQuery("");
+                    }}
+                    className={`flex items-center gap-2 px-5 py-3 rounded-2xl text-xs sm:text-sm font-black transition-all cursor-pointer ${
+                      activeTab === "prayers"
+                        ? "bg-gradient-to-r from-gold-deep via-gold-bright to-gold-deep text-maroon-deep shadow-lg"
+                        : "glass text-ivory/70 hover:text-ivory hover:border-gold/40"
+                    }`}
+                  >
                     <MessageSquare className="w-4 h-4" />
-                    <span>Prayers ({prayers.length})</span>
-                  </span>
-                </button>
+                    <span>Prayer Petitions ({prayers.length})</span>
+                  </button>
 
-                <button
-                  onClick={() => {
-                    setActiveTab("messages");
-                    setSearchQuery("");
-                  }}
-                  className={`flex-1 sm:flex-initial px-5 py-2.5 rounded-xl text-xs font-black transition-all cursor-pointer ${
-                    activeTab === "messages"
-                      ? "bg-gold-bright text-maroon-deep shadow-md"
-                      : "glass text-ivory/70 hover:text-ivory"
-                  }`}
-                >
-                  <span className="flex items-center gap-2 justify-center">
+                  <button
+                    onClick={() => {
+                      setActiveTab("messages");
+                      setSearchQuery("");
+                    }}
+                    className={`flex items-center gap-2 px-5 py-3 rounded-2xl text-xs sm:text-sm font-black transition-all cursor-pointer ${
+                      activeTab === "messages"
+                        ? "bg-gradient-to-r from-gold-deep via-gold-bright to-gold-deep text-maroon-deep shadow-lg"
+                        : "glass text-ivory/70 hover:text-ivory hover:border-gold/40"
+                    }`}
+                  >
                     <Mail className="w-4 h-4" />
-                    <span>Messages ({messages.length})</span>
-                  </span>
-                </button>
-              </div>
+                    <span>Contact Inquiries ({messages.length})</span>
+                  </button>
+                </div>
 
-              {/* Search & Export */}
-              <div className="flex items-center gap-2 w-full sm:w-auto">
-                <div className="relative flex-1 sm:w-60">
-                  <Search className="w-3.5 h-3.5 text-ivory/40 absolute left-3 top-1/2 -translate-y-1/2" />
+                {/* Search Field */}
+                <div className="relative w-full md:w-80">
+                  <Search className="w-4 h-4 text-ivory/40 absolute left-4 top-1/2 -translate-y-1/2" />
                   <input
                     type="text"
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    placeholder="Search records..."
-                    className="w-full bg-black/40 border border-gold/25 rounded-xl pl-9 pr-3 py-2 text-xs font-semibold text-ivory placeholder-ivory/30 focus:outline-none focus:border-gold-bright"
+                    placeholder="Search by name, email, or content..."
+                    className="w-full bg-black/50 border border-gold/30 rounded-2xl pl-11 pr-4 py-3 text-xs sm:text-sm font-semibold text-ivory placeholder-ivory/30 focus:outline-none focus:border-gold-bright transition-colors shadow-inner"
                   />
                 </div>
+              </div>
 
-                <button
-                  onClick={() => exportData(activeTab)}
-                  className="px-3 py-2 rounded-xl glass border border-gold/30 text-xs font-bold text-ivory/80 hover:text-gold-bright flex items-center gap-1 cursor-pointer flex-shrink-0"
-                  title="Export to JSON"
-                >
-                  <Download className="w-3.5 h-3.5" />
-                  <span className="hidden sm:inline">Export</span>
-                </button>
+              {/* Records List Container */}
+              <div className="pt-6">
+                {activeTab === "prayers" && (
+                  <div className="space-y-4">
+                    {isLoading ? (
+                      <div className="p-16 text-center text-ivory/60 text-sm font-bold flex flex-col items-center gap-3">
+                        <RefreshCw className="w-6 h-6 animate-spin text-gold-bright" />
+                        <span>Querying live database records...</span>
+                      </div>
+                    ) : filteredPrayers.length === 0 ? (
+                      <div className="p-16 text-center text-ivory/60 text-sm font-semibold">
+                        {searchQuery ? "No prayer petitions matched your search query." : "No prayer petitions recorded yet."}
+                      </div>
+                    ) : (
+                      filteredPrayers.map((prayer, index) => (
+                        <div
+                          key={prayer.id || index}
+                          className="glass-card-warm p-5 sm:p-6 rounded-2xl border border-gold/20 hover:border-gold/50 transition-all flex flex-col sm:flex-row sm:items-start justify-between gap-4 group"
+                        >
+                          <div className="flex-1 space-y-2">
+                            <div className="flex items-center gap-3 flex-wrap">
+                              <span className="font-cinzel font-black text-gold-bright text-base sm:text-lg">
+                                {prayer.author || "Anonymous Worshipper"}
+                              </span>
+                              <span className="text-xs text-ivory/60 bg-black/40 px-3 py-0.5 rounded-full border border-gold/20">
+                                {prayer.time || "Recently"}
+                              </span>
+                              {prayer.created_at && (
+                                <span className="text-[11px] text-ivory/40 font-medium">
+                                  {new Date(prayer.created_at).toLocaleString()}
+                                </span>
+                              )}
+                            </div>
+                            <p className="text-xs sm:text-sm text-ivory/90 font-medium leading-relaxed bg-black/30 p-4 rounded-xl border border-gold/15">
+                              {prayer.text}
+                            </p>
+                          </div>
+
+                          <button
+                            onClick={() => handleDeletePrayer(prayer.id)}
+                            className="self-end sm:self-center p-2.5 rounded-xl text-ivory/40 hover:text-red-400 hover:bg-red-500/10 border border-transparent hover:border-red-500/30 transition-all cursor-pointer flex-shrink-0"
+                            title="Permanently delete prayer petition"
+                          >
+                            <Trash2 className="w-5 h-5" />
+                          </button>
+                        </div>
+                      ))
+                    )}
+                  </div>
+                )}
+
+                {activeTab === "messages" && (
+                  <div className="space-y-4">
+                    {isLoading ? (
+                      <div className="p-16 text-center text-ivory/60 text-sm font-bold flex flex-col items-center gap-3">
+                        <RefreshCw className="w-6 h-6 animate-spin text-neon" />
+                        <span>Querying live database records...</span>
+                      </div>
+                    ) : filteredMessages.length === 0 ? (
+                      <div className="p-16 text-center text-ivory/60 text-sm font-semibold">
+                        {searchQuery ? "No contact messages matched your search query." : "No contact messages submitted yet."}
+                      </div>
+                    ) : (
+                      filteredMessages.map((msg, index) => (
+                        <div
+                          key={msg.id || index}
+                          className="glass-card-warm p-5 sm:p-6 rounded-2xl border border-gold/20 hover:border-gold/50 transition-all flex flex-col sm:flex-row sm:items-start justify-between gap-4 group"
+                        >
+                          <div className="flex-1 space-y-2">
+                            <div className="flex items-center gap-3 flex-wrap">
+                              <span className="font-cinzel font-black text-neon text-base sm:text-lg">
+                                {msg.name}
+                              </span>
+                              <a
+                                href={`mailto:${msg.email}`}
+                                className="text-xs sm:text-sm text-gold-bright hover:underline font-bold bg-gold/10 px-3 py-0.5 rounded-full border border-gold/25"
+                              >
+                                {msg.email}
+                              </a>
+                              <span className="text-xs text-ivory/60 bg-black/40 px-3 py-0.5 rounded-full border border-gold/20">
+                                {msg.time || "Recently"}
+                              </span>
+                              {msg.created_at && (
+                                <span className="text-[11px] text-ivory/40 font-medium">
+                                  {new Date(msg.created_at).toLocaleString()}
+                                </span>
+                              )}
+                            </div>
+                            <p className="text-xs sm:text-sm text-ivory/90 font-medium leading-relaxed bg-black/30 p-4 rounded-xl border border-gold/15">
+                              {msg.message}
+                            </p>
+                          </div>
+
+                          <button
+                            onClick={() => handleDeleteMessage(msg.id)}
+                            className="self-end sm:self-center p-2.5 rounded-xl text-ivory/40 hover:text-red-400 hover:bg-red-500/10 border border-transparent hover:border-red-500/30 transition-all cursor-pointer flex-shrink-0"
+                            title="Permanently delete message"
+                          >
+                            <Trash2 className="w-5 h-5" />
+                          </button>
+                        </div>
+                      ))
+                    )}
+                  </div>
+                )}
               </div>
             </div>
-
-            {/* Tab 1: Prayer Requests List */}
-            {activeTab === "prayers" && (
-              <div className="space-y-3 max-h-[420px] overflow-y-auto pr-1">
-                {isLoading ? (
-                  <div className="glass-card p-12 text-center text-ivory/60 text-sm font-bold">
-                    Fetching records securely from database...
-                  </div>
-                ) : filteredPrayers.length === 0 ? (
-                  <div className="glass-card p-12 text-center text-ivory/60 text-sm font-bold">
-                    No prayer petitions found.
-                  </div>
-                ) : (
-                  filteredPrayers.map((prayer) => (
-                    <div
-                      key={prayer.id}
-                      className="glass-card p-4 sm:p-5 rounded-2xl border border-gold/15 hover:border-gold/30 transition-all flex flex-col sm:flex-row sm:items-start justify-between gap-3 group"
-                    >
-                      <div className="flex-1">
-                        <div className="flex items-center gap-2 mb-1.5 flex-wrap">
-                          <span className="font-cinzel font-black text-gold-bright text-base">
-                            {prayer.author}
-                          </span>
-                          <span className="text-[10px] text-ivory/50 bg-black/30 px-2 py-0.5 rounded-full">
-                            {prayer.time}
-                          </span>
-                          {prayer.created_at && (
-                            <span className="text-[10px] text-ivory/40">
-                              {new Date(prayer.created_at).toLocaleString()}
-                            </span>
-                          )}
-                        </div>
-                        <p className="text-xs sm:text-sm text-ivory/90 font-medium leading-relaxed">
-                          {prayer.text}
-                        </p>
-                      </div>
-
-                      <button
-                        onClick={() => handleDeletePrayer(prayer.id)}
-                        className="self-end sm:self-center p-2 rounded-xl text-ivory/40 hover:text-red-400 hover:bg-red-500/10 transition-colors cursor-pointer"
-                        title="Delete from database"
-                      >
-                        <Trash2 className="w-4 h-4" />
-                      </button>
-                    </div>
-                  ))
-                )}
-              </div>
-            )}
-
-            {/* Tab 2: Contact Messages List */}
-            {activeTab === "messages" && (
-              <div className="space-y-3 max-h-[420px] overflow-y-auto pr-1">
-                {isLoading ? (
-                  <div className="glass-card p-12 text-center text-ivory/60 text-sm font-bold">
-                    Fetching records securely from database...
-                  </div>
-                ) : filteredMessages.length === 0 ? (
-                  <div className="glass-card p-12 text-center text-ivory/60 text-sm font-bold">
-                    No contact submissions found.
-                  </div>
-                ) : (
-                  filteredMessages.map((msg) => (
-                    <div
-                      key={msg.id}
-                      className="glass-card p-4 sm:p-5 rounded-2xl border border-gold/15 hover:border-gold/30 transition-all flex flex-col sm:flex-row sm:items-start justify-between gap-3 group"
-                    >
-                      <div className="flex-1">
-                        <div className="flex items-center gap-2 mb-1 flex-wrap">
-                          <span className="font-cinzel font-black text-neon text-base">
-                            {msg.name}
-                          </span>
-                          <a
-                            href={`mailto:${msg.email}`}
-                            className="text-xs text-gold-bright hover:underline font-semibold"
-                          >
-                            {msg.email}
-                          </a>
-                          <span className="text-[10px] text-ivory/50 bg-black/30 px-2 py-0.5 rounded-full">
-                            {msg.time}
-                          </span>
-                        </div>
-                        <p className="text-xs sm:text-sm text-ivory/90 font-medium leading-relaxed bg-black/25 p-3 rounded-xl border border-gold/10 mt-2">
-                          {msg.message}
-                        </p>
-                      </div>
-
-                      <button
-                        onClick={() => handleDeleteMessage(msg.id)}
-                        className="self-end sm:self-center p-2 rounded-xl text-ivory/40 hover:text-red-400 hover:bg-red-500/10 transition-colors cursor-pointer"
-                        title="Delete message from database"
-                      >
-                        <Trash2 className="w-4 h-4" />
-                      </button>
-                    </div>
-                  ))
-                )}
-              </div>
-            )}
           </div>
         )}
-      </div>
+      </main>
+
+      {/* Full-Page Admin Footer */}
+      <footer className="relative z-20 glass border-t border-gold/20 py-6 mt-auto">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-ivory/60 font-semibold">
+          <p>© 2026 Connected in Praise & Jerusalem Choir. Secure Administrative Operations.</p>
+          <div className="flex items-center gap-4">
+            <button
+              onClick={onBackToHome}
+              className="text-gold-bright hover:underline cursor-pointer"
+            >
+              Back to Concert Home
+            </button>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }

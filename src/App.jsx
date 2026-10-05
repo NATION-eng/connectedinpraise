@@ -14,35 +14,63 @@ import { Footer } from "./components/layout/Footer";
 import { AdminDashboard } from "./components/admin/AdminDashboard";
 
 export default function App() {
-  const [isAdminOpen, setIsAdminOpen] = useState(false);
+  const [isAdminPage, setIsAdminPage] = useState(
+    () => window.location.hash === "#admin" || window.location.pathname === "/admin"
+  );
 
-  // Allow opening Admin via #admin hash or Ctrl+Shift+A shortcut
+  const navigateToAdmin = () => {
+    window.location.hash = "#admin";
+    setIsAdminPage(true);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const navigateToHome = () => {
+    window.history.pushState(null, "", window.location.pathname.replace(/\/admin$/, "") || "/");
+    window.location.hash = "";
+    setIsAdminPage(false);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  // Sync hash, popstate, and keyboard shortcut
   useEffect(() => {
-    const handleHash = () => {
-      if (window.location.hash === "#admin") {
-        setIsAdminOpen(true);
-      }
+    const handleSync = () => {
+      const isHashAdmin = window.location.hash === "#admin";
+      const isPathAdmin = window.location.pathname === "/admin";
+      setIsAdminPage(isHashAdmin || isPathAdmin);
     };
 
     const handleKeyDown = (e) => {
       if (e.ctrlKey && e.shiftKey && (e.key === "A" || e.key === "a")) {
         e.preventDefault();
-        setIsAdminOpen((prev) => !prev);
+        setIsAdminPage((prev) => {
+          if (prev) {
+            window.location.hash = "";
+            return false;
+          } else {
+            window.location.hash = "#admin";
+            return true;
+          }
+        });
       }
     };
 
-    window.addEventListener("hashchange", handleHash);
+    window.addEventListener("hashchange", handleSync);
+    window.addEventListener("popstate", handleSync);
     window.addEventListener("keydown", handleKeyDown);
-    if (window.location.hash === "#admin") {
-      setIsAdminOpen(true);
-    }
 
     return () => {
-      window.removeEventListener("hashchange", handleHash);
+      window.removeEventListener("hashchange", handleSync);
+      window.removeEventListener("popstate", handleSync);
       window.removeEventListener("keydown", handleKeyDown);
     };
   }, []);
 
+  // When on the Admin Page, render the dedicated Full-Page Admin Dashboard
+  if (isAdminPage) {
+    return <AdminDashboard onBackToHome={navigateToHome} />;
+  }
+
+  // Public Connected in Praise 2026 Concert Experience
   return (
     <div className="min-h-screen bg-maroon-deep text-ivory selection:bg-gold-bright selection:text-maroon-deep">
       {/* Skip to Content Link for Accessibility (WCAG 2.1) */}
@@ -70,19 +98,8 @@ export default function App() {
         <CallToAction />
       </main>
 
-      {/* Footer with Admin Access Link */}
-      <Footer onOpenAdmin={() => setIsAdminOpen(true)} />
-
-      {/* Secure Admin Dashboard Modal */}
-      <AdminDashboard
-        isOpen={isAdminOpen}
-        onClose={() => {
-          setIsAdminOpen(false);
-          if (window.location.hash === "#admin") {
-            window.history.pushState(null, "", window.location.pathname);
-          }
-        }}
-      />
+      {/* Footer with Full-Page Admin Navigation Link */}
+      <Footer onOpenAdmin={navigateToAdmin} />
     </div>
   );
 }
