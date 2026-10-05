@@ -21,9 +21,9 @@ export function Hero() {
       {/* Background with Real CIP MEDIA Archive Image */}
       <div className="absolute inset-0 z-0">
         <img
-          src="/images/hero-worship.jpg"
-          alt="Hands raised in worship at Connected in Praise Convocation Arena"
-          className="w-full h-full object-cover animate-slow-pan opacity-35 filter brightness-85 contrast-125"
+          src="/images/gallery/DSC09778.jpg"
+          alt="Jerusalem Choir assembled on stage in holy worship at Convocation Arena"
+          className="w-full h-full object-cover animate-slow-pan opacity-30 filter brightness-90 contrast-125"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-maroon-deep/95 via-maroon-dark/75 to-maroon-deep" />
         <div className="absolute inset-0 bg-gradient-to-r from-maroon-deep/90 via-transparent to-maroon-deep/90" />

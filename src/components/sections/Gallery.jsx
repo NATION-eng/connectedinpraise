@@ -1,123 +1,136 @@
 import React, { useState } from "react";
-import { Image as ImageIcon, Sparkles, X, Maximize2 } from "lucide-react";
+import { Image as ImageIcon, X, Maximize2 } from "lucide-react";
 
-// 100% Authentic Photos from CIP MEDIA archives
+// 100% Authentic Photos from CIP MEDIA archives with precise, factual descriptions
 const galleryItems = [
   {
     id: 1,
-    title: "Official Jerusalem Choir Ensemble",
-    category: "Choir",
+    title: "Jerusalem Choir Official Ensemble",
+    category: "Choir & Soloists",
     src: "/images/jerusalem-choir.jpg",
-    caption: "The consecrated ministers of Jerusalem Choir gathered in unified praise robes.",
+    caption: "The full assembly of Jerusalem Choir in their signature blue robes and mortarboard caps alongside their choir directors.",
   },
   {
     id: 2,
-    title: "Mass Choir in Heavenly Worship",
-    category: "Worship",
-    src: "/images/gallery/DSC09674.jpg",
-    caption: "The auditorium filled with harmonic adoration at Convocation Arena.",
+    title: "Solo Violinist Worship Ministration",
+    category: "Instrumentals & Sound",
+    src: "/images/gallery/DSC09550.jpg",
+    caption: "Live violin ministration accompanying the choir in holy reverence, with choristers seated in vibrant African print attire.",
   },
   {
     id: 3,
-    title: "Vocalists in Deep Adoration",
-    category: "Choir",
+    title: "Lead Male Vocalist Ministration",
+    category: "Choir & Soloists",
     src: "/images/gallery/DSC09554.jpg",
-    caption: "Sopranos and altos leading the congregation into God's manifest presence.",
+    caption: "Powerful vocal solo rendered in traditional floral African print attire during the concert praise session.",
   },
   {
     id: 4,
-    title: "Stage Atmosphere & Holy Reverence",
-    category: "Atmosphere",
-    src: "/images/gallery/DSC09678.jpg",
-    caption: "The sanctuary drenched in ambient warmth during the choral anthem.",
+    title: "Soloist in Deep Devotion",
+    category: "Choir & Soloists",
+    src: "/images/gallery/DSC09557.jpg",
+    caption: "Close-up of the lead vocalist delivering an anointed solo ministration with microphone in hand.",
   },
   {
     id: 5,
-    title: "Solemn Prayer & Supplication",
-    category: "Prayer",
-    src: "/images/gallery/DSC09550.jpg",
-    caption: "Worshippers bowing in quiet reverence during the intercessory period.",
+    title: "Lead Female Soloist & Vocalist",
+    category: "Choir & Soloists",
+    src: "/images/gallery/DSC09560.jpg",
+    caption: "Anointed female soloist in matching African print headwrap and gown leading the mass choir in adoration.",
   },
   {
     id: 6,
-    title: "Sacred Choral Harmonies",
-    category: "Choir",
-    src: "/images/gallery/DSC09557.jpg",
-    caption: "Every voice blending in four-part harmony before the Throne of Grace.",
+    title: "Choral Soloist in Robes",
+    category: "Choir & Soloists",
+    src: "/images/gallery/DSC09674.jpg",
+    caption: "Female chorister delivering a solo rendition in Jerusalem Choir's ceremonial blue gown and cap.",
   },
   {
     id: 7,
-    title: "Congregation Lifted in Spirit",
-    category: "Worship",
-    src: "/images/gallery/DSC09560.jpg",
-    caption: "Hands raised in total surrender and thanksgiving.",
+    title: "Tenor Soloist Ministry",
+    category: "Choir & Soloists",
+    src: "/images/gallery/DSC09678.jpg",
+    caption: "Male chorister lifting his voice in praise, backed by the full choral ensemble on the main stage.",
   },
   {
     id: 8,
-    title: "Sanctuary Glory & Illumination",
-    category: "Atmosphere",
+    title: "Soprano & Alto Choral Harmony",
+    category: "Choir & Soloists",
     src: "/images/gallery/DSC09680.jpg",
-    caption: "A panoramic view of the stage illumination and attentive congregation.",
+    caption: "Female section of Jerusalem Choir singing from their hymnals in unified multi-part harmony.",
   },
   {
     id: 9,
-    title: "Ministers of Choral Praise",
-    category: "Choir",
+    title: "Full Choir & Stage Orchestra",
+    category: "Choir & Soloists",
     src: "/images/gallery/DSC09744.jpg",
-    caption: "Intense passion and vocal devotion during the signature gospel selection.",
+    caption: "Panoramic view of Jerusalem Choir on stage accompanied by live keyboard and violin instrumentation.",
   },
   {
     id: 10,
-    title: "Praise Beyond Barriers",
-    category: "Inclusion",
+    title: "Choir Director Conducting the Anthem",
+    category: "Choral Direction",
     src: "/images/gallery/DSC09749.jpg",
-    caption: "Inclusive worship where every ability is honored and embraced.",
+    caption: "Choir director in green ceremonial gown with red trim conducting the choir from the music score stand.",
   },
   {
     id: 11,
-    title: "Youth & Elders in One Chorus",
-    category: "Fellowship",
+    title: "Joyful Choristers in Praise",
+    category: "Choir & Soloists",
     src: "/images/gallery/DSC09760.jpg",
-    caption: "Generations standing side by side in unbroken fellowship.",
+    caption: "Soprano choristers smiling with radiant joy as they lift praises during the anthem.",
   },
   {
     id: 12,
-    title: "High Energy Gospel Anthems",
-    category: "Worship",
+    title: "Ministration at the Golden Podium",
+    category: "Choral Direction",
     src: "/images/gallery/DSC09778.jpg",
-    caption: "Explosive joy reverberating through the Convocation Arena.",
+    caption: "Concert speaker and choir director addressing the auditorium from the central podium, surrounded by the mass choir.",
   },
   {
     id: 13,
-    title: "The Climax of Choral Praise",
-    category: "Choir",
+    title: "Audio & Sound Engineering Crew",
+    category: "Instrumentals & Sound",
     src: "/images/gallery/DSC09954.jpg",
-    caption: "A crescendo of victory marking the close of an anointed evening.",
+    caption: "Technical sound engineering team managing the digital soundboard and acoustic balance during the live concert.",
   },
   {
     id: 14,
-    title: "Grand Evening Processional",
-    category: "Atmosphere",
+    title: "Free Medical & Dental Outreach Clinic",
+    category: "Medical & Outreach",
     src: "/images/gallery/EMD_2415.jpg",
-    caption: "The ceremonial processional inaugurating the sacred worship hours.",
+    caption: "Volunteer medical doctors and dental team providing free healthcare consultations and check-ups to community members.",
   },
   {
     id: 15,
-    title: "Directing the Heavenly Choir",
-    category: "Choir",
+    title: "Community Health Triage & Registration",
+    category: "Medical & Outreach",
     src: "/images/gallery/EMD_2421.jpg",
-    caption: "Choir direction orchestrating dynamics and spiritual sensitivity.",
+    caption: "Hospitality and healthcare coordination team welcoming patients for free health screenings at the outreach center.",
   },
   {
     id: 16,
-    title: "United Sanctuary Finale",
-    category: "Worship",
+    title: "Free Dental Cleaning & Treatment",
+    category: "Medical & Outreach",
+    src: "/images/gallery/EMD_2424.jpg",
+    caption: "Dental professional performing ultrasonic scaling and oral hygiene care for a beneficiary during the humanitarian outreach.",
+  },
+  {
+    id: 17,
+    title: "Compassionate Dental Care in Progress",
+    category: "Medical & Outreach",
     src: "/images/gallery/EMD_2433.jpg",
-    caption: "The summit moment of praise connecting thousands as one family.",
+    caption: "Specialized dental examination and clinical care provided free of charge as part of the APM compassion ministry.",
   },
 ];
 
-const categories = ["All", "Worship", "Choir", "Inclusion", "Fellowship", "Prayer", "Atmosphere"];
+const categories = [
+  "All",
+  "Choir & Soloists",
+  "Choral Direction",
+  "Instrumentals & Sound",
+  "Medical & Outreach",
+];
 
 export function Gallery() {
   const [activeCategory, setActiveCategory] = useState("All");
@@ -138,16 +151,16 @@ export function Gallery() {
         <div className="text-center mb-12">
           <div className="inline-flex items-center gap-2 glass rounded-full px-4 py-2 mb-4 border border-gold/30">
             <ImageIcon className="w-4 h-4 text-gold-bright" />
-            <span className="text-xs uppercase tracking-widest text-gold-bright font-bold">
-              Visual Archives · Real CIP Moments
+            <span className="text-xs uppercase tracking-widest text-gold-bright font-black">
+              Visual Archives · Authentic CIP Moments
             </span>
           </div>
-          <h2 className="font-display font-bold text-3xl sm:text-4xl md:text-5xl text-ivory mb-4">
-            Moments in <span className="text-gold-bright gold-text">Glory</span>
+          <h2 className="font-display font-black text-3xl sm:text-4xl md:text-5xl text-ivory mb-4">
+            Moments in <span className="text-gold-bright gold-text">Glory & Service</span>
           </h2>
-          <p className="text-ivory/80 max-w-2xl mx-auto text-sm sm:text-base font-medium">
-            Authentic photographs from previous editions of Connected in Praise. Every frame tells a story
-            of God&apos;s manifest grace and barrier-free worship.
+          <p className="text-ivory/80 max-w-2xl mx-auto text-sm sm:text-base font-semibold">
+            Authentic photographs capturing the spirit of Connected in Praise — from anointed choral
+            worship on stage to free community dental and healthcare outreach for the vulnerable.
           </p>
         </div>
 
@@ -157,7 +170,7 @@ export function Gallery() {
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
-              className={`px-4 py-2 rounded-full text-xs sm:text-sm font-bold transition-all duration-300 cursor-pointer ${
+              className={`px-4 py-2 rounded-full text-xs sm:text-sm font-black transition-all duration-300 cursor-pointer ${
                 activeCategory === cat
                   ? "bg-gold-bright text-maroon-deep shadow-[0_0_15px_rgba(255,196,0,0.5)] scale-105"
                   : "glass-card text-ivory/70 hover:text-ivory hover:border-gold/30"
@@ -169,7 +182,7 @@ export function Gallery() {
         </div>
 
         {/* Photos Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
           {filteredItems.map((item) => (
             <div
               key={item.id}
@@ -191,12 +204,15 @@ export function Gallery() {
               {/* Caption Card */}
               <div className="absolute bottom-0 left-0 right-0 p-4 flex items-end justify-between">
                 <div>
-                  <span className="text-[10px] uppercase tracking-wider text-neon font-bold block mb-1">
+                  <span className="text-[10px] uppercase tracking-wider text-neon font-black block mb-1">
                     {item.category}
                   </span>
-                  <h4 className="font-display font-bold text-base text-ivory group-hover:text-gold-bright transition-colors line-clamp-1">
+                  <h4 className="font-display font-extrabold text-base text-ivory group-hover:text-gold-bright transition-colors line-clamp-1">
                     {item.title}
                   </h4>
+                  <p className="text-[11px] text-ivory/70 line-clamp-1 mt-0.5 font-medium">
+                    {item.caption}
+                  </p>
                 </div>
                 <div className="w-8 h-8 rounded-full bg-gold/20 flex items-center justify-center text-gold-bright opacity-0 group-hover:opacity-100 transition-opacity flex-shrink-0 ml-2">
                   <Maximize2 className="w-4 h-4" />
@@ -234,13 +250,13 @@ export function Gallery() {
             </div>
 
             <div className="text-center">
-              <span className="text-xs uppercase tracking-widest text-neon font-bold">
+              <span className="text-xs uppercase tracking-widest text-neon font-black">
                 {selectedPhoto.category}
               </span>
-              <h3 className="font-display font-bold text-xl sm:text-2xl text-ivory mt-1">
+              <h3 className="font-display font-extrabold text-xl sm:text-2xl text-ivory mt-1">
                 {selectedPhoto.title}
               </h3>
-              <p className="text-xs sm:text-sm text-ivory/80 mt-2 max-w-xl mx-auto font-medium">
+              <p className="text-xs sm:text-sm text-ivory/90 mt-2 max-w-xl mx-auto font-semibold">
                 {selectedPhoto.caption}
               </p>
             </div>
