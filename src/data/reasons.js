@@ -1,0 +1,42 @@
+export const praiseReasons = [
+  {
+    id: "saved",
+    title: "Because He Saved Me",
+    short: "Grace & Rescue",
+    detail: "Your praise is a living reminder of grace, rescue, and the new beginning you have received through His unwavering love.",
+    color: "gold",
+    verse: "Psalm 107:1-2",
+  },
+  {
+    id: "story",
+    title: "Because I Have a Story",
+    short: "Courage & Testimony",
+    detail: "Your story gives someone else courage to hold on. Sharing it turns private breakthroughs into a communal song of victory.",
+    color: "brown",
+    verse: "Revelation 12:11",
+  },
+  {
+    id: "nobarrier",
+    title: "Because Praise Has No Barrier",
+    short: "Inclusion & Belonging",
+    detail: "Every voice, every hand, every language, and every ability belongs in worship. Possibility is always greater than limitation.",
+    color: "gold",
+    verse: "Psalm 150:6",
+  },
+  {
+    id: "grateful",
+    title: "Because I Am Grateful",
+    short: "Pure Thanksgiving",
+    detail: "Gratitude changes the spiritual atmosphere. When you choose thanksgiving in every season, strength and joy overflow.",
+    color: "brown",
+    verse: "1 Thessalonians 5:18",
+  },
+  {
+    id: "neverleft",
+    title: "Because He Never Left Me",
+    short: "Unbroken Faithfulness",
+    detail: "Praise keeps us anchored through storms and sunshine alike, reminding us that we never walk this journey alone.",
+    color: "gold",
+    verse: "Hebrews 13:5",
+  },
+];
