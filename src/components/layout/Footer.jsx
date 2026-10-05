@@ -1,5 +1,5 @@
 import React from "react";
-import { Heart, Youtube, Instagram, Facebook, ArrowUp } from "lucide-react";
+import { Heart, Youtube, Facebook, ArrowUp } from "lucide-react";
 import { Logo } from "../ui/Logo";
 
 export function Footer() {
@@ -8,30 +8,33 @@ export function Footer() {
   };
 
   return (
-    <footer className="relative bg-midnight-950 border-t border-gold/15 pt-16 pb-12 overflow-hidden text-ivory/70">
+    <footer className="relative bg-midnight-950 border-t border-gold/20 pt-16 pb-12 overflow-hidden text-ivory/80">
       <div className="relative container-max px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-gold/10">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-gold/15">
           {/* Brand & Wordmark */}
           <div className="md:col-span-5 space-y-4">
             <Logo size="nav" />
-            <p className="text-xs sm:text-sm text-ivory/60 max-w-sm leading-relaxed font-normal">
+            <p className="text-xs sm:text-sm text-ivory/80 max-w-sm leading-relaxed font-semibold">
               Connected in Praise is an annual praise and worship evangelism concert hosted by
               Jerusalem Choir in strategic partnership with Adventist Possibility Ministries (APM).
             </p>
-            <div className="text-xs text-gold-bright font-semibold">
-              Convocation Arena, RSU, Port Harcourt · Nov 4–7, 2026
+            <div className="text-xs text-gold-bright font-black tracking-wide">
+              Convocation Arena, Rivers State University, Oroworukwo, Port Harcourt
+            </div>
+            <div className="text-xs text-neon font-black">
+              Nov 4–6: 6:00 PM – 8:00 PM · Sabbath Nov 7: 8:00 AM – 12:00 PM
             </div>
           </div>
 
           {/* Quick Nav Links */}
           <div className="md:col-span-3 space-y-3">
-            <h4 className="font-display font-bold text-base text-ivory uppercase tracking-wider">
+            <h4 className="font-display font-black text-base text-ivory uppercase tracking-wider">
               Navigation
             </h4>
-            <ul className="space-y-2 text-xs sm:text-sm">
+            <ul className="space-y-2 text-xs sm:text-sm font-bold">
               <li>
                 <a href="#about" className="hover:text-gold-bright transition-colors">
-                  About APM Mission
+                  About APM Inclusion
                 </a>
               </li>
               <li>
@@ -46,12 +49,12 @@ export function Footer() {
               </li>
               <li>
                 <a href="#experience" className="hover:text-gold-bright transition-colors">
-                  4-Day Itinerary
+                  Program Schedule
                 </a>
               </li>
               <li>
                 <a href="#gallery" className="hover:text-gold-bright transition-colors">
-                  Photo Archives
+                  Visual Archives (Gallery)
                 </a>
               </li>
               <li>
@@ -62,57 +65,71 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Accessibility Statement & Socials */}
+          {/* Official Media & Socials */}
           <div className="md:col-span-4 space-y-4">
-            <h4 className="font-display font-bold text-base text-ivory uppercase tracking-wider">
-              Inclusion Commitment
+            <h4 className="font-display font-black text-base text-ivory uppercase tracking-wider">
+              Official Media Channels
             </h4>
-            <p className="text-xs text-ivory/60 leading-relaxed font-normal">
-              Connected in Praise is committed to full accessibility. Every venue entrance, stage
-              presentation, and worship program is engineered for barrier-free participation.
+            <p className="text-xs text-ivory/70 leading-relaxed font-medium">
+              Join thousands of worshippers online. Follow our official pages for real-time video
+              broadcasts, photos, and live session updates.
             </p>
             <div className="flex items-center gap-3 pt-2">
+              {/* TikTok */}
               <a
-                href="https://youtube.com/@connectedinpraise"
+                href="https://www.tiktok.com/@connectedinpraise?_r=1&_t=ZS-99v3wfSwKz"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-xl glass flex items-center justify-center text-gold-bright hover:bg-gold/20 transition-all"
-                aria-label="YouTube"
+                className="w-10 h-10 rounded-2xl glass border border-gold/30 flex items-center justify-center text-ivory hover:text-gold-bright hover:bg-gold/20 transition-all font-black text-sm"
+                aria-label="TikTok"
+                title="Follow on TikTok"
               >
-                <Youtube className="w-4 h-4" />
+                ♪
               </a>
+
+              {/* Facebook */}
               <a
-                href="https://instagram.com"
+                href="https://www.facebook.com/profile.php?id=61578565720573"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-xl glass flex items-center justify-center text-gold-bright hover:bg-gold/20 transition-all"
-                aria-label="Instagram"
-              >
-                <Instagram className="w-4 h-4" />
-              </a>
-              <a
-                href="https://facebook.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-9 h-9 rounded-xl glass flex items-center justify-center text-gold-bright hover:bg-gold/20 transition-all"
+                className="w-10 h-10 rounded-2xl glass border border-gold/30 flex items-center justify-center text-blue-400 hover:text-gold-bright hover:bg-gold/20 transition-all"
                 aria-label="Facebook"
+                title="Connect on Facebook"
               >
                 <Facebook className="w-4 h-4" />
               </a>
+
+              {/* YouTube */}
+              <a
+                href="https://youtube.com/@connectedinpraise?si=JpVeFaqQFqMPO_fL"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-2xl glass border border-gold/30 flex items-center justify-center text-red-500 hover:text-gold-bright hover:bg-gold/20 transition-all"
+                aria-label="YouTube"
+                title="Subscribe on YouTube"
+              >
+                <Youtube className="w-4 h-4" />
+              </a>
+            </div>
+
+            <div className="text-xs text-ivory/60 pt-2 font-medium">
+              Inquiries: <span className="text-gold-bright font-bold">connectedinpraise@gmail.com</span>
+              <br />
+              Hotline: <span className="text-gold-bright font-bold">+234 818 463 9632</span>
             </div>
           </div>
         </div>
 
         {/* Bottom Bar with Back to Top */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-ivory/50">
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-ivory/60 font-semibold">
           <p>
-            &copy; 2026 Connected in Praise & Jerusalem Choir. All rights reserved. Built with{" "}
-            <Heart className="w-3.5 h-3.5 text-neon inline" /> for God&apos;s glory.
+            &copy; 2026 Connected in Praise & Jerusalem Choir. All rights reserved. Worship movement for
+            God&apos;s glory.
           </p>
 
           <button
             onClick={scrollToTop}
-            className="flex items-center gap-1.5 text-gold-bright hover:text-white transition-colors cursor-pointer"
+            className="flex items-center gap-1.5 text-gold-bright hover:text-white transition-colors cursor-pointer font-bold"
           >
             <span>Back to top</span>
             <ArrowUp className="w-4 h-4" />

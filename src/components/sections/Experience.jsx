@@ -38,20 +38,21 @@ export function Experience() {
                 key={idx}
                 type="button"
                 onClick={() => setActiveDayIdx(idx)}
-                className={`flex flex-col items-center px-6 py-3 rounded-2xl transition-all duration-300 cursor-pointer ${
+                className={`flex flex-col items-center px-5 sm:px-7 py-3.5 rounded-2xl transition-all duration-300 cursor-pointer ${
                   isActive
-                    ? "glass-card-warm border-2 border-gold-bright shadow-[0_0_20px_rgba(255,196,0,0.3)] scale-105"
-                    : "glass-card border border-gold/15 opacity-60 hover:opacity-100 hover:border-gold/30"
+                    ? "glass-card-warm border-2 border-gold-bright shadow-[0_0_20px_rgba(255,196,0,0.35)] scale-105"
+                    : "glass-card border border-gold/20 opacity-70 hover:opacity-100 hover:border-gold/40"
                 }`}
               >
                 <span
-                  className={`font-display font-bold text-base sm:text-lg ${
+                  className={`font-display font-extrabold text-base sm:text-lg ${
                     isActive ? "text-gold-bright" : "text-ivory"
                   }`}
                 >
                   {item.day}
                 </span>
-                <span className="text-xs text-ivory/60 font-semibold">{item.date}</span>
+                <span className="text-xs text-ivory/80 font-bold">{item.date}</span>
+                <span className="text-[10px] text-neon font-black mt-0.5">{item.timeSpan}</span>
               </button>
             );
           })}

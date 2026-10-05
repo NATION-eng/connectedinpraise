@@ -10,11 +10,11 @@
   }
 
   body {
-    @apply bg-maroon-deep font-body text-ivory font-medium overflow-x-hidden;
+    @apply bg-maroon-deep font-body text-ivory font-semibold overflow-x-hidden;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-display font-bold;
+    @apply font-display font-extrabold tracking-tight;
   }
 
   ::-webkit-scrollbar {

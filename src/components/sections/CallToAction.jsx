@@ -21,40 +21,44 @@ export function CallToAction() {
       <div className="relative z-10 container-max px-4 sm:px-6 lg:px-8 text-center max-w-4xl mx-auto">
         <div className="inline-flex items-center gap-2 glass rounded-full px-5 py-2 mb-6 border border-gold/30 shadow-[0_0_20px_rgba(242,169,0,0.2)]">
           <Sparkles className="w-4 h-4 text-gold-bright" />
-          <span className="text-xs uppercase tracking-widest text-gold-bright font-bold">
+          <span className="text-xs uppercase tracking-widest text-gold-bright font-black">
             Be Part of the Sacred Movement
           </span>
         </div>
 
-        <h2 className="font-display font-bold text-3xl sm:text-5xl md:text-6xl text-ivory leading-tight mb-6">
+        <h2 className="font-display font-black text-3xl sm:text-5xl md:text-6xl text-ivory leading-tight mb-6">
           Your Voice Completes the{" "}
           <span className="bg-gradient-to-r from-neon via-gold-bright to-neon bg-clip-text text-transparent gold-text">
             Symphony
           </span>
         </h2>
 
-        <p className="text-base sm:text-lg text-ivory/80 max-w-2xl mx-auto mb-10 leading-relaxed font-normal">
-          Whether you join us physically at the Convocation Arena in Port Harcourt or tune in
+        <p className="text-base sm:text-lg text-ivory/90 max-w-2xl mx-auto mb-6 leading-relaxed font-semibold">
+          Whether you join us physically at Convocation Arena, Rivers State University, or tune in
           digitally from across the globe — there is an anointed place reserved specifically for you.
+        </p>
+
+        <p className="text-xs sm:text-sm text-gold-bright font-extrabold mb-10 tracking-wider">
+          ✦ Nov 4–6: 6:00 PM – 8:00 PM · Sabbath Nov 7: 8:00 AM – 12:00 PM ✦
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-md mx-auto">
           <button
             onClick={() => scrollTo("#contact")}
-            className="btn-gold w-full sm:w-auto inline-flex items-center justify-center gap-2 text-sm sm:text-base py-3.5 px-8 cursor-pointer shadow-2xl"
+            className="btn-gold w-full sm:w-auto inline-flex items-center justify-center gap-2 text-sm sm:text-base font-black py-4 px-8 cursor-pointer shadow-2xl uppercase tracking-wider"
           >
             <Heart className="w-4 h-4 text-maroon-deep" />
-            <span>Plan Your Attendance</span>
+            <span>Connect With Us</span>
             <ArrowRight className="w-4 h-4" />
           </button>
           <a
-            href="https://youtube.com/@connectedinpraise"
+            href="https://youtube.com/@connectedinpraise?si=JpVeFaqQFqMPO_fL"
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-outline w-full sm:w-auto inline-flex items-center justify-center gap-2 text-sm sm:text-base py-3.5 px-8"
+            className="btn-outline w-full sm:w-auto inline-flex items-center justify-center gap-2 text-sm sm:text-base font-black py-3.5 px-8"
           >
-            <Radio className="w-4 h-4 text-neon" />
-            <span>Subscribe to Livestream</span>
+            <Radio className="w-4 h-4 text-neon animate-pulse" />
+            <span>Watch Livestream</span>
           </a>
         </div>
       </div>
