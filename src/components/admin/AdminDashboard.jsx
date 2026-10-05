@@ -263,64 +263,86 @@ export function AdminDashboard({ onBackToHome }) {
 
       {/* Full-Page Admin Top Bar */}
       <header className="relative z-30 sticky top-0 glass border-b border-gold/25 backdrop-blur-2xl">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between gap-4">
-          {/* Back to Public Concert Website */}
-          <button
-            onClick={onBackToHome}
-            className="inline-flex items-center gap-2 text-xs sm:text-sm font-extrabold text-ivory/85 hover:text-gold-bright transition-colors px-3.5 sm:px-4 py-2 rounded-full border border-gold/30 hover:border-gold-bright bg-black/40 cursor-pointer shadow-sm group"
-          >
-            <ArrowLeft className="w-4 h-4 text-gold-bright group-hover:-translate-x-1 transition-transform" />
-            <span>Back to CIP 2026</span>
-          </button>
-
-          {/* Center Brand Identity */}
-          <div className="flex items-center gap-2 sm:gap-3 select-none">
-            <Logo size="nav" />
-            <span className="hidden sm:inline-block w-px h-5 bg-gold/30" />
-            <span className="hidden sm:inline-flex items-center gap-1.5 text-xs font-black uppercase tracking-wider text-gold-bright bg-gold/15 px-2.5 py-0.5 rounded-full border border-gold/30">
-              <ShieldCheck className="w-3.5 h-3.5 text-neon" />
-              <span>Admin Center</span>
-            </span>
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between flex-nowrap gap-2 sm:gap-4 w-full">
+          {/* Left: Brand Identity & Portal Indicator */}
+          <div className="flex items-center gap-2 sm:gap-3 flex-shrink-0 min-w-0">
+            <button
+              onClick={onBackToHome}
+              className="flex items-center gap-2 group cursor-pointer focus:outline-none transition-transform hover:scale-[1.02]"
+              title="Return to Connected in Praise 2026 Homepage"
+              aria-label="CIP 2026 Home"
+            >
+              <Logo size="nav" />
+            </button>
+            <span className="hidden xs:inline-block w-px h-5 bg-gold/30 flex-shrink-0" />
+            <div className="inline-flex items-center gap-1.5 text-[10px] sm:text-xs font-black uppercase tracking-wider text-gold-bright bg-gold/15 px-2 sm:px-2.5 py-1 rounded-full border border-gold/30 shadow-sm flex-shrink-0">
+              <ShieldCheck className="w-3 sm:w-3.5 h-3 sm:h-3.5 text-neon" />
+              <span className="hidden sm:inline">Administrator Portal</span>
+              <span className="sm:hidden">Admin Portal</span>
+            </div>
           </div>
 
-          {/* Right Action Area */}
-          <div className="flex items-center gap-2 sm:gap-3">
+          {/* Right: Actions, Security Status & Navigation */}
+          <div className="flex items-center gap-1.5 sm:gap-2.5 flex-shrink-0">
             {isAuthenticated ? (
               <>
+                {/* Refresh Database */}
                 <button
                   onClick={loadAllData}
                   disabled={isLoading}
-                  className="inline-flex items-center gap-1.5 text-xs font-bold text-ivory/80 hover:text-gold-bright transition-colors px-3 py-1.5 rounded-xl border border-gold/25 hover:border-gold/50 bg-black/30 cursor-pointer disabled:opacity-50"
-                  title="Reload from database"
+                  className="inline-flex items-center gap-1.5 text-xs font-bold text-ivory/80 hover:text-gold-bright transition-colors p-2 sm:px-3 sm:py-1.5 rounded-xl border border-gold/25 hover:border-gold/50 bg-black/40 cursor-pointer disabled:opacity-50 shadow-sm"
+                  title="Reload records from database"
+                  aria-label="Refresh records"
                 >
-                  <RefreshCw className={`w-3.5 h-3.5 ${isLoading ? "animate-spin" : ""}`} />
-                  <span className="hidden sm:inline">Refresh</span>
+                  <RefreshCw className={`w-3.5 h-3.5 text-gold-bright ${isLoading ? "animate-spin" : ""}`} />
+                  <span className="hidden md:inline whitespace-nowrap">Refresh</span>
                 </button>
 
+                {/* Change Passcode */}
                 <button
                   onClick={() => setIsChangingPasscode(!isChangingPasscode)}
-                  className="inline-flex items-center gap-1.5 text-xs font-bold text-gold-bright transition-colors px-3 py-1.5 rounded-xl border border-gold/30 hover:border-gold-bright bg-black/30 cursor-pointer"
+                  className={`inline-flex items-center gap-1.5 text-xs font-bold transition-colors p-2 sm:px-3 sm:py-1.5 rounded-xl border cursor-pointer shadow-sm ${
+                    isChangingPasscode
+                      ? "border-neon bg-neon/10 text-gold-bright"
+                      : "border-gold/30 hover:border-gold-bright bg-black/40 text-gold-bright"
+                  }`}
                   title="Change master passcode"
+                  aria-label="Change master passcode"
                 >
                   <KeyRound className="w-3.5 h-3.5 text-neon" />
-                  <span className="hidden md:inline">Change Passcode</span>
+                  <span className="hidden lg:inline whitespace-nowrap">Passcode</span>
                 </button>
 
+                {/* Lock Session */}
                 <button
                   onClick={handleLogout}
-                  className="inline-flex items-center gap-1.5 text-xs font-bold text-red-400 hover:text-red-300 transition-colors px-3 py-1.5 rounded-xl border border-red-500/30 hover:bg-red-500/10 cursor-pointer"
+                  className="inline-flex items-center gap-1.5 text-xs font-bold text-red-400 hover:text-red-300 transition-colors p-2 sm:px-3 sm:py-1.5 rounded-xl border border-red-500/30 hover:bg-red-500/15 bg-black/40 cursor-pointer shadow-sm"
                   title="Lock session"
+                  aria-label="Lock admin session"
                 >
                   <LogOut className="w-3.5 h-3.5" />
-                  <span>Lock</span>
+                  <span className="hidden sm:inline whitespace-nowrap">Lock</span>
                 </button>
+
+                <span className="hidden sm:inline-block w-px h-5 bg-gold/25 mx-0.5" />
               </>
             ) : (
-              <div className="inline-flex items-center gap-1.5 text-[11px] font-bold text-ivory/60 bg-black/30 px-3 py-1 rounded-full border border-gold/20">
+              <div className="inline-flex items-center gap-1 sm:gap-1.5 text-[10px] sm:text-xs font-bold text-ivory/70 bg-black/40 px-2 sm:px-3 py-1 rounded-full border border-gold/20">
                 <Lock className="w-3 h-3 text-gold-bright" />
-                <span>Protected</span>
+                <span className="whitespace-nowrap">Protected</span>
               </div>
             )}
+
+            {/* Back to Public Website CTA */}
+            <button
+              onClick={onBackToHome}
+              className="inline-flex items-center gap-1.5 text-xs font-black text-ivory/90 hover:text-gold-bright transition-all px-2.5 sm:px-4 py-1.5 sm:py-2 rounded-full border border-gold/40 hover:border-gold-bright bg-black/50 hover:bg-gold/10 cursor-pointer shadow-sm group flex-shrink-0"
+              title="Return to Connected in Praise 2026 website"
+            >
+              <ArrowLeft className="w-3.5 sm:w-4 h-3.5 sm:h-4 text-gold-bright group-hover:-translate-x-1 transition-transform" />
+              <span className="hidden sm:inline whitespace-nowrap">Back to Site</span>
+              <span className="sm:hidden whitespace-nowrap">Exit</span>
+            </button>
           </div>
         </div>
       </header>
