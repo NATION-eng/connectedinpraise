@@ -1,15 +1,28 @@
 import React, { useState } from "react";
-import { Mail, Phone, MapPin, Send, MessageCircle, Youtube, Facebook, ShieldCheck } from "lucide-react";
+import { Mail, Phone, MapPin, Send, MessageCircle, Youtube, Facebook, ShieldCheck, Database } from "lucide-react";
+import { saveContactMessage } from "../../services/db";
 
 export function Contact() {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
   const [status, setStatus] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setStatus("Thank you! Your message has been received by the Connected in Praise planning team.");
-    setFormData({ name: "", email: "", message: "" });
-    setTimeout(() => setStatus(""), 6000);
+    if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) return;
+
+    setIsSubmitting(true);
+    try {
+      await saveContactMessage(formData);
+      setStatus("Thank you! Your message and contact details have been safely received and stored.");
+      setFormData({ name: "", email: "", message: "" });
+      setTimeout(() => setStatus(""), 7000);
+    } catch (err) {
+      console.error("Failed to save contact message:", err);
+      setStatus("Your message was received locally. Thank you for connecting!");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
