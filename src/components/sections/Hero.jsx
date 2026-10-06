@@ -61,17 +61,17 @@ export function Hero() {
           </h2>
         </div>
 
-        {/* Master Festival Headline: Connected in Praise (Zero Clipping, Perfectly Proportioned Across All Devices) */}
-        <div className="relative my-1.5 sm:my-3 select-none animate-fade-in-scale w-full max-w-4xl mx-auto px-2">
-          <h1 className="font-montserrat font-black text-3xl xs:text-4xl sm:text-6xl md:text-7xl lg:text-[5rem] xl:text-[5.5rem] tracking-tight leading-[1.05] text-white drop-shadow-[0_6px_35px_rgba(0,0,0,0.9)]">
-            <span className="text-milk inline-block">Connected</span>{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-sunburst to-secondary inline-block drop-shadow-[0_4px_25px_rgba(242,101,34,0.4)]">
-              in Praise
+        {/* Master Festival Headline: CONNECTED IN PRAISE in Bold Block Format (Horizontal, Zero Vertical Stacking) */}
+        <div className="relative my-2 sm:my-3 select-none animate-fade-in-scale w-full max-w-4xl mx-auto px-2">
+          <h1 className="font-montserrat font-black text-2xl xs:text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5rem] uppercase tracking-wide sm:tracking-tight leading-tight text-white drop-shadow-[0_4px_30px_rgba(0,0,0,0.9)]">
+            <span className="text-milk">CONNECTED IN </span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-sunburst to-secondary drop-shadow-[0_4px_25px_rgba(242,101,34,0.4)]">
+              PRAISE
             </span>
           </h1>
 
           {/* Golden & Milk Sunburst Horizon Ray */}
-          <div className="mx-auto mt-2 sm:mt-4 h-1 w-28 sm:w-56 rounded-full bg-gradient-to-r from-transparent via-primary to-transparent shadow-[0_0_20px_rgba(255,200,59,0.8)]" />
+          <div className="mx-auto mt-2 sm:mt-3 h-1 w-24 sm:w-48 rounded-full bg-gradient-to-r from-transparent via-primary to-transparent shadow-[0_0_15px_rgba(255,200,59,0.8)]" />
         </div>
 
         {/* Movement Description - Clean High-Contrast Milk Writeup */}
