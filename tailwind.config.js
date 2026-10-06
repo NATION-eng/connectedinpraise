@@ -36,12 +36,13 @@ export default {
         cream: '#FFF3D6',
       },
       fontFamily: {
+        syne: ['Syne', 'Montserrat', 'sans-serif'],
+        display: ['Syne', 'Montserrat', 'sans-serif'],
         montserrat: ['Montserrat', 'sans-serif'],
-        sans: ['Plus Jakarta Sans', 'Montserrat', 'sans-serif'],
-        display: ['Montserrat', 'sans-serif'],
-        brush: ['Caveat', 'Pacifico', 'cursive'],
-        script: ['Pacifico', 'Caveat', 'cursive'],
-        body: ['Plus Jakarta Sans', 'sans-serif'],
+        sans: ['"Plus Jakarta Sans"', 'Montserrat', 'sans-serif'],
+        body: ['"Plus Jakarta Sans"', 'sans-serif'],
+        brush: ['Syne', 'Montserrat', 'sans-serif'],
+        script: ['Syne', 'Montserrat', 'sans-serif'],
         atkinson: ['"Atkinson Hyperlegible"', 'sans-serif'],
       },
       animation: {

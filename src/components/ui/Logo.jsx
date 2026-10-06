@@ -5,10 +5,10 @@ export function Logo({ size = "nav" }) {
   if (size === "nav") {
     return (
       <div className="inline-flex items-center gap-2 select-none group" aria-label="CIP 2026">
-        <span className="font-script text-2xl sm:text-3xl tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-gold-bright via-gold to-neon group-hover:scale-105 transition-transform duration-300 drop-shadow-[0_2px_10px_rgba(255,196,0,0.3)]">
+        <span className="font-syne font-black text-2xl sm:text-3xl tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-sunburst via-primary to-secondary group-hover:scale-105 transition-transform duration-500 delay-150 ease-[cubic-bezier(0.23,1,0.32,1)] drop-shadow-[0_2px_10px_rgba(255,200,59,0.35)]">
           CIP
         </span>
-        <span className="text-[11px] sm:text-xs font-black text-gold-bright tracking-wider px-2 py-0.5 rounded-full border border-gold/40 bg-gold/15 shadow-sm group-hover:border-gold-bright transition-colors">
+        <span className="text-[11px] sm:text-xs font-syne font-extrabold text-primary tracking-wider px-2 py-0.5 rounded-full border border-primary/40 bg-primary/15 shadow-sm group-hover:border-primary transition-colors duration-500 delay-150">
           2026
         </span>
       </div>
