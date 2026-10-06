@@ -17,6 +17,10 @@ export default {
         secondary: '#F26522',
         accent: '#FF8C00',
         sunburst: '#FFF6DC',
+        milk: '#FFFDF5',
+        'milk-soft': '#FFF9EB',
+        'milk-cream': '#FFF3D6',
+        'milk-warm': '#FDEFD0',
         gold: '#FFC83B',
         'gold-bright': '#FFD54F',
         'gold-deep': '#FFA000',
@@ -28,8 +32,8 @@ export default {
         'midnight-900': '#1A0405',
         espresso: '#1A0405',
         obsidian: '#0D0404',
-        ivory: '#FFF8E7',
-        cream: '#FFF1D0',
+        ivory: '#FFFDF5',
+        cream: '#FFF3D6',
       },
       fontFamily: {
         montserrat: ['Montserrat', 'sans-serif'],
@@ -55,6 +59,13 @@ export default {
         'fade-in-up': 'fade-in-up 0.8s ease-out forwards',
         'fade-in-scale': 'fade-in-scale 0.6s ease-out forwards',
         'scale-in': 'scale-in 0.6s ease-out forwards',
+      },
+      transitionDelay: {
+        '50': '50ms',
+        '100': '100ms',
+        '150': '150ms',
+        '200': '200ms',
+        '250': '250ms',
       },
       keyframes: {
         float: {

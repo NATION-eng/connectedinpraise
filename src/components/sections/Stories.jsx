@@ -92,25 +92,25 @@ export function Stories() {
           {testimonials.map((item) => (
             <div
               key={item.id}
-              className="bg-black/45 backdrop-blur-xl p-6 sm:p-8 rounded-3xl border border-white/10 hover:border-primary/40 flex flex-col justify-between relative shadow-xl group transition-all duration-300 hover:-translate-y-1.5"
+              className="bg-black/55 backdrop-blur-xl p-6 sm:p-8 rounded-3xl border border-milk/10 hover:border-primary/50 flex flex-col justify-between relative shadow-xl group transition-all duration-500 delay-75 ease-[cubic-bezier(0.23,1,0.32,1)] hover:-translate-y-2 hover:shadow-[0_15px_30px_rgba(255,200,59,0.2)]"
             >
               <div>
                 <Quote className="w-8 h-8 text-primary/40 mb-4" />
-                <p className="font-montserrat italic font-medium text-base text-white/90 leading-relaxed mb-6">
+                <p className="font-montserrat italic font-medium text-base text-milk leading-relaxed mb-6">
                   &ldquo;{item.content}&rdquo;
                 </p>
               </div>
 
-              <div className="flex items-center gap-4 pt-4 border-t border-white/10">
+              <div className="flex items-center gap-4 pt-4 border-t border-milk/10">
                 <img
                   src={item.avatar}
                   alt={item.name}
                   className="w-12 h-12 rounded-full object-cover border-2 border-primary shadow-md"
                 />
                 <div>
-                  <h4 className="font-montserrat font-black text-white text-base">{item.name}</h4>
+                  <h4 className="font-montserrat font-black text-milk text-base">{item.name}</h4>
                   <p className="text-xs text-primary font-bold">{item.role}</p>
-                  <p className="text-[10px] text-white/60 font-medium">{item.location}</p>
+                  <p className="text-[10px] text-milk/60 font-medium">{item.location}</p>
                 </div>
               </div>
             </div>

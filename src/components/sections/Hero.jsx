@@ -63,21 +63,21 @@ export function Hero() {
           </h2>
         </div>
 
-        {/* Title: Connected in Praise (High-Impact Brush Wordmark) */}
-        <div className="relative my-2 sm:my-4 select-none animate-fade-in-scale">
+        {/* Title: Connected in Praise (High-Impact Brush Wordmark with Full Overflow & Zero Clipping) */}
+        <div className="relative my-3 sm:my-6 py-2 px-4 select-none animate-fade-in-scale overflow-visible w-full max-w-4xl">
           {/* Floating Musical Clef from Flyer */}
-          <span className="absolute -top-4 sm:-top-6 -left-6 sm:-left-10 text-primary text-3xl sm:text-5xl font-black drop-shadow-[0_4px_16px_rgba(255,200,59,0.8)] animate-float">
+          <span className="absolute -top-6 sm:-top-8 -left-4 sm:left-4 text-primary text-3xl sm:text-5xl font-black drop-shadow-[0_4px_16px_rgba(255,200,59,0.8)] animate-float pointer-events-none">
             𝄞
           </span>
 
-          <h1 className="font-brush text-6xl sm:text-8xl md:text-9xl leading-[1.05] tracking-wide text-transparent bg-clip-text bg-gradient-to-b from-sunburst via-primary to-secondary drop-shadow-[0_6px_25px_rgba(242,101,34,0.7)]">
+          <h1 className="font-brush text-5xl xs:text-6xl sm:text-8xl md:text-9xl leading-[1.18] tracking-wide text-transparent bg-clip-text bg-gradient-to-b from-milk via-primary to-secondary drop-shadow-[0_6px_25px_rgba(242,101,34,0.7)] py-1">
             Connected
           </h1>
-          <div className="flex items-center justify-center gap-2 sm:gap-4 -mt-2 sm:-mt-5">
-            <span className="font-montserrat text-sm sm:text-xl font-black uppercase tracking-[0.3em] text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
+          <div className="flex items-center justify-center gap-2 sm:gap-4 pt-1 sm:pt-2 overflow-visible">
+            <span className="font-montserrat text-sm sm:text-xl font-black uppercase tracking-[0.3em] text-milk drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
               in
             </span>
-            <span className="font-brush text-5xl sm:text-7xl md:text-8xl leading-none text-transparent bg-clip-text bg-gradient-to-b from-sunburst via-primary to-secondary drop-shadow-[0_6px_25px_rgba(242,101,34,0.7)]">
+            <span className="font-brush text-5xl xs:text-6xl sm:text-8xl md:text-9xl leading-[1.18] text-transparent bg-clip-text bg-gradient-to-b from-milk via-primary to-secondary drop-shadow-[0_6px_25px_rgba(242,101,34,0.7)] py-1">
               Praise
             </span>
             <span className="text-secondary text-2xl sm:text-4xl animate-bounce-slow drop-shadow-[0_2px_10px_rgba(242,101,34,0.8)]">
@@ -85,19 +85,19 @@ export function Hero() {
             </span>
           </div>
 
-          {/* Golden Sunburst Horizon Arc */}
-          <div className="mx-auto mt-2 h-1.5 w-48 sm:w-80 rounded-full bg-gradient-to-r from-transparent via-primary to-transparent shadow-[0_0_20px_rgba(255,200,59,0.8)]" />
+          {/* Golden & Milk Sunburst Horizon Arc */}
+          <div className="mx-auto mt-4 h-1.5 w-48 sm:w-80 rounded-full bg-gradient-to-r from-transparent via-primary to-transparent shadow-[0_0_20px_rgba(255,200,59,0.8)]" />
         </div>
 
-        {/* Movement Description (High Contrast Scrim Container: Pure White with Atkinson Gold Accent) */}
-        <div className="relative my-5 max-w-2xl mx-auto px-5 py-3.5 rounded-2xl bg-black/50 backdrop-blur-md border border-white/10 shadow-[0_8px_30px_rgba(0,0,0,0.6)]">
-          <p className="text-sm sm:text-base md:text-lg text-white max-w-2xl mx-auto leading-relaxed font-normal">
+        {/* Movement Description (High Contrast Scrim Container: Pure Radiant Milk with Atkinson Gold Accent) */}
+        <div className="relative my-5 max-w-2xl mx-auto px-5 py-4 rounded-2xl bg-black/55 backdrop-blur-md border border-milk/15 shadow-[0_8px_30px_rgba(0,0,0,0.6)]">
+          <p className="text-sm sm:text-base md:text-lg text-milk max-w-2xl mx-auto leading-relaxed font-normal">
             An annual praise and worship evangelism concert hosted by{" "}
-            <strong className="text-white font-extrabold underline decoration-primary/40 underline-offset-4">
+            <strong className="text-milk font-extrabold underline decoration-primary/50 underline-offset-4">
               Jerusalem Choir
             </strong>{" "}
             in strategic partnership with{" "}
-            <strong className="text-white font-extrabold underline decoration-primary/40 underline-offset-4">
+            <strong className="text-milk font-extrabold underline decoration-primary/50 underline-offset-4">
               Adventist Possibility Ministries
             </strong>{" "}
             dedicated this year to{" "}
@@ -135,26 +135,26 @@ export function Hero() {
         </div>
 
         {/* Schedule & Venue Pill Badge (From Official Flyer) */}
-        <div className="inline-flex flex-col sm:flex-row items-center gap-2 sm:gap-4 px-4 sm:px-6 py-2.5 rounded-2xl sm:rounded-full bg-black/60 backdrop-blur-xl border border-primary/30 shadow-xl max-w-full">
+        <div className="inline-flex flex-col sm:flex-row items-center gap-2 sm:gap-4 px-4 sm:px-6 py-2.5 rounded-2xl sm:rounded-full bg-black/60 backdrop-blur-xl border border-milk/15 shadow-xl max-w-full">
           <div className="flex items-center gap-2">
             <Calendar className="w-3.5 h-3.5 text-primary flex-shrink-0" />
-            <span className="font-montserrat text-xs sm:text-sm font-extrabold text-white">
+            <span className="font-montserrat text-xs sm:text-sm font-extrabold text-milk">
               <strong className="text-primary font-black">4TH – 7TH</strong> NOVEMBER, 2026
             </span>
           </div>
 
-          <span className="hidden sm:inline text-white/30">•</span>
+          <span className="hidden sm:inline text-milk/30">•</span>
 
           <div className="flex items-center gap-2">
             <Clock className="w-3.5 h-3.5 text-secondary flex-shrink-0" />
-            <span className="text-xs sm:text-sm text-white/90 font-medium">
+            <span className="text-xs sm:text-sm text-milk/90 font-medium">
               Nov 4–6: 6PM–8PM · Sabbath Nov 7: 8AM–12PM
             </span>
           </div>
 
-          <span className="hidden sm:inline text-white/30">•</span>
+          <span className="hidden sm:inline text-milk/30">•</span>
 
-          <div className="flex items-center gap-1.5 text-white/80 text-xs">
+          <div className="flex items-center gap-1.5 text-milk/80 text-xs">
             <MapPin className="w-3.5 h-3.5 text-primary flex-shrink-0" />
             <span className="font-bold">Convocation Arena, Rivers State University</span>
           </div>

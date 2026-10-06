@@ -38,15 +38,15 @@ export function StatsBar() {
           {stats.map((stat, idx) => (
             <StaggerItem key={idx}>
               <div
-                className="bg-black/50 backdrop-blur-xl p-5 sm:p-7 rounded-3xl border border-white/10 hover:border-primary/50 flex flex-col items-center text-center group transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] hover:-translate-y-2 hover:shadow-[0_15px_30px_rgba(255,200,59,0.2)] shadow-lg"
+                className="bg-black/55 backdrop-blur-xl p-5 sm:p-7 rounded-3xl border border-milk/10 hover:border-primary/50 flex flex-col items-center text-center group transition-all duration-500 delay-75 ease-[cubic-bezier(0.23,1,0.32,1)] hover:-translate-y-2 hover:shadow-[0_15px_30px_rgba(255,200,59,0.2)] shadow-lg"
               >
-                <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-white/5 flex items-center justify-center border border-white/10 mb-4 group-hover:scale-110 group-hover:bg-primary/15 group-hover:border-primary/40 transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)]">
+                <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-white/5 flex items-center justify-center border border-milk/15 mb-4 group-hover:scale-110 group-hover:bg-primary/15 group-hover:border-primary/40 transition-all duration-500 delay-75 ease-[cubic-bezier(0.23,1,0.32,1)]">
                   {stat.icon}
                 </div>
-                <div className="font-montserrat font-black text-3xl sm:text-4xl lg:text-5xl bg-gradient-to-br from-sunburst via-primary to-secondary bg-clip-text text-transparent tracking-tight">
+                <div className="font-montserrat font-black text-3xl sm:text-4xl lg:text-5xl bg-gradient-to-br from-milk via-primary to-secondary bg-clip-text text-transparent tracking-tight">
                   <CounterNumber value={stat.value} duration={2200} />
                 </div>
-                <div className="text-xs sm:text-sm text-white/75 mt-2 max-w-[190px] leading-snug font-semibold group-hover:text-white transition-colors duration-300">
+                <div className="text-xs sm:text-sm text-milk/75 mt-2 max-w-[190px] leading-snug font-semibold group-hover:text-milk transition-colors duration-300">
                   {stat.label}
                 </div>
               </div>

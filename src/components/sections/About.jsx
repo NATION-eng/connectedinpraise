@@ -119,24 +119,24 @@ export function About() {
             {pillars.map((pillar, idx) => (
               <StaggerItem key={idx}>
                 <div
-                  className="bg-black/50 backdrop-blur-xl p-6 sm:p-7 rounded-3xl border border-white/10 hover:border-primary/50 shadow-xl transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] hover:-translate-y-2 hover:shadow-[0_15px_30px_rgba(255,200,59,0.2)] group flex flex-col justify-between h-full"
+                  className="bg-black/55 backdrop-blur-xl p-6 sm:p-7 rounded-3xl border border-milk/10 hover:border-primary/50 shadow-xl transition-all duration-500 delay-75 ease-[cubic-bezier(0.23,1,0.32,1)] hover:-translate-y-2 hover:shadow-[0_15px_30px_rgba(255,200,59,0.2)] group flex flex-col justify-between h-full"
                 >
                   <div>
-                    <div className="w-13 h-13 rounded-2xl bg-white/5 border border-white/10 group-hover:border-primary/50 group-hover:bg-primary/15 transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] flex items-center justify-center mb-5">
+                    <div className="w-13 h-13 rounded-2xl bg-white/5 border border-milk/15 group-hover:border-primary/50 group-hover:bg-primary/15 transition-all duration-500 delay-75 ease-[cubic-bezier(0.23,1,0.32,1)] flex items-center justify-center mb-5">
                       {pillar.icon}
                     </div>
-                    <h4 className="font-montserrat font-black text-base sm:text-lg text-white mb-1 group-hover:text-primary transition-colors duration-300">
+                    <h4 className="font-montserrat font-black text-base sm:text-lg text-milk mb-1 group-hover:text-primary transition-colors duration-300">
                       {pillar.title}
                     </h4>
                     <span className="text-[11px] font-bold text-secondary uppercase tracking-wider block mb-3">
                       {pillar.tagline}
                     </span>
-                    <p className="text-xs sm:text-sm text-white/70 leading-relaxed font-normal mb-5">
+                    <p className="text-xs sm:text-sm text-milk/75 leading-relaxed font-normal mb-5">
                       {pillar.description}
                     </p>
                   </div>
 
-                  <ul className="space-y-2 pt-4 border-t border-white/10 text-xs font-semibold text-white/80">
+                  <ul className="space-y-2 pt-4 border-t border-milk/10 text-xs font-semibold text-milk/85">
                     {pillar.features.map((feat, fIdx) => (
                       <li key={fIdx} className="flex items-center gap-2">
                         <CheckCircle className="w-3.5 h-3.5 text-primary flex-shrink-0" />

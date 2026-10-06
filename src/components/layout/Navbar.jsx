@@ -88,23 +88,25 @@ export function Navbar() {
           </ul>
 
           {/* Action Area: FTLOM Liquid CTA & Mobile Drawer Toggle */}
-          <div className="flex items-center gap-2 sm:gap-3 flex-shrink-0">
-            {/* Signature Liquid Fill Button */}
+          <div className="flex items-center gap-3 flex-shrink-0">
+            {/* Signature Liquid Fill Button - Highly Visible, Radiant Milk & Gold Accent */}
             <LiquidButton
               href={SOCIAL_LINKS.youtube}
               target="_blank"
               rel="noopener noreferrer"
               variant="primary"
-              className="!px-4 sm:!px-6 !py-1.5 sm:!py-2 !text-xs sm:!text-[13px] flex-shrink-0 shadow-lg"
+              className="!px-5 sm:!px-7 !py-2 sm:!py-2.5 !text-xs sm:!text-sm flex-shrink-0 shadow-[0_0_20px_rgba(255,200,59,0.35)] !border-primary"
             >
-              <Radio className="w-3.5 h-3.5 text-primary group-hover:text-obsidian animate-pulse flex-shrink-0" />
-              <span>Watch Live</span>
+              <Radio className="w-4 h-4 text-primary group-hover:text-obsidian animate-pulse flex-shrink-0" />
+              <span className="font-montserrat font-extrabold tracking-wide uppercase text-milk group-hover:text-obsidian">
+                Watch Live
+              </span>
             </LiquidButton>
 
             {/* Mobile Hamburger (Visible on < lg screens) */}
             <button
               onClick={() => setIsMenuOpen(true)}
-              className="lg:hidden text-white p-2 rounded-full bg-primary/15 hover:bg-primary/25 transition-colors border border-primary/30 flex-shrink-0 cursor-pointer"
+              className="lg:hidden text-milk p-2.5 rounded-full bg-primary/20 hover:bg-primary/30 transition-colors border border-primary/40 flex-shrink-0 cursor-pointer"
               aria-label="Open navigation menu"
             >
               <Menu className="w-5 h-5 text-primary" />

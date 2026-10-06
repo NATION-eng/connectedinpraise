@@ -35,15 +35,15 @@ export function LiquidButton({
     ? "hover:shadow-[0_0_35px_rgba(242,101,34,0.45)]"
     : "hover:shadow-[0_0_35px_rgba(255,200,59,0.45)]";
 
-  const baseStyles = `relative inline-flex items-center justify-center px-8 sm:px-10 py-3.5 sm:py-4 text-sm sm:text-base font-extrabold cursor-pointer overflow-hidden transition-all duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)] active:scale-95 group rounded-full border-2 ${borderColor} ${hoverShadow} hover:rounded-2xl select-none touch-manipulation ${className}`;
+  const baseStyles = `relative inline-flex items-center justify-center px-8 sm:px-10 py-3.5 sm:py-4 text-sm sm:text-base font-extrabold cursor-pointer overflow-hidden transition-all duration-500 delay-75 ease-[cubic-bezier(0.23,1,0.32,1)] active:scale-95 group rounded-full border-2 ${borderColor} ${hoverShadow} hover:rounded-2xl select-none touch-manipulation ${className}`;
 
   const content = (
     <>
       {/* Sliding Entry Arrow on Hover */}
       <svg
         viewBox="0 0 24 24"
-        className={`absolute w-5 h-5 z-10 -left-1/4 transition-all duration-[750ms] ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:left-4 ${
-          isSecondary ? "fill-secondary group-hover:fill-white" : "fill-primary group-hover:fill-obsidian"
+        className={`absolute w-5 h-5 z-10 -left-1/4 transition-all duration-[750ms] delay-75 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:left-4 ${
+          isSecondary ? "fill-secondary group-hover:fill-milk" : "fill-primary group-hover:fill-obsidian"
         }`}
         xmlns="http://www.w3.org/2000/svg"
         aria-hidden="true"
@@ -53,22 +53,22 @@ export function LiquidButton({
 
       {/* Button Text with Smooth Shift */}
       <span
-        className={`relative z-10 flex items-center gap-2 -translate-x-2 transition-all duration-[750ms] ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:translate-x-2 whitespace-nowrap ${hoverText}`}
+        className={`relative z-10 flex items-center gap-2 -translate-x-2 transition-all duration-[750ms] delay-75 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:translate-x-2 whitespace-nowrap ${hoverText}`}
       >
         {children}
       </span>
 
       {/* Expanding Circular Liquid Fill */}
       <span
-        className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 ${liquidBg} rounded-full opacity-0 transition-all duration-[750ms] ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:w-[360px] group-hover:h-[360px] group-hover:opacity-100 pointer-events-none`}
+        className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 ${liquidBg} rounded-full opacity-0 transition-all duration-[750ms] delay-75 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:w-[360px] group-hover:h-[360px] group-hover:opacity-100 pointer-events-none`}
         aria-hidden="true"
       />
 
       {/* Sliding Exit Arrow on Hover */}
       <svg
         viewBox="0 0 24 24"
-        className={`absolute w-5 h-5 z-10 right-4 transition-all duration-[750ms] ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:-right-1/4 ${
-          isSecondary ? "fill-secondary group-hover:fill-white" : "fill-primary group-hover:fill-obsidian"
+        className={`absolute w-5 h-5 z-10 right-4 transition-all duration-[750ms] delay-75 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:-right-1/4 ${
+          isSecondary ? "fill-secondary group-hover:fill-milk" : "fill-primary group-hover:fill-obsidian"
         }`}
         xmlns="http://www.w3.org/2000/svg"
         aria-hidden="true"

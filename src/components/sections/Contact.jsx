@@ -66,15 +66,15 @@ export function Contact() {
           {/* Left Info Column */}
           <div className="lg:col-span-5 space-y-4 sm:space-y-5">
             {/* Real Venue Location Box */}
-            <div className="bg-black/45 backdrop-blur-xl p-6 rounded-3xl border border-white/10 hover:border-primary/40 transition-colors shadow-lg flex items-start gap-4">
+            <div className="bg-black/55 backdrop-blur-xl p-6 rounded-3xl border border-milk/10 hover:border-primary/50 transition-all duration-500 delay-75 ease-[cubic-bezier(0.23,1,0.32,1)] hover:-translate-y-1.5 hover:shadow-[0_15px_30px_rgba(255,200,59,0.2)] shadow-lg flex items-start gap-4">
               <div className="w-12 h-12 rounded-2xl bg-primary/20 flex items-center justify-center text-primary flex-shrink-0 border border-primary/35">
                 <MapPin className="w-6 h-6" />
               </div>
               <div>
-                <h4 className="font-montserrat font-black text-base sm:text-lg text-white mb-1">
+                <h4 className="font-montserrat font-black text-base sm:text-lg text-milk mb-1">
                   Official Venue
                 </h4>
-                <p className="text-xs sm:text-sm text-white/80 leading-relaxed font-medium">
+                <p className="text-xs sm:text-sm text-milk/80 leading-relaxed font-medium">
                   Convocation Arena, Rivers State University, Oroworukwo, Port Harcourt, Rivers State, Nigeria.
                 </p>
                 <div className="mt-2 text-[11px] text-secondary font-bold flex items-center gap-1.5">
@@ -85,18 +85,18 @@ export function Contact() {
             </div>
 
             {/* General Email & Phone */}
-            <div className="bg-black/45 backdrop-blur-xl p-6 rounded-3xl border border-white/10 hover:border-primary/40 transition-colors shadow-lg flex items-start gap-4">
+            <div className="bg-black/55 backdrop-blur-xl p-6 rounded-3xl border border-milk/10 hover:border-primary/50 transition-all duration-500 delay-75 ease-[cubic-bezier(0.23,1,0.32,1)] hover:-translate-y-1.5 hover:shadow-[0_15px_30px_rgba(255,200,59,0.2)] shadow-lg flex items-start gap-4">
               <div className="w-12 h-12 rounded-2xl bg-secondary/20 flex items-center justify-center text-secondary flex-shrink-0 border border-secondary/35">
                 <Phone className="w-6 h-6" />
               </div>
               <div>
-                <h4 className="font-montserrat font-black text-base sm:text-lg text-white mb-1">
+                <h4 className="font-montserrat font-black text-base sm:text-lg text-milk mb-1">
                   Direct Inquiries & Phone
                 </h4>
                 <p className="font-montserrat text-xs sm:text-sm text-primary font-black tracking-wide">
                   +234 818 463 9632
                 </p>
-                <p className="text-xs sm:text-sm text-white/70 font-semibold mt-1">
+                <p className="text-xs sm:text-sm text-milk/75 font-semibold mt-1">
                   connectedinpraise@gmail.com
                 </p>
               </div>
