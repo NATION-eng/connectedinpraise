@@ -195,14 +195,14 @@ export function Gallery() {
         </div>
 
         {/* Pure Visual Photography Grid - Intriguing FTLOM Experience without Card Text */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 sm:gap-6">
+        <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-6">
           {filteredItems.map((item) => (
             <div
               key={item.id}
               onClick={() => setSelectedPhoto(item)}
-              className="group relative rounded-3xl overflow-hidden bg-black/60 border border-primary/20 cursor-pointer shadow-2xl transition-all duration-700 delay-150 ease-[cubic-bezier(0.23,1,0.32,1)] hover:-translate-y-2 hover:border-primary/80 hover:shadow-[0_15px_35px_rgba(255,200,59,0.25)] select-none"
+              className="group relative rounded-2xl sm:rounded-3xl overflow-hidden bg-black/60 border border-primary/20 cursor-pointer shadow-xl sm:shadow-2xl transition-all duration-700 delay-150 ease-[cubic-bezier(0.23,1,0.32,1)] hover:-translate-y-2 hover:border-primary/80 hover:shadow-[0_15px_35px_rgba(255,200,59,0.25)] select-none"
             >
-              <div className="aspect-[4/3] sm:aspect-[1/1] xl:aspect-[4/3] overflow-hidden relative">
+              <div className="aspect-square sm:aspect-[4/3] overflow-hidden relative">
                 <img
                   src={item.src}
                   alt={item.title}
