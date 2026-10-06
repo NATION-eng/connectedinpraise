@@ -68,13 +68,13 @@ export function Hero() {
         </h1>
 
         {/* Movement Description */}
-        <p className="text-base sm:text-lg md:text-xl text-ivory/90 max-w-2xl mx-auto mb-6 leading-relaxed font-semibold">
+        <p className="text-base sm:text-lg md:text-xl text-white/80 max-w-2xl mx-auto mb-6 leading-relaxed font-normal">
           An annual praise and worship evangelism concert hosted by{" "}
-          <span className="text-gold-bright font-extrabold">Jerusalem Choir</span> in strategic
+          <strong className="text-white font-black">Jerusalem Choir</strong> in strategic
           partnership with{" "}
-          <span className="text-gold-bright font-extrabold">Adventist Possibility Ministries</span>{" "}
+          <strong className="text-white font-black">Adventist Possibility Ministries</strong>{" "}
           dedicated this year to{" "}
-          <span className="font-atkinson text-gold-bright font-bold tracking-wide">
+          <span className="font-atkinson text-gold-bright font-black tracking-wide">
             breaking disability barriers
           </span>.
         </p>
