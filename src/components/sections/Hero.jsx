@@ -3,12 +3,10 @@ import { Calendar, MapPin, Radio, ArrowRight } from "lucide-react";
 import { LiquidButton } from "../ui/LiquidButton";
 import { FloatingCountdown } from "../ui/FloatingCountdown";
 import { AuraRings } from "../ui/AuraRings";
+import { useNavigation } from "../../context/NavigationContext";
 
 export function Hero() {
-  const scrollTo = (id) => {
-    const el = document.querySelector(id);
-    if (el) el.scrollIntoView({ behavior: "smooth" });
-  };
+  const { navigate } = useNavigation();
 
   return (
     <section
@@ -54,10 +52,10 @@ export function Hero() {
           </div>
         </div>
 
-        {/* Festival Eyebrow: PH CITY MEGA MUSICAL EXPERIENCE */}
+        {/* Festival Eyebrow: PORT HARCOURT CITY MEGA MUSICAL EXPERIENCE */}
         <div className="mb-2 sm:mb-3 animate-fade-in-up">
-          <h2 className="font-montserrat font-black text-[11px] xs:text-xs sm:text-sm md:text-base uppercase tracking-[0.24em] sm:tracking-[0.28em] text-milk/90 drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">
-            PH CITY MEGA MUSICAL EXPERIENCE
+          <h2 className="font-montserrat font-black text-[10px] xs:text-[11px] sm:text-xs md:text-sm uppercase tracking-[0.18em] sm:tracking-[0.24em] text-milk/90 drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">
+            PORT HARCOURT CITY MEGA MUSICAL EXPERIENCE
           </h2>
         </div>
 
@@ -68,7 +66,7 @@ export function Hero() {
             alt="Connected in Praise Official Logo"
             className="w-full h-auto max-h-[190px] xs:max-h-[230px] sm:max-h-[290px] md:max-h-[330px] object-contain drop-shadow-[0_8px_35px_rgba(242,101,34,0.45)] hover:scale-105 transition-transform duration-700 delay-150 ease-[cubic-bezier(0.23,1,0.32,1)]"
           />
-          <h1 className="sr-only">Connected in Praise 2026</h1>
+          <h1 className="sr-only">Connected in Praise</h1>
         </div>
 
         {/* Movement Description - Clean High-Contrast Milk Writeup */}
@@ -120,11 +118,11 @@ export function Hero() {
           {/* Right: Dual Interactive Liquid Buttons (Side-by-Side on Mobile) */}
           <div className="grid grid-cols-2 sm:flex sm:items-center gap-2 w-full lg:w-auto justify-center lg:justify-end">
             <LiquidButton
-              onClick={() => scrollTo("#experience")}
+              onClick={() => navigate("/donate")}
               variant="primary"
-              className="!py-2 sm:!py-2.5 !px-3 sm:!px-5 !text-xs font-montserrat font-bold text-center justify-center w-full sm:w-auto"
+              className="!py-2 sm:!py-2.5 !px-3 sm:!px-5 !text-xs font-montserrat font-bold text-center justify-center w-full sm:w-auto cursor-pointer"
             >
-              <span>Explore Program</span>
+              <span>Partner / Donate</span>
             </LiquidButton>
 
             <LiquidButton
@@ -143,18 +141,14 @@ export function Hero() {
 
       {/* Subtle Scroll Down Cue */}
       <div className="relative z-10 flex flex-col items-center justify-center pt-1.5 pb-1 select-none animate-fade-in-up">
-        <a
-          href="#about"
-          onClick={(e) => {
-            e.preventDefault();
-            scrollTo("#about");
-          }}
-          className="flex items-center gap-1.5 text-white/50 hover:text-primary transition-colors duration-500 delay-150 cursor-pointer group text-[10px] sm:text-[11px] font-montserrat font-bold uppercase tracking-widest"
-          aria-label="Scroll to about section"
+        <button
+          onClick={() => navigate("/about")}
+          className="flex items-center gap-1.5 text-white/50 hover:text-primary transition-colors duration-500 delay-150 cursor-pointer group text-[10px] sm:text-[11px] font-montserrat font-bold uppercase tracking-widest bg-transparent border-0"
+          aria-label="Explore about APM"
         >
-          <span>Scroll to explore</span>
+          <span>Explore Mission</span>
           <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform duration-300" />
-        </a>
+        </button>
       </div>
     </section>
   );

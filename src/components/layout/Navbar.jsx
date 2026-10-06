@@ -1,18 +1,17 @@
 import React, { useState, useEffect } from "react";
-import { Menu, X, Radio, Calendar, MapPin, ExternalLink, Heart } from "lucide-react";
+import { Menu, X, Radio, Calendar, ExternalLink, Heart, ChevronRight } from "lucide-react";
 import { Logo } from "../ui/Logo";
-import { LiquidButton } from "../ui/LiquidButton";
 import { CustomTikTokEmoji } from "../ui/CustomEmoji";
+import { useNavigation } from "../../context/NavigationContext";
 
 const navLinks = [
-  { href: "#home", label: "Home" },
-  { href: "#about", label: "About APM" },
-  { href: "#why-praise", label: "Why Praise" },
-  { href: "#choir", label: "Jerusalem Choir" },
-  { href: "#experience", label: "Program" },
-  { href: "#gallery", label: "Archives" },
-  { href: "#stories", label: "Prayer Wall" },
-  { href: "#contact", label: "Contact" },
+  { path: "/", label: "Home" },
+  { path: "/about", label: "About APM" },
+  { path: "/why-praise", label: "Why Praise" },
+  { path: "/choir", label: "Jerusalem Choir" },
+  { path: "/gallery", label: "Archives" },
+  { path: "/stories", label: "Prayer Wall" },
+  { path: "/contact", label: "Contact" },
 ];
 
 const SOCIAL_LINKS = {
@@ -22,6 +21,7 @@ const SOCIAL_LINKS = {
 };
 
 export function Navbar() {
+  const { currentPath, navigate } = useNavigation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -44,13 +44,10 @@ export function Navbar() {
     };
   }, [isMenuOpen]);
 
-  const handleNavClick = (e, href) => {
+  const handleNavClick = (e, path) => {
     e.preventDefault();
     setIsMenuOpen(false);
-    const target = document.querySelector(href);
-    if (target) {
-      target.scrollIntoView({ behavior: "smooth" });
-    }
+    navigate(path);
   };
 
   return (
@@ -65,32 +62,58 @@ export function Navbar() {
         >
           {/* Brand Identity */}
           <a
-            href="#home"
-            onClick={(e) => handleNavClick(e, "#home")}
+            href="/"
+            onClick={(e) => handleNavClick(e, "/")}
             className="flex items-center group flex-shrink-0 cursor-pointer"
-            aria-label="CIP 2026 Home"
+            aria-label="Connected in Praise Home"
           >
             <Logo size="nav" />
           </a>
 
-          {/* Desktop Nav Items - Perfectly Situated & Spaced */}
+          {/* Desktop Nav Items */}
           <ul className="hidden xl:flex items-center gap-3 2xl:gap-5 flex-shrink">
-            {navLinks.map((link) => (
-              <li key={link.href} className="flex-shrink-0">
-                <a
-                  href={link.href}
-                  onClick={(e) => handleNavClick(e, link.href)}
-                  className="font-montserrat text-xs 2xl:text-[13px] font-bold uppercase tracking-wider text-white/90 hover:text-primary transition-colors duration-500 delay-150 ease-[cubic-bezier(0.23,1,0.32,1)] relative group py-1 px-1 whitespace-nowrap select-none"
-                >
-                  {link.label}
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-secondary group-hover:w-full transition-all duration-500 delay-150 ease-[cubic-bezier(0.23,1,0.32,1)] rounded-full" />
-                </a>
-              </li>
-            ))}
+            {navLinks.map((link) => {
+              const isActive = currentPath === link.path;
+              return (
+                <li key={link.path} className="flex-shrink-0">
+                  <a
+                    href={link.path}
+                    onClick={(e) => handleNavClick(e, link.path)}
+                    className={`font-montserrat text-xs 2xl:text-[13px] font-bold uppercase tracking-wider transition-colors duration-500 delay-150 ease-[cubic-bezier(0.23,1,0.32,1)] relative group py-1 px-1 whitespace-nowrap select-none ${
+                      isActive ? "text-primary" : "text-white/90 hover:text-primary"
+                    }`}
+                  >
+                    {link.label}
+                    <span
+                      className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-primary to-secondary transition-all duration-500 delay-150 ease-[cubic-bezier(0.23,1,0.32,1)] rounded-full ${
+                        isActive ? "w-full" : "w-0 group-hover:w-full"
+                      }`}
+                    />
+                  </a>
+                </li>
+              );
+            })}
           </ul>
 
-          {/* Action Area: Strict Icon-Only Live Stream Button & Mobile Hamburger */}
+          {/* Action Area: Donate Button, Strict Icon-Only Live Stream & Mobile Hamburger */}
           <div className="flex items-center gap-2 sm:gap-3 flex-shrink-0">
+            {/* Prominent Donate Button on Navbar */}
+            <button
+              onClick={() => {
+                setIsMenuOpen(false);
+                navigate("/donate");
+              }}
+              className={`relative inline-flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full font-montserrat font-black text-[11px] sm:text-xs uppercase tracking-wider transition-all duration-300 delay-75 cursor-pointer shadow-md hover:scale-105 active:scale-95 flex-shrink-0 ${
+                currentPath === "/donate"
+                  ? "bg-gradient-to-r from-primary via-sunburst to-secondary text-obsidian ring-2 ring-primary shadow-[0_0_20px_rgba(255,200,59,0.5)]"
+                  : "bg-gradient-to-r from-primary via-sunburst to-secondary text-obsidian hover:shadow-[0_0_20px_rgba(255,200,59,0.4)]"
+              }`}
+              aria-label="Donate directly to Connected in Praise"
+            >
+              <Heart className="w-3.5 h-3.5 fill-current text-obsidian animate-pulse" />
+              <span>Donate</span>
+            </button>
+
             {/* Live Broadcast Button - STRICTLY ICON ONLY, NEVER CLIPPED */}
             <a
               href={SOCIAL_LINKS.youtube}
@@ -140,7 +163,13 @@ export function Navbar() {
         <div className="relative h-full flex flex-col justify-between p-5 sm:p-7 overflow-y-auto z-10">
           {/* Drawer Top */}
           <div className="flex items-center justify-between pb-4 border-b border-white/10">
-            <Logo size="nav" />
+            <a
+              href="/"
+              onClick={(e) => handleNavClick(e, "/")}
+              className="cursor-pointer"
+            >
+              <Logo size="nav" />
+            </a>
             <button
               onClick={() => setIsMenuOpen(false)}
               className="text-white p-2.5 rounded-full bg-white/5 border border-primary/30 hover:bg-primary/20 transition-colors cursor-pointer"
@@ -163,32 +192,60 @@ export function Navbar() {
           </div>
 
           {/* Drawer Navigation Links */}
-          <ul className="flex flex-col gap-2 my-5">
-            {navLinks.map((link) => (
-              <li key={link.href} className="w-full">
-                <a
-                  href={link.href}
-                  onClick={(e) => handleNavClick(e, link.href)}
-                  className="font-montserrat font-extrabold text-lg sm:text-xl text-milk hover:text-primary transition-all duration-300 py-2 px-3 rounded-xl hover:bg-white/5 block uppercase tracking-wide flex items-center justify-between"
-                >
-                  <span>{link.label}</span>
-                  <span className="text-primary/40 text-sm">➔</span>
-                </a>
-              </li>
-            ))}
+          <ul className="flex flex-col gap-1.5 my-4">
+            {navLinks.map((link) => {
+              const isActive = currentPath === link.path;
+              return (
+                <li key={link.path} className="w-full">
+                  <a
+                    href={link.path}
+                    onClick={(e) => handleNavClick(e, link.path)}
+                    className={`font-montserrat font-extrabold text-base sm:text-lg transition-all duration-300 py-2.5 px-3 rounded-xl block uppercase tracking-wide flex items-center justify-between ${
+                      isActive
+                        ? "bg-primary/20 text-primary border border-primary/40 shadow-sm"
+                        : "text-milk hover:text-primary hover:bg-white/5"
+                    }`}
+                  >
+                    <span>{link.label}</span>
+                    <ChevronRight className={`w-4 h-4 ${isActive ? "text-primary" : "text-primary/40"}`} />
+                  </a>
+                </li>
+              );
+            })}
+
+            {/* Mobile Drawer Dedicated Donate Item */}
+            <li className="w-full pt-1">
+              <button
+                onClick={() => {
+                  setIsMenuOpen(false);
+                  navigate("/donate");
+                }}
+                className={`w-full py-3 px-4 rounded-xl font-montserrat font-black text-sm uppercase tracking-wider flex items-center justify-between shadow-lg transition-transform active:scale-98 cursor-pointer ${
+                  currentPath === "/donate"
+                    ? "bg-gradient-to-r from-primary via-sunburst to-secondary text-obsidian ring-2 ring-white"
+                    : "bg-gradient-to-r from-primary via-sunburst to-secondary text-obsidian"
+                }`}
+              >
+                <div className="flex items-center gap-2">
+                  <Heart className="w-4 h-4 fill-current text-obsidian" />
+                  <span>Donate to Mission</span>
+                </div>
+                <span className="text-[10px] px-2 py-0.5 rounded-full bg-black/20 text-obsidian font-bold">UBA</span>
+              </button>
+            </li>
           </ul>
 
           {/* Drawer Bottom Actions: Prominent Live Button & Socials */}
-          <div className="space-y-3 pt-4 border-t border-white/10">
+          <div className="space-y-3 pt-3 border-t border-white/10">
             <a
               href={SOCIAL_LINKS.youtube}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full py-3.5 px-5 rounded-2xl bg-gradient-to-r from-primary via-sunburst to-secondary text-obsidian font-montserrat font-black text-xs sm:text-sm uppercase tracking-wider flex items-center justify-center gap-2 shadow-[0_4px_25px_rgba(255,200,59,0.35)] active:scale-98 transition-transform"
+              className="w-full py-3 px-4 rounded-2xl bg-white/10 hover:bg-white/15 border border-white/20 text-white font-montserrat font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 active:scale-98 transition-transform"
             >
-              <Radio className="w-4 h-4 text-obsidian animate-pulse" />
+              <Radio className="w-4 h-4 text-primary animate-pulse" />
               <span>Watch Live on YouTube</span>
-              <ExternalLink className="w-3.5 h-3.5 text-obsidian" />
+              <ExternalLink className="w-3.5 h-3.5 text-white/70" />
             </a>
 
             <div className="flex items-center justify-center gap-3 pt-1">
@@ -196,17 +253,17 @@ export function Navbar() {
                 href={SOCIAL_LINKS.tiktok}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-white/5 border border-primary/30 flex items-center justify-center text-white hover:text-primary transition-colors"
+                className="w-9 h-9 rounded-full bg-white/5 border border-primary/30 flex items-center justify-center text-white hover:text-primary transition-colors"
                 aria-label="TikTok"
                 title="Follow on TikTok"
               >
-                <CustomTikTokEmoji className="w-4 h-4" />
+                <CustomTikTokEmoji className="w-3.5 h-3.5" />
               </a>
               <a
                 href={SOCIAL_LINKS.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-white/5 border border-primary/30 flex items-center justify-center text-white hover:text-primary transition-colors font-bold text-sm"
+                className="w-9 h-9 rounded-full bg-white/5 border border-primary/30 flex items-center justify-center text-white hover:text-primary transition-colors font-bold text-sm"
                 aria-label="Facebook"
                 title="Facebook Page"
               >
@@ -216,16 +273,16 @@ export function Navbar() {
                 href={SOCIAL_LINKS.youtube}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-white/5 border border-primary/30 flex items-center justify-center text-white hover:text-primary transition-colors"
+                className="w-9 h-9 rounded-full bg-white/5 border border-primary/30 flex items-center justify-center text-white hover:text-primary transition-colors"
                 aria-label="YouTube Channel"
                 title="YouTube Channel"
               >
-                <Radio className="w-4 h-4 text-primary" />
+                <Radio className="w-3.5 h-3.5 text-primary" />
               </a>
             </div>
 
-            <p className="text-[10px] text-center text-milk/50 pt-1 font-medium">
-              Breaking Disability Barriers · Port Harcourt, Nigeria
+            <p className="text-[10px] text-center text-milk/50 pt-0.5 font-medium">
+              Breaking Disability Barriers · Port Harcourt City, Nigeria
             </p>
           </div>
         </div>

@@ -2,11 +2,25 @@ import React from "react";
 import { Heart, Youtube, Facebook, ArrowUp, Lock } from "lucide-react";
 import { Logo } from "../ui/Logo";
 import { CustomTikTokEmoji } from "../ui/CustomEmoji";
+import { useNavigation } from "../../context/NavigationContext";
 
-export function Footer({ onOpenAdmin }) {
+export function Footer() {
+  const { navigate } = useNavigation();
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
+
+  const navLinks = [
+    { path: "/", label: "Home" },
+    { path: "/about", label: "About APM Inclusion" },
+    { path: "/why-praise", label: "Why Do You Praise?" },
+    { path: "/choir", label: "Jerusalem Choir Host" },
+    { path: "/gallery", label: "Visual Archives (Gallery)" },
+    { path: "/stories", label: "Stories & Prayer Wall" },
+    { path: "/donate", label: "Donate to Mission" },
+    { path: "/contact", label: "Venue & Contact" },
+  ];
 
   return (
     <footer className="relative bg-gradient-to-b from-[#140405] to-[#0A0203] border-t border-primary/20 pt-16 pb-12 overflow-hidden text-white/80 font-sans">
@@ -17,13 +31,20 @@ export function Footer({ onOpenAdmin }) {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-primary/15">
           {/* Brand & Wordmark */}
           <div className="md:col-span-5 space-y-4">
-            <Logo size="footer" />
+            <button
+              onClick={() => navigate("/")}
+              className="text-left cursor-pointer bg-transparent border-0 p-0 block"
+              aria-label="Return to home page"
+            >
+              <Logo size="footer" />
+            </button>
+
             <p className="text-xs sm:text-sm text-white/80 max-w-sm leading-relaxed font-medium">
               Connected in Praise is an annual praise and worship evangelism concert hosted by
               Jerusalem Choir in strategic partnership with Adventist Possibility Ministries (APM).
             </p>
             <div className="text-xs text-primary font-montserrat font-bold tracking-wide">
-              Convocation Arena, Rivers State University, Oroworukwo, Port Harcourt
+              Convocation Arena, Rivers State University, Oroworukwo, Port Harcourt City
             </div>
             <div className="text-xs text-secondary font-montserrat font-black tracking-wider uppercase">
               Nov 4–6: 6:00 PM – 8:00 PM · Sabbath Nov 7: 8:00 AM – 12:00 PM
@@ -36,36 +57,16 @@ export function Footer({ onOpenAdmin }) {
               Navigation
             </h4>
             <ul className="space-y-2.5 text-xs sm:text-sm font-semibold">
-              <li>
-                <a href="#about" className="hover:text-primary transition-colors duration-500 delay-150 ease-[cubic-bezier(0.23,1,0.32,1)]">
-                  About APM Inclusion
-                </a>
-              </li>
-              <li>
-                <a href="#why-praise" className="hover:text-primary transition-colors duration-500 delay-150 ease-[cubic-bezier(0.23,1,0.32,1)]">
-                  Why Do You Praise?
-                </a>
-              </li>
-              <li>
-                <a href="#choir" className="hover:text-primary transition-colors duration-500 delay-150 ease-[cubic-bezier(0.23,1,0.32,1)]">
-                  Jerusalem Choir Host
-                </a>
-              </li>
-              <li>
-                <a href="#experience" className="hover:text-primary transition-colors duration-500 delay-150 ease-[cubic-bezier(0.23,1,0.32,1)]">
-                  Program Schedule
-                </a>
-              </li>
-              <li>
-                <a href="#gallery" className="hover:text-primary transition-colors duration-500 delay-150 ease-[cubic-bezier(0.23,1,0.32,1)]">
-                  Visual Archives (Gallery)
-                </a>
-              </li>
-              <li>
-                <a href="#stories" className="hover:text-primary transition-colors duration-500 delay-150 ease-[cubic-bezier(0.23,1,0.32,1)]">
-                  Stories & Prayer Wall
-                </a>
-              </li>
+              {navLinks.map((link) => (
+                <li key={link.path}>
+                  <button
+                    onClick={() => navigate(link.path)}
+                    className="hover:text-primary transition-colors duration-500 delay-150 ease-[cubic-bezier(0.23,1,0.32,1)] text-left cursor-pointer bg-transparent border-0 p-0"
+                  >
+                    {link.label}
+                  </button>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -132,16 +133,14 @@ export function Footer({ onOpenAdmin }) {
           </p>
 
           <div className="flex items-center gap-5">
-            {onOpenAdmin && (
-              <button
-                onClick={onOpenAdmin}
-                className="flex items-center gap-1.5 text-xs text-white/40 hover:text-primary transition-colors cursor-pointer"
-                title="Admin Database Portal"
-              >
-                <Lock className="w-3.5 h-3.5 text-primary/70" />
-                <span>Admin Portal</span>
-              </button>
-            )}
+            <button
+              onClick={() => navigate("/admin")}
+              className="flex items-center gap-1.5 text-xs text-white/40 hover:text-primary transition-colors cursor-pointer"
+              title="Admin Database Portal"
+            >
+              <Lock className="w-3.5 h-3.5 text-primary/70" />
+              <span>Admin Portal</span>
+            </button>
 
             <button
               onClick={scrollToTop}

@@ -12,7 +12,7 @@ import { RevealMotion, StaggerContainer, StaggerItem } from "../ui/RevealMotion"
 
 export function JerusalemChoir() {
   return (
-    <section id="choir" className="relative py-20 sm:py-28 md:py-36 overflow-hidden bg-[#0D0404] text-white">
+    <section id="choir" className="relative pt-28 sm:pt-36 md:pt-40 pb-20 sm:pb-32 overflow-hidden bg-[#0D0404] text-white min-h-screen">
       {/* Radiant Sunburst Glow Background Canvas */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
         <img
