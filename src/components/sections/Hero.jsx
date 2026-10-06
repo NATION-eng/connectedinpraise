@@ -61,11 +61,11 @@ export function Hero() {
           </h2>
         </div>
 
-        {/* Master Festival Headline: CONNECTED IN PRAISE in Bold Block Format (Horizontal, Zero Vertical Stacking) */}
+        {/* Master Festival Headline: CONNECTED IN on line 1, PRAISE on line 2 */}
         <div className="relative my-2 sm:my-3 select-none animate-fade-in-scale w-full max-w-4xl mx-auto px-2">
-          <h1 className="font-montserrat font-black text-2xl xs:text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5rem] uppercase tracking-wide sm:tracking-tight leading-tight text-white drop-shadow-[0_4px_30px_rgba(0,0,0,0.9)]">
-            <span className="text-milk">CONNECTED IN </span>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-sunburst to-secondary drop-shadow-[0_4px_25px_rgba(242,101,34,0.4)]">
+          <h1 className="font-montserrat font-black text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5rem] uppercase tracking-wide sm:tracking-tight leading-[1.05] text-white drop-shadow-[0_4px_30px_rgba(0,0,0,0.9)]">
+            <span className="block text-milk">CONNECTED IN</span>
+            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-primary via-sunburst to-secondary drop-shadow-[0_4px_25px_rgba(242,101,34,0.4)] mt-1">
               PRAISE
             </span>
           </h1>
