@@ -54,7 +54,7 @@ export function Stories() {
   };
 
   return (
-    <section id="stories" className="relative pt-28 sm:pt-36 md:pt-40 pb-20 sm:pb-32 overflow-hidden bg-[#0D0404] text-white min-h-screen">
+    <section id="stories" className="relative pt-20 xs:pt-24 sm:pt-36 md:pt-40 pb-16 sm:pb-32 overflow-hidden bg-[#0D0404] text-white min-h-screen">
       {/* Radiant Sunburst Glow Background Canvas */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
         <img
@@ -63,54 +63,54 @@ export function Stories() {
           className="w-full h-full object-cover object-center opacity-15 filter blur-sm scale-110"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-[#0D0404] via-[#1A0405]/95 to-[#0D0404]" />
-        <div className="absolute top-1/2 left-0 w-96 h-96 bg-primary/10 rounded-full blur-[150px] pointer-events-none animate-pulse-glow" />
+        <div className="absolute top-1/2 left-0 w-60 sm:w-96 h-60 sm:h-96 bg-primary/10 rounded-full blur-[150px] pointer-events-none animate-pulse-glow" />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 max-w-7xl mx-auto px-3 xs:px-4 sm:px-6 lg:px-8">
         {/* Section Heading */}
-        <RevealMotion className="text-center mb-16 sm:mb-20">
-          <div className="inline-flex items-center gap-2 bg-black/60 backdrop-blur-xl rounded-full px-4 sm:px-5 py-2 mb-4 border border-primary/30">
-            <MessageSquare className="w-4 h-4 text-primary" />
-            <span className="font-montserrat text-xs uppercase tracking-[0.2em] text-white/80 font-bold">
+        <RevealMotion className="text-center mb-10 xs:mb-14 sm:mb-20">
+          <div className="inline-flex items-center gap-2 bg-black/60 backdrop-blur-xl rounded-full px-3.5 xs:px-4 sm:px-5 py-1.5 sm:py-2 mb-3 xs:mb-4 border border-primary/30">
+            <MessageSquare className="w-3.5 h-3.5 xs:w-4 xs:h-4 text-primary" />
+            <span className="font-montserrat text-[10px] xs:text-xs uppercase tracking-[0.16em] sm:tracking-[0.2em] text-white/80 font-bold">
               Voices & Intercession
             </span>
           </div>
-          <h2 className="font-montserrat font-black text-3xl sm:text-4xl md:text-5xl text-white mb-4">
+          <h2 className="font-montserrat font-black text-2xl xs:text-3xl sm:text-4xl md:text-5xl text-white mb-2.5 xs:mb-4">
             Stories of Grace &{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-sunburst to-secondary">
               Prayer Wall
             </span>
           </h2>
-          <p className="text-white/75 max-w-xl mx-auto text-sm sm:text-base font-normal">
+          <p className="text-white/75 max-w-xl mx-auto text-xs xs:text-sm sm:text-base font-normal px-1">
             Real testimonies of breakthrough, healing, and personal devotion. Post your prayer petition
             below to be covered by the Jerusalem Choir and APM intercessory family.
           </p>
         </RevealMotion>
 
         {/* Testimonials 3-Column Grid */}
-        <div className="grid md:grid-cols-3 gap-6 sm:gap-8 mb-20 sm:mb-24">
+        <div className="grid md:grid-cols-3 gap-4 xs:gap-6 sm:gap-8 mb-12 xs:mb-16 sm:mb-24">
           {testimonials.map((item) => (
             <div
               key={item.id}
-              className="bg-black/55 backdrop-blur-xl p-6 sm:p-8 rounded-3xl border border-milk/10 hover:border-primary/50 flex flex-col justify-between relative shadow-xl group transition-all duration-700 delay-150 ease-[cubic-bezier(0.23,1,0.32,1)] hover:-translate-y-2 hover:shadow-[0_15px_30px_rgba(255,200,59,0.2)]"
+              className="bg-black/55 backdrop-blur-xl p-4.5 xs:p-6 sm:p-8 rounded-2xl sm:rounded-3xl border border-milk/10 hover:border-primary/50 flex flex-col justify-between relative shadow-xl group transition-all duration-700 delay-150 ease-[cubic-bezier(0.23,1,0.32,1)] hover:-translate-y-2 hover:shadow-[0_15px_30px_rgba(255,200,59,0.2)]"
             >
               <div>
-                <Quote className="w-8 h-8 text-primary/40 mb-4" />
-                <p className="font-montserrat italic font-medium text-base text-milk leading-relaxed mb-6">
+                <Quote className="w-6 h-6 sm:w-8 sm:h-8 text-primary/40 mb-3 xs:mb-4" />
+                <p className="font-montserrat italic font-medium text-sm xs:text-base text-milk leading-relaxed mb-4 xs:mb-6">
                   &ldquo;{item.content}&rdquo;
                 </p>
               </div>
 
-              <div className="flex items-center gap-4 pt-4 border-t border-milk/10">
+              <div className="flex items-center gap-3 xs:gap-4 pt-3 xs:pt-4 border-t border-milk/10">
                 <img
                   src={item.avatar}
                   alt={item.name}
-                  className="w-12 h-12 rounded-full object-cover border-2 border-primary shadow-md"
+                  className="w-10 h-10 xs:w-12 xs:h-12 rounded-full object-cover border-2 border-primary shadow-md flex-shrink-0"
                 />
                 <div>
-                  <h4 className="font-montserrat font-black text-milk text-base">{item.name}</h4>
-                  <p className="text-xs text-primary font-bold">{item.role}</p>
-                  <p className="text-[10px] text-milk/60 font-medium">{item.location}</p>
+                  <h4 className="font-montserrat font-black text-milk text-sm xs:text-base">{item.name}</h4>
+                  <p className="text-[11px] xs:text-xs text-primary font-bold">{item.role}</p>
+                  <p className="text-[9px] xs:text-[10px] text-milk/60 font-medium">{item.location}</p>
                 </div>
               </div>
             </div>
@@ -118,29 +118,29 @@ export function Stories() {
         </div>
 
         {/* Digital Prayer Wall & Interactive Submission */}
-        <div className="grid lg:grid-cols-12 gap-8 items-start">
+        <div className="grid lg:grid-cols-12 gap-6 xs:gap-8 items-start">
           {/* Left: Prayer Request Submission Form */}
           <div className="lg:col-span-5">
-            <div className="bg-black/60 backdrop-blur-2xl p-6 sm:p-8 rounded-3xl border border-primary/30 shadow-2xl">
-              <div className="flex items-center justify-between mb-4">
+            <div className="bg-black/60 backdrop-blur-2xl p-4.5 xs:p-6 sm:p-8 rounded-2xl sm:rounded-3xl border border-primary/30 shadow-2xl">
+              <div className="flex items-center justify-between mb-3 xs:mb-4">
                 <div className="flex items-center gap-2">
-                  <Sparkles className="w-5 h-5 text-primary" />
-                  <h3 className="font-montserrat font-black text-2xl text-white">Post a Prayer Note</h3>
+                  <Sparkles className="w-4 h-4 xs:w-5 xs:h-5 text-primary" />
+                  <h3 className="font-montserrat font-black text-xl xs:text-2xl text-white">Post a Prayer Note</h3>
                 </div>
-                <span className="inline-flex items-center gap-1 text-[10px] font-montserrat font-black text-secondary bg-secondary/10 px-2.5 py-1 rounded-full border border-secondary/30">
+                <span className="inline-flex items-center gap-1 text-[9px] xs:text-[10px] font-montserrat font-black text-secondary bg-secondary/10 px-2 xs:px-2.5 py-0.5 xs:py-1 rounded-full border border-secondary/30">
                   <Database className="w-3 h-3" />
                   <span>Stored Live</span>
                 </span>
               </div>
 
-              <p className="text-white/70 text-xs sm:text-sm mb-6 font-normal">
+              <p className="text-white/70 text-xs sm:text-sm mb-4 xs:mb-6 font-normal">
                 Your prayer is saved securely in our database so it persists across visits. Our prayer
                 warriors pray over every single note.
               </p>
 
-              <form onSubmit={handlePrayerSubmit} className="space-y-4">
+              <form onSubmit={handlePrayerSubmit} className="space-y-3.5 xs:space-y-4">
                 <div>
-                  <label htmlFor="prayer-author" className="block text-xs uppercase tracking-wider font-montserrat font-bold text-white/80 mb-1.5">
+                  <label htmlFor="prayer-author" className="block text-[11px] xs:text-xs uppercase tracking-wider font-montserrat font-bold text-white/80 mb-1 xs:mb-1.5">
                     Your Name (or Leave Blank for Anonymous)
                   </label>
                   <input
@@ -149,12 +149,12 @@ export function Stories() {
                     value={authorName}
                     onChange={(e) => setAuthorName(e.target.value)}
                     placeholder="e.g., Sister Comfort"
-                    className="w-full bg-black/50 border border-primary/30 rounded-2xl px-4 py-3.5 text-sm font-semibold text-white placeholder-white/30 focus:outline-none focus:border-primary transition-colors"
+                    className="w-full bg-black/50 border border-primary/30 rounded-xl xs:rounded-2xl px-3.5 xs:px-4 py-3 xs:py-3.5 text-xs xs:text-sm font-semibold text-white placeholder-white/30 focus:outline-none focus:border-primary transition-colors"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="prayer-content" className="block text-xs uppercase tracking-wider font-montserrat font-bold text-white/80 mb-1.5">
+                  <label htmlFor="prayer-content" className="block text-[11px] xs:text-xs uppercase tracking-wider font-montserrat font-bold text-white/80 mb-1 xs:mb-1.5">
                     Your Prayer / Thanksgiving Note *
                   </label>
                   <textarea
@@ -164,7 +164,7 @@ export function Stories() {
                     value={newPrayerText}
                     onChange={(e) => setNewPrayerText(e.target.value)}
                     placeholder="Share what is on your heart..."
-                    className="w-full bg-black/50 border border-primary/30 rounded-2xl px-4 py-3.5 text-sm font-semibold text-white placeholder-white/30 focus:outline-none focus:border-primary transition-colors resize-none"
+                    className="w-full bg-black/50 border border-primary/30 rounded-xl xs:rounded-2xl px-3.5 xs:px-4 py-3 xs:py-3.5 text-xs xs:text-sm font-semibold text-white placeholder-white/30 focus:outline-none focus:border-primary transition-colors resize-none"
                   />
                 </div>
 
@@ -172,7 +172,7 @@ export function Stories() {
                   type="submit"
                   disabled={isSubmitting}
                   variant="primary"
-                  className="w-full !py-3.5"
+                  className="w-full !py-3 xs:!py-3.5 cursor-pointer text-center justify-center font-bold"
                 >
                   <Send className="w-4 h-4 text-primary group-hover:text-obsidian" />
                   <span>{isSubmitting ? "Saving to Database..." : "Pin to Prayer Wall"}</span>
@@ -190,46 +190,46 @@ export function Stories() {
 
           {/* Right: Real-time Database Display of Latest Notes */}
           <div className="lg:col-span-7">
-            <div className="flex items-center justify-between mb-4">
-              <span className="font-montserrat text-xs uppercase tracking-wider text-primary font-black flex items-center gap-2">
+            <div className="flex items-center justify-between mb-3.5 xs:mb-4">
+              <span className="font-montserrat text-[11px] xs:text-xs uppercase tracking-wider text-primary font-black flex items-center gap-1.5 xs:gap-2">
                 <Database className="w-3.5 h-3.5" />
-                Latest Community Prayers (Retained Live)
+                Latest Community Prayers
               </span>
-              <span className="text-[11px] text-white/70 font-bold flex items-center gap-1.5 bg-black/50 px-3 py-1 rounded-full border border-primary/20">
+              <span className="text-[10px] xs:text-[11px] text-white/70 font-bold flex items-center gap-1.5 bg-black/50 px-2.5 xs:px-3 py-0.5 xs:py-1 rounded-full border border-primary/20">
                 <span className="w-2 h-2 rounded-full bg-green-500 animate-ping" />
                 Synchronized
               </span>
             </div>
 
             {isLoading ? (
-              <div className="bg-black/40 backdrop-blur-xl p-10 rounded-3xl border border-white/10 text-center text-white/60 text-sm font-bold">
+              <div className="bg-black/40 backdrop-blur-xl p-8 xs:p-10 rounded-2xl sm:rounded-3xl border border-white/10 text-center text-white/60 text-xs xs:text-sm font-bold">
                 Loading prayer wall...
               </div>
             ) : prayers.length === 0 ? (
-              <div className="bg-black/40 backdrop-blur-xl p-10 rounded-3xl border border-white/10 text-center text-white/60 text-sm font-bold">
+              <div className="bg-black/40 backdrop-blur-xl p-8 xs:p-10 rounded-2xl sm:rounded-3xl border border-white/10 text-center text-white/60 text-xs xs:text-sm font-bold">
                 No prayers yet. Be the first to share your petition!
               </div>
             ) : (
-              <div className="space-y-4">
+              <div className="space-y-3 xs:space-y-4">
                 {prayers.map((prayer) => (
                   <div
                     key={prayer.id}
-                    className="bg-black/45 backdrop-blur-xl p-5 sm:p-6 rounded-3xl border border-white/10 hover:border-primary/40 transition-all duration-700 delay-150 ease-[cubic-bezier(0.23,1,0.32,1)] hover:-translate-y-1 hover:shadow-[0_10px_25px_rgba(255,200,59,0.15)] flex flex-col justify-between group shadow-lg"
+                    className="bg-black/45 backdrop-blur-xl p-4 xs:p-5 sm:p-6 rounded-2xl sm:rounded-3xl border border-white/10 hover:border-primary/40 transition-all duration-700 delay-150 ease-[cubic-bezier(0.23,1,0.32,1)] hover:-translate-y-1 hover:shadow-[0_10px_25px_rgba(255,200,59,0.15)] flex flex-col justify-between group shadow-lg"
                   >
-                    <p className="text-sm sm:text-base text-white/95 leading-relaxed font-semibold mb-3.5">
+                    <p className="text-xs xs:text-sm sm:text-base text-white/95 leading-relaxed font-semibold mb-3">
                       &ldquo;{prayer.text}&rdquo;
                     </p>
-                    <div className="flex items-center justify-between text-xs text-white/60 pt-3 border-t border-white/10 gap-2 flex-wrap">
-                      <span className="font-montserrat text-primary font-extrabold flex items-center gap-1.5">
+                    <div className="flex items-center justify-between text-xs text-white/60 pt-2.5 xs:pt-3 border-t border-white/10 gap-2 flex-wrap">
+                      <span className="font-montserrat text-primary font-extrabold flex items-center gap-1.5 text-xs xs:text-sm">
                         <CustomSparkleEmoji className="w-3.5 h-3.5 text-primary flex-shrink-0" />
                         <span>{prayer.author}</span>
                       </span>
-                      <div className="flex items-center gap-2.5">
-                        <span className="inline-flex items-center gap-1 text-[11px] font-bold text-primary bg-primary/10 px-2.5 py-0.5 rounded-full border border-primary/25">
-                          <CustomPrayingHandsEmoji className="w-3.5 h-3.5" />
+                      <div className="flex items-center gap-2">
+                        <span className="inline-flex items-center gap-1 text-[10px] xs:text-[11px] font-bold text-primary bg-primary/10 px-2 py-0.5 rounded-full border border-primary/25">
+                          <CustomPrayingHandsEmoji className="w-3 h-3 xs:w-3.5 xs:h-3.5" />
                           <span>Praying</span>
                         </span>
-                        <span className="text-[11px] font-semibold text-white/50">{prayer.time}</span>
+                        <span className="text-[10px] xs:text-[11px] font-semibold text-white/50">{prayer.time}</span>
                       </div>
                     </div>
                   </div>

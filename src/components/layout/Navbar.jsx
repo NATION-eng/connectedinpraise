@@ -52,12 +52,12 @@ export function Navbar() {
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-500 py-2.5 sm:py-3.5 px-3 sm:px-6 lg:px-8 pointer-events-none">
+      <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-500 py-2 sm:py-3.5 px-2 xs:px-3 sm:px-6 lg:px-8 pointer-events-none">
         <nav
-          className={`max-w-7xl mx-auto flex items-center justify-between gap-2 sm:gap-4 px-3.5 sm:px-6 py-2 sm:py-2.5 rounded-full pointer-events-auto transition-all duration-500 overflow-visible ${
+          className={`max-w-7xl mx-auto flex items-center justify-between gap-1.5 xs:gap-2 sm:gap-4 px-2.5 xs:px-3.5 sm:px-6 py-1.5 xs:py-2 sm:py-2.5 rounded-full pointer-events-auto transition-all duration-500 overflow-visible ${
             isScrolled
-              ? "bg-[#0E0304]/90 backdrop-blur-2xl border border-primary/35 shadow-[0_12px_45px_rgba(0,0,0,0.85)] ring-1 ring-primary/20"
-              : "bg-black/60 backdrop-blur-xl border border-white/15 shadow-[0_8px_30px_rgba(0,0,0,0.6)]"
+              ? "bg-[#0E0304]/95 backdrop-blur-2xl border border-primary/35 shadow-[0_12px_45px_rgba(0,0,0,0.85)] ring-1 ring-primary/20"
+              : "bg-black/70 backdrop-blur-xl border border-white/15 shadow-[0_8px_30px_rgba(0,0,0,0.6)]"
           }`}
         >
           {/* Brand Identity */}
@@ -96,21 +96,21 @@ export function Navbar() {
           </ul>
 
           {/* Action Area: Donate Button, Strict Icon-Only Live Stream & Mobile Hamburger */}
-          <div className="flex items-center gap-2 sm:gap-3 flex-shrink-0">
+          <div className="flex items-center gap-1.5 xs:gap-2 sm:gap-3 flex-shrink-0">
             {/* Prominent Donate Button on Navbar */}
             <button
               onClick={() => {
                 setIsMenuOpen(false);
                 navigate("/donate");
               }}
-              className={`relative inline-flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full font-montserrat font-black text-[11px] sm:text-xs uppercase tracking-wider transition-all duration-300 delay-75 cursor-pointer shadow-md hover:scale-105 active:scale-95 flex-shrink-0 ${
+              className={`relative inline-flex items-center gap-1 xs:gap-1.5 px-2.5 xs:px-3 sm:px-4 py-1.5 sm:py-2 rounded-full font-montserrat font-black text-[10px] xs:text-[11px] sm:text-xs uppercase tracking-wider transition-all duration-300 delay-75 cursor-pointer shadow-md hover:scale-105 active:scale-95 flex-shrink-0 ${
                 currentPath === "/donate"
                   ? "bg-gradient-to-r from-primary via-sunburst to-secondary text-obsidian ring-2 ring-primary shadow-[0_0_20px_rgba(255,200,59,0.5)]"
                   : "bg-gradient-to-r from-primary via-sunburst to-secondary text-obsidian hover:shadow-[0_0_20px_rgba(255,200,59,0.4)]"
               }`}
               aria-label="Donate directly to Connected in Praise"
             >
-              <Heart className="w-3.5 h-3.5 fill-current text-obsidian animate-pulse" />
+              <Heart className="w-3 h-3 xs:w-3.5 xs:h-3.5 fill-current text-obsidian animate-pulse" />
               <span>Donate</span>
             </button>
 
@@ -121,23 +121,23 @@ export function Navbar() {
               rel="noopener noreferrer"
               aria-label="Watch Live Broadcast on YouTube"
               title="Watch Live Stream on YouTube"
-              className="relative flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-primary/50 bg-primary/15 hover:bg-primary text-primary hover:text-obsidian transition-all duration-500 delay-150 ease-[cubic-bezier(0.23,1,0.32,1)] shadow-[0_0_15px_rgba(255,200,59,0.3)] hover:shadow-[0_0_25px_rgba(255,200,59,0.6)] hover:scale-105 active:scale-95 flex-shrink-0 group cursor-pointer"
+              className="relative flex items-center justify-center w-8 h-8 xs:w-9 xs:h-9 sm:w-10 sm:h-10 rounded-full border border-primary/50 bg-primary/15 hover:bg-primary text-primary hover:text-obsidian transition-all duration-500 delay-150 ease-[cubic-bezier(0.23,1,0.32,1)] shadow-[0_0_15px_rgba(255,200,59,0.3)] hover:shadow-[0_0_25px_rgba(255,200,59,0.6)] hover:scale-105 active:scale-95 flex-shrink-0 group cursor-pointer"
             >
-              <Radio className="w-4 h-4 sm:w-4.5 sm:h-4.5 text-primary group-hover:text-obsidian animate-pulse transition-colors duration-500" />
+              <Radio className="w-3.5 h-3.5 sm:w-4.5 sm:h-4.5 text-primary group-hover:text-obsidian animate-pulse transition-colors duration-500" />
               {/* Subtle Live Dot Ping */}
-              <span className="absolute -top-0.5 -right-0.5 flex h-2.5 w-2.5 pointer-events-none">
+              <span className="absolute -top-0.5 -right-0.5 flex h-2 w-2 xs:h-2.5 xs:w-2.5 pointer-events-none">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75" />
-                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-secondary shadow-sm" />
+                <span className="relative inline-flex rounded-full h-2 w-2 xs:h-2.5 xs:w-2.5 bg-secondary shadow-sm" />
               </span>
             </a>
 
             {/* Mobile Hamburger (Visible on < xl screens) */}
             <button
               onClick={() => setIsMenuOpen(true)}
-              className="xl:hidden text-milk p-2 sm:p-2.5 rounded-full bg-primary/15 hover:bg-primary/25 transition-colors border border-primary/40 flex-shrink-0 cursor-pointer"
+              className="xl:hidden text-milk p-1.5 xs:p-2 sm:p-2.5 rounded-full bg-primary/15 hover:bg-primary/25 transition-colors border border-primary/40 flex-shrink-0 cursor-pointer min-w-[34px] min-h-[34px] flex items-center justify-center"
               aria-label="Open navigation menu"
             >
-              <Menu className="w-5 h-5 text-primary" />
+              <Menu className="w-4 h-4 xs:w-5 xs:h-5 text-primary" />
             </button>
           </div>
         </nav>
@@ -160,9 +160,9 @@ export function Navbar() {
         <div className="absolute bottom-1/4 left-0 w-72 h-72 bg-secondary/15 rounded-full blur-[120px] pointer-events-none" />
 
         {/* Drawer Content */}
-        <div className="relative h-full flex flex-col justify-between p-5 sm:p-7 overflow-y-auto z-10">
+        <div className="relative h-full flex flex-col justify-between p-4 xs:p-5 sm:p-7 overflow-y-auto z-10">
           {/* Drawer Top */}
-          <div className="flex items-center justify-between pb-4 border-b border-white/10">
+          <div className="flex items-center justify-between pb-3 sm:pb-4 border-b border-white/10">
             <a
               href="/"
               onClick={(e) => handleNavClick(e, "/")}
@@ -172,7 +172,7 @@ export function Navbar() {
             </a>
             <button
               onClick={() => setIsMenuOpen(false)}
-              className="text-white p-2.5 rounded-full bg-white/5 border border-primary/30 hover:bg-primary/20 transition-colors cursor-pointer"
+              className="text-white p-2 xs:p-2.5 rounded-full bg-white/5 border border-primary/30 hover:bg-primary/20 transition-colors cursor-pointer min-w-[36px] min-h-[36px] flex items-center justify-center"
               aria-label="Close menu"
             >
               <X className="w-5 h-5 text-primary" />
@@ -180,7 +180,7 @@ export function Navbar() {
           </div>
 
           {/* Festival Quick Badge inside Drawer */}
-          <div className="mt-4 p-3.5 rounded-2xl bg-black/50 border border-primary/25 shadow-lg">
+          <div className="mt-3 p-3 rounded-2xl bg-black/50 border border-primary/25 shadow-lg">
             <div className="flex items-center gap-2 text-xs font-montserrat font-bold text-milk">
               <span className="w-2 h-2 rounded-full bg-secondary animate-pulse" />
               <span>Jerusalem Choir ✕ APM</span>
@@ -192,7 +192,7 @@ export function Navbar() {
           </div>
 
           {/* Drawer Navigation Links */}
-          <ul className="flex flex-col gap-1.5 my-4">
+          <ul className="flex flex-col gap-1.5 my-3 xs:my-4">
             {navLinks.map((link) => {
               const isActive = currentPath === link.path;
               return (
@@ -200,7 +200,7 @@ export function Navbar() {
                   <a
                     href={link.path}
                     onClick={(e) => handleNavClick(e, link.path)}
-                    className={`font-montserrat font-extrabold text-base sm:text-lg transition-all duration-300 py-2.5 px-3 rounded-xl block uppercase tracking-wide flex items-center justify-between ${
+                    className={`font-montserrat font-extrabold text-sm xs:text-base sm:text-lg transition-all duration-300 py-2.5 px-3 rounded-xl block uppercase tracking-wide flex items-center justify-between ${
                       isActive
                         ? "bg-primary/20 text-primary border border-primary/40 shadow-sm"
                         : "text-milk hover:text-primary hover:bg-white/5"
@@ -220,7 +220,7 @@ export function Navbar() {
                   setIsMenuOpen(false);
                   navigate("/donate");
                 }}
-                className={`w-full py-3 px-4 rounded-xl font-montserrat font-black text-sm uppercase tracking-wider flex items-center justify-between shadow-lg transition-transform active:scale-98 cursor-pointer ${
+                className={`w-full py-3 px-4 rounded-xl font-montserrat font-black text-xs xs:text-sm uppercase tracking-wider flex items-center justify-between shadow-lg transition-transform active:scale-98 cursor-pointer ${
                   currentPath === "/donate"
                     ? "bg-gradient-to-r from-primary via-sunburst to-secondary text-obsidian ring-2 ring-white"
                     : "bg-gradient-to-r from-primary via-sunburst to-secondary text-obsidian"
@@ -236,7 +236,7 @@ export function Navbar() {
           </ul>
 
           {/* Drawer Bottom Actions: Prominent Live Button & Socials */}
-          <div className="space-y-3 pt-3 border-t border-white/10">
+          <div className="space-y-2.5 pt-3 border-t border-white/10">
             <a
               href={SOCIAL_LINKS.youtube}
               target="_blank"
@@ -281,7 +281,7 @@ export function Navbar() {
               </a>
             </div>
 
-            <p className="text-[10px] text-center text-milk/50 pt-0.5 font-medium">
+            <p className="text-[9px] xs:text-[10px] text-center text-milk/50 pt-0.5 font-medium">
               Breaking Disability Barriers · Port Harcourt City, Nigeria
             </p>
           </div>
