@@ -66,7 +66,7 @@ export function Contact() {
           {/* Left Info Column */}
           <div className="lg:col-span-5 space-y-4 sm:space-y-5">
             {/* Real Venue Location Box */}
-            <div className="bg-black/55 backdrop-blur-xl p-6 rounded-3xl border border-milk/10 hover:border-primary/50 transition-all duration-500 delay-75 ease-[cubic-bezier(0.23,1,0.32,1)] hover:-translate-y-1.5 hover:shadow-[0_15px_30px_rgba(255,200,59,0.2)] shadow-lg flex items-start gap-4">
+            <div className="bg-black/55 backdrop-blur-xl p-6 rounded-3xl border border-milk/10 hover:border-primary/50 transition-all duration-700 delay-150 ease-[cubic-bezier(0.23,1,0.32,1)] hover:-translate-y-1.5 hover:shadow-[0_15px_30px_rgba(255,200,59,0.2)] shadow-lg flex items-start gap-4">
               <div className="w-12 h-12 rounded-2xl bg-primary/20 flex items-center justify-center text-primary flex-shrink-0 border border-primary/35">
                 <MapPin className="w-6 h-6" />
               </div>
@@ -85,7 +85,7 @@ export function Contact() {
             </div>
 
             {/* General Email & Phone */}
-            <div className="bg-black/55 backdrop-blur-xl p-6 rounded-3xl border border-milk/10 hover:border-primary/50 transition-all duration-500 delay-75 ease-[cubic-bezier(0.23,1,0.32,1)] hover:-translate-y-1.5 hover:shadow-[0_15px_30px_rgba(255,200,59,0.2)] shadow-lg flex items-start gap-4">
+            <div className="bg-black/55 backdrop-blur-xl p-6 rounded-3xl border border-milk/10 hover:border-primary/50 transition-all duration-700 delay-150 ease-[cubic-bezier(0.23,1,0.32,1)] hover:-translate-y-1.5 hover:shadow-[0_15px_30px_rgba(255,200,59,0.2)] shadow-lg flex items-start gap-4">
               <div className="w-12 h-12 rounded-2xl bg-secondary/20 flex items-center justify-center text-secondary flex-shrink-0 border border-secondary/35">
                 <Phone className="w-6 h-6" />
               </div>
@@ -103,7 +103,7 @@ export function Contact() {
             </div>
 
             {/* Accessibility Email Box */}
-            <div className="bg-black/45 backdrop-blur-xl p-6 rounded-3xl border border-primary/30 shadow-lg flex items-start gap-4">
+            <div className="bg-black/45 backdrop-blur-xl p-6 rounded-3xl border border-primary/30 hover:border-primary/60 transition-all duration-700 delay-150 ease-[cubic-bezier(0.23,1,0.32,1)] hover:-translate-y-1.5 hover:shadow-[0_15px_30px_rgba(255,200,59,0.2)] shadow-lg flex items-start gap-4">
               <div className="w-12 h-12 rounded-2xl bg-primary/20 flex items-center justify-center text-primary flex-shrink-0 border border-primary/40">
                 <Mail className="w-6 h-6" />
               </div>

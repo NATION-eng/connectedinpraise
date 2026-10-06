@@ -183,7 +183,7 @@ export function Gallery() {
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
-              className={`px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-montserrat font-bold transition-all duration-300 cursor-pointer select-none ${
+              className={`px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-montserrat font-bold transition-all duration-500 delay-150 ease-[cubic-bezier(0.23,1,0.32,1)] cursor-pointer select-none ${
                 activeCategory === cat
                   ? "bg-primary text-obsidian shadow-[0_0_20px_rgba(255,200,59,0.4)] scale-105"
                   : "bg-black/40 backdrop-blur-xl border border-white/10 text-white/70 hover:text-white hover:border-primary/40"
@@ -200,31 +200,31 @@ export function Gallery() {
             <div
               key={item.id}
               onClick={() => setSelectedPhoto(item)}
-              className="group relative rounded-3xl overflow-hidden bg-black/60 border border-primary/20 cursor-pointer shadow-2xl transition-all duration-700 delay-75 ease-[cubic-bezier(0.23,1,0.32,1)] hover:-translate-y-2 hover:border-primary/80 hover:shadow-[0_15px_35px_rgba(255,200,59,0.25)] select-none"
+              className="group relative rounded-3xl overflow-hidden bg-black/60 border border-primary/20 cursor-pointer shadow-2xl transition-all duration-700 delay-150 ease-[cubic-bezier(0.23,1,0.32,1)] hover:-translate-y-2 hover:border-primary/80 hover:shadow-[0_15px_35px_rgba(255,200,59,0.25)] select-none"
             >
               <div className="aspect-[4/3] sm:aspect-[1/1] xl:aspect-[4/3] overflow-hidden relative">
                 <img
                   src={item.src}
                   alt={item.title}
                   loading="lazy"
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 delay-75 ease-[cubic-bezier(0.23,1,0.32,1)] filter brightness-90 group-hover:brightness-105"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 delay-150 ease-[cubic-bezier(0.23,1,0.32,1)] filter brightness-90 group-hover:brightness-105"
                 />
 
                 {/* Ambient Cinematic Vignette */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20 opacity-60 group-hover:opacity-40 transition-opacity duration-500 delay-75" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20 opacity-60 group-hover:opacity-40 transition-opacity duration-700 delay-150" />
 
                 {/* Golden Radial Halo on Hover */}
-                <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 via-transparent to-secondary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700 delay-75 pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 via-transparent to-secondary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700 delay-150 pointer-events-none" />
 
                 {/* Intriguing Center Focus / View Lens Icon */}
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-12 h-12 rounded-full bg-black/60 backdrop-blur-md border border-primary/40 flex items-center justify-center text-primary opacity-0 group-hover:opacity-100 scale-75 group-hover:scale-100 transition-all duration-500 delay-100 ease-[cubic-bezier(0.23,1,0.32,1)] shadow-[0_0_20px_rgba(255,200,59,0.5)]">
+                  <div className="w-12 h-12 rounded-full bg-black/60 backdrop-blur-md border border-primary/40 flex items-center justify-center text-primary opacity-0 group-hover:opacity-100 scale-75 group-hover:scale-100 transition-all duration-500 delay-150 ease-[cubic-bezier(0.23,1,0.32,1)] shadow-[0_0_20px_rgba(255,200,59,0.5)]">
                     <Maximize2 className="w-5 h-5 text-primary group-hover:rotate-12 transition-transform duration-300" />
                   </div>
                 </div>
 
                 {/* Subtle Floating Corner Indicator */}
-                <div className="absolute bottom-3 right-3 text-[10px] font-montserrat uppercase tracking-widest text-milk/60 bg-black/60 backdrop-blur-md px-2.5 py-1 rounded-full border border-milk/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-75">
+                <div className="absolute bottom-3 right-3 text-[10px] font-montserrat uppercase tracking-widest text-milk/60 bg-black/60 backdrop-blur-md px-2.5 py-1 rounded-full border border-milk/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-150">
                   View
                 </div>
               </div>

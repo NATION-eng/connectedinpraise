@@ -78,10 +78,10 @@ export function Navbar() {
                 <a
                   href={link.href}
                   onClick={(e) => handleNavClick(e, link.href)}
-                  className="font-montserrat text-xs xl:text-[13px] font-bold uppercase tracking-wider text-white/90 hover:text-primary transition-colors duration-200 relative group py-1 whitespace-nowrap select-none"
+                  className="font-montserrat text-xs xl:text-[13px] font-bold uppercase tracking-wider text-white/90 hover:text-primary transition-colors duration-500 delay-150 ease-[cubic-bezier(0.23,1,0.32,1)] relative group py-1 whitespace-nowrap select-none"
                 >
                   {link.label}
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-secondary group-hover:w-full transition-all duration-300 rounded-full" />
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-secondary group-hover:w-full transition-all duration-500 delay-150 ease-[cubic-bezier(0.23,1,0.32,1)] rounded-full" />
                 </a>
               </li>
             ))}
@@ -96,9 +96,9 @@ export function Navbar() {
               rel="noopener noreferrer"
               aria-label="Watch Live Broadcast on YouTube"
               title="Watch Live on YouTube"
-              className="relative group flex items-center justify-center w-10 h-10 sm:w-11 sm:h-11 rounded-full border-2 border-primary bg-primary/10 hover:bg-primary text-primary hover:text-obsidian transition-all duration-300 delay-75 ease-[cubic-bezier(0.23,1,0.32,1)] shadow-[0_0_20px_rgba(255,200,59,0.35)] hover:shadow-[0_0_30px_rgba(255,200,59,0.6)] hover:scale-105 active:scale-95 flex-shrink-0"
+              className="relative group flex items-center justify-center w-10 h-10 sm:w-11 sm:h-11 rounded-full border-2 border-primary bg-primary/10 hover:bg-primary text-primary hover:text-obsidian transition-all duration-500 delay-150 ease-[cubic-bezier(0.23,1,0.32,1)] shadow-[0_0_20px_rgba(255,200,59,0.35)] hover:shadow-[0_0_30px_rgba(255,200,59,0.6)] hover:scale-105 active:scale-95 flex-shrink-0"
             >
-              <Radio className="w-4 h-4 sm:w-5 sm:h-5 text-primary group-hover:text-obsidian animate-pulse transition-colors" />
+              <Radio className="w-4 h-4 sm:w-5 sm:h-5 text-primary group-hover:text-obsidian animate-pulse transition-colors duration-500 delay-150" />
               {/* Subtle Live Dot Ping */}
               <span className="absolute -top-1 -right-1 flex h-3 w-3">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75" />

@@ -100,7 +100,7 @@ export function JerusalemChoir() {
 
             {/* Key Accomplishments Badges */}
             <div className="grid grid-cols-3 gap-2.5 sm:gap-4 w-full mb-8">
-              <div className="bg-black/50 backdrop-blur-xl p-3 sm:p-5 rounded-2xl text-center border border-white/10 hover:border-primary/50 flex flex-col items-center justify-center min-w-0 shadow-md transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] hover:-translate-y-1.5 hover:shadow-[0_10px_25px_rgba(255,200,59,0.2)]">
+              <div className="bg-black/50 backdrop-blur-xl p-3 sm:p-5 rounded-2xl text-center border border-white/10 hover:border-primary/50 flex flex-col items-center justify-center min-w-0 shadow-md transition-all duration-700 delay-150 ease-[cubic-bezier(0.23,1,0.32,1)] hover:-translate-y-1.5 hover:shadow-[0_10px_25px_rgba(255,200,59,0.2)]">
                 <CustomGoldenCrownEmoji className="w-6 h-6 mb-1.5 flex-shrink-0" />
                 <div className="font-montserrat font-black text-xs sm:text-sm text-white truncate w-full">
                   Annual
@@ -110,7 +110,7 @@ export function JerusalemChoir() {
                 </div>
               </div>
 
-              <div className="bg-black/50 backdrop-blur-xl p-3 sm:p-5 rounded-2xl text-center border border-white/10 hover:border-primary/50 flex flex-col items-center justify-center min-w-0 shadow-md transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] hover:-translate-y-1.5 hover:shadow-[0_10px_25px_rgba(255,200,59,0.2)]">
+              <div className="bg-black/50 backdrop-blur-xl p-3 sm:p-5 rounded-2xl text-center border border-white/10 hover:border-primary/50 flex flex-col items-center justify-center min-w-0 shadow-md transition-all duration-700 delay-150 ease-[cubic-bezier(0.23,1,0.32,1)] hover:-translate-y-1.5 hover:shadow-[0_10px_25px_rgba(255,200,59,0.2)]">
                 <CustomPraiseHandsEmoji className="w-6 h-6 mb-1.5 flex-shrink-0" />
                 <div className="font-montserrat font-black text-xs sm:text-sm text-white truncate w-full">
                   100%
@@ -120,7 +120,7 @@ export function JerusalemChoir() {
                 </div>
               </div>
 
-              <div className="bg-black/50 backdrop-blur-xl p-3 sm:p-5 rounded-2xl text-center border border-white/10 hover:border-primary/50 flex flex-col items-center justify-center min-w-0 shadow-md transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] hover:-translate-y-1.5 hover:shadow-[0_10px_25px_rgba(255,200,59,0.2)]">
+              <div className="bg-black/50 backdrop-blur-xl p-3 sm:p-5 rounded-2xl text-center border border-white/10 hover:border-primary/50 flex flex-col items-center justify-center min-w-0 shadow-md transition-all duration-700 delay-150 ease-[cubic-bezier(0.23,1,0.32,1)] hover:-translate-y-1.5 hover:shadow-[0_10px_25px_rgba(255,200,59,0.2)]">
                 <CustomInclusionStarEmoji className="w-6 h-6 mb-1.5 flex-shrink-0" />
                 <div className="font-montserrat font-black text-xs sm:text-sm text-white truncate w-full">
                   Evangelism

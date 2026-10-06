@@ -79,7 +79,7 @@ export function WhyPraise() {
                 key={reason.id}
                 type="button"
                 onClick={() => handleSelect(reason.id)}
-                className={`p-4 sm:p-6 rounded-2xl sm:rounded-3xl flex flex-col items-center text-center transition-[transform,opacity,border-color,background-color] duration-150 transform-gpu touch-manipulation cursor-pointer last:col-span-2 md:last:col-span-1 select-none ${
+                className={`p-4 sm:p-6 rounded-2xl sm:rounded-3xl flex flex-col items-center text-center transition-all duration-500 delay-150 ease-[cubic-bezier(0.23,1,0.32,1)] transform-gpu touch-manipulation cursor-pointer last:col-span-2 md:last:col-span-1 select-none ${
                   isSelected
                     ? "bg-black/80 backdrop-blur-2xl border-2 border-primary shadow-[0_0_25px_rgba(255,200,59,0.35)] scale-[1.03] opacity-100"
                     : "bg-black/35 backdrop-blur-xl border border-white/10 hover:border-primary/30 hover:-translate-y-0.5 opacity-70 hover:opacity-100"

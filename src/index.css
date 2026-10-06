@@ -77,7 +77,7 @@
   .btn-gold {
     @apply rounded-full bg-gradient-to-r from-gold-deep via-gold-bright to-gold-deep px-6 py-3 font-semibold text-maroon-deep;
     box-shadow: 0 0 20px rgba(242, 118, 10, 0.28);
-    transition: box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1), transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+    transition: box-shadow 0.7s cubic-bezier(0.23, 1, 0.32, 1) 150ms, transform 0.7s cubic-bezier(0.23, 1, 0.32, 1) 150ms;
   }
   .btn-gold:hover {
     box-shadow: 0 0 30px rgba(255, 196, 0, 0.45), 0 0 60px rgba(242, 118, 10, 0.18);
@@ -90,7 +90,7 @@
   .btn-outline {
     @apply rounded-full border-2 border-neon px-6 py-3 font-semibold text-gold-bright;
     box-shadow: 0 0 15px rgba(242, 118, 10, 0.14);
-    transition: box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1), transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.35s;
+    transition: box-shadow 0.7s cubic-bezier(0.23, 1, 0.32, 1) 150ms, transform 0.7s cubic-bezier(0.23, 1, 0.32, 1) 150ms, background-color 0.7s cubic-bezier(0.23, 1, 0.32, 1) 150ms;
   }
   .btn-outline:hover {
     background-color: rgba(242, 118, 10, 0.1);

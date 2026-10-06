@@ -51,7 +51,7 @@ export function Experience() {
                 key={idx}
                 type="button"
                 onClick={() => setActiveDayIdx(idx)}
-                className={`flex flex-col items-center p-3.5 sm:px-6 sm:py-4 rounded-2xl transition-all duration-300 delay-75 ease-[cubic-bezier(0.23,1,0.32,1)] cursor-pointer w-full text-center select-none ${
+                className={`flex flex-col items-center p-3.5 sm:px-6 sm:py-4 rounded-2xl transition-all duration-700 delay-150 ease-[cubic-bezier(0.23,1,0.32,1)] cursor-pointer w-full text-center select-none ${
                   isActive
                     ? "bg-black/85 backdrop-blur-2xl border-2 border-primary shadow-[0_0_25px_rgba(255,200,59,0.35)] scale-[1.03]"
                     : "bg-black/45 backdrop-blur-xl border border-milk/10 opacity-70 hover:opacity-100 hover:border-primary/50 hover:-translate-y-1"

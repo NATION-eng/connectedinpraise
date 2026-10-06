@@ -37,32 +37,32 @@ export function Footer({ onOpenAdmin }) {
             </h4>
             <ul className="space-y-2.5 text-xs sm:text-sm font-semibold">
               <li>
-                <a href="#about" className="hover:text-primary transition-colors">
+                <a href="#about" className="hover:text-primary transition-colors duration-500 delay-150 ease-[cubic-bezier(0.23,1,0.32,1)]">
                   About APM Inclusion
                 </a>
               </li>
               <li>
-                <a href="#why-praise" className="hover:text-primary transition-colors">
+                <a href="#why-praise" className="hover:text-primary transition-colors duration-500 delay-150 ease-[cubic-bezier(0.23,1,0.32,1)]">
                   Why Do You Praise?
                 </a>
               </li>
               <li>
-                <a href="#choir" className="hover:text-primary transition-colors">
+                <a href="#choir" className="hover:text-primary transition-colors duration-500 delay-150 ease-[cubic-bezier(0.23,1,0.32,1)]">
                   Jerusalem Choir Host
                 </a>
               </li>
               <li>
-                <a href="#experience" className="hover:text-primary transition-colors">
+                <a href="#experience" className="hover:text-primary transition-colors duration-500 delay-150 ease-[cubic-bezier(0.23,1,0.32,1)]">
                   Program Schedule
                 </a>
               </li>
               <li>
-                <a href="#gallery" className="hover:text-primary transition-colors">
+                <a href="#gallery" className="hover:text-primary transition-colors duration-500 delay-150 ease-[cubic-bezier(0.23,1,0.32,1)]">
                   Visual Archives (Gallery)
                 </a>
               </li>
               <li>
-                <a href="#stories" className="hover:text-primary transition-colors">
+                <a href="#stories" className="hover:text-primary transition-colors duration-500 delay-150 ease-[cubic-bezier(0.23,1,0.32,1)]">
                   Stories & Prayer Wall
                 </a>
               </li>
@@ -84,11 +84,11 @@ export function Footer({ onOpenAdmin }) {
                 href="https://www.tiktok.com/@connectedinpraise?_r=1&_t=ZS-99v3wfSwKz"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-2xl bg-white/5 border border-primary/25 flex items-center justify-center text-white hover:text-primary hover:border-primary/60 hover:bg-primary/10 transition-all group"
+                className="w-10 h-10 rounded-2xl bg-white/5 border border-primary/25 flex items-center justify-center text-white hover:text-primary hover:border-primary/60 hover:bg-primary/10 transition-all duration-500 delay-150 ease-[cubic-bezier(0.23,1,0.32,1)] hover:-translate-y-1 hover:shadow-[0_8px_20px_rgba(255,200,59,0.25)] group"
                 aria-label="TikTok"
                 title="Follow on TikTok"
               >
-                <CustomTikTokEmoji className="w-4 h-4 text-white group-hover:text-primary transition-colors" />
+                <CustomTikTokEmoji className="w-4 h-4 text-white group-hover:text-primary transition-colors duration-500 delay-150" />
               </a>
 
               {/* Facebook */}
@@ -96,7 +96,7 @@ export function Footer({ onOpenAdmin }) {
                 href="https://www.facebook.com/profile.php?id=61578565720573"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-2xl bg-white/5 border border-primary/25 flex items-center justify-center text-blue-400 hover:text-primary hover:border-primary/60 hover:bg-primary/10 transition-all"
+                className="w-10 h-10 rounded-2xl bg-white/5 border border-primary/25 flex items-center justify-center text-blue-400 hover:text-primary hover:border-primary/60 hover:bg-primary/10 transition-all duration-500 delay-150 ease-[cubic-bezier(0.23,1,0.32,1)] hover:-translate-y-1 hover:shadow-[0_8px_20px_rgba(255,200,59,0.25)]"
                 aria-label="Facebook"
                 title="Connect on Facebook"
               >
@@ -108,7 +108,7 @@ export function Footer({ onOpenAdmin }) {
                 href="https://youtube.com/@connectedinpraise?si=JpVeFaqQFqMPO_fL"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-2xl bg-white/5 border border-primary/25 flex items-center justify-center text-red-500 hover:text-primary hover:border-primary/60 hover:bg-primary/10 transition-all"
+                className="w-10 h-10 rounded-2xl bg-white/5 border border-primary/25 flex items-center justify-center text-red-500 hover:text-primary hover:border-primary/60 hover:bg-primary/10 transition-all duration-500 delay-150 ease-[cubic-bezier(0.23,1,0.32,1)] hover:-translate-y-1 hover:shadow-[0_8px_20px_rgba(255,200,59,0.25)]"
                 aria-label="YouTube"
                 title="Subscribe on YouTube"
               >
@@ -145,7 +145,7 @@ export function Footer({ onOpenAdmin }) {
 
             <button
               onClick={scrollToTop}
-              className="flex items-center gap-1.5 text-primary hover:text-white transition-colors cursor-pointer font-montserrat font-bold uppercase tracking-wider"
+              className="flex items-center gap-1.5 text-primary hover:text-white transition-colors duration-500 delay-150 ease-[cubic-bezier(0.23,1,0.32,1)] cursor-pointer font-montserrat font-bold uppercase tracking-wider"
             >
               <span>Back to top</span>
               <ArrowUp className="w-4 h-4" />
