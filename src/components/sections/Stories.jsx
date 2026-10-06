@@ -8,6 +8,7 @@ import {
   CustomPraiseHandsEmoji,
 } from "../ui/CustomEmoji";
 import { LiquidButton } from "../ui/LiquidButton";
+import { RevealMotion, StaggerContainer, StaggerItem } from "../ui/RevealMotion";
 
 export function Stories() {
   const [prayers, setPrayers] = useState([]);
@@ -53,14 +54,22 @@ export function Stories() {
   };
 
   return (
-    <section id="stories" className="relative py-20 sm:py-28 md:py-36 overflow-hidden bg-obsidian text-white">
-      {/* Background Lighting */}
-      <div className="absolute top-1/2 left-0 w-96 h-96 bg-primary/10 rounded-full blur-[150px] pointer-events-none animate-pulse-glow" />
+    <section id="stories" className="relative py-20 sm:py-28 md:py-36 overflow-hidden bg-[#0D0404] text-white">
+      {/* Radiant Sunburst Glow Background Canvas */}
+      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+        <img
+          src="/images/cip-sunburst-bg.jpg"
+          alt="Sunburst Ambient Backdrop"
+          className="w-full h-full object-cover object-center opacity-15 filter blur-sm scale-110"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0D0404] via-[#1A0405]/95 to-[#0D0404]" />
+        <div className="absolute top-1/2 left-0 w-96 h-96 bg-primary/10 rounded-full blur-[150px] pointer-events-none animate-pulse-glow" />
+      </div>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Heading */}
-        <div className="text-center mb-16 sm:mb-20">
-          <div className="inline-flex items-center gap-2 bg-black/50 backdrop-blur-xl rounded-full px-4 sm:px-5 py-2 mb-4 border border-primary/30">
+        <RevealMotion className="text-center mb-16 sm:mb-20">
+          <div className="inline-flex items-center gap-2 bg-black/60 backdrop-blur-xl rounded-full px-4 sm:px-5 py-2 mb-4 border border-primary/30">
             <MessageSquare className="w-4 h-4 text-primary" />
             <span className="font-montserrat text-xs uppercase tracking-[0.2em] text-white/80 font-bold">
               Voices & Intercession
@@ -72,11 +81,11 @@ export function Stories() {
               Prayer Wall
             </span>
           </h2>
-          <p className="text-white/70 max-w-xl mx-auto text-sm sm:text-base font-normal">
-            Real people. Transformed lives. Post your prayer petition or thanksgiving note to our
-            persisted digital wall for united intercession.
+          <p className="text-white/75 max-w-xl mx-auto text-sm sm:text-base font-normal">
+            Real testimonies of breakthrough, healing, and personal devotion. Post your prayer petition
+            below to be covered by the Jerusalem Choir and APM intercessory family.
           </p>
-        </div>
+        </RevealMotion>
 
         {/* Testimonials 3-Column Grid */}
         <div className="grid md:grid-cols-3 gap-6 sm:gap-8 mb-20 sm:mb-24">

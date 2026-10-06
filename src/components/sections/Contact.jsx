@@ -3,6 +3,7 @@ import { Mail, Phone, MapPin, Send, MessageCircle, Youtube, Facebook, ShieldChec
 import { saveContactMessage } from "../../services/db";
 import { CustomTikTokEmoji } from "../ui/CustomEmoji";
 import { LiquidButton } from "../ui/LiquidButton";
+import { RevealMotion, StaggerContainer, StaggerItem } from "../ui/RevealMotion";
 
 export function Contact() {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
@@ -28,13 +29,22 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="relative py-20 sm:py-28 md:py-36 overflow-hidden bg-espresso text-white">
-      <div className="absolute top-0 right-1/4 w-80 h-80 bg-secondary/10 rounded-full blur-[140px] pointer-events-none animate-pulse-glow" />
+    <section id="contact" className="relative py-20 sm:py-28 md:py-36 overflow-hidden bg-[#0D0404] text-white">
+      {/* Radiant Sunburst Glow Background Canvas */}
+      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+        <img
+          src="/images/cip-sunburst-bg.jpg"
+          alt="Sunburst Ambient Backdrop"
+          className="w-full h-full object-cover object-center opacity-15 filter blur-sm scale-110"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0D0404] via-[#1A0405]/95 to-[#0D0404]" />
+        <div className="absolute top-0 right-1/4 w-80 h-80 bg-secondary/15 rounded-full blur-[140px] pointer-events-none animate-pulse-glow" />
+      </div>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Heading */}
-        <div className="text-center mb-16 sm:mb-20">
-          <div className="inline-flex items-center gap-2 bg-black/50 backdrop-blur-xl rounded-full px-4 sm:px-5 py-2 mb-4 border border-primary/30">
+        <RevealMotion className="text-center mb-16 sm:mb-20">
+          <div className="inline-flex items-center gap-2 bg-black/60 backdrop-blur-xl rounded-full px-4 sm:px-5 py-2 mb-4 border border-primary/30">
             <Mail className="w-4 h-4 text-primary" />
             <span className="font-montserrat text-xs uppercase tracking-[0.2em] text-white/80 font-bold">
               Connect With Us
@@ -50,7 +60,7 @@ export function Contact() {
             Need special accessibility arrangements, wheelchair assistance, or have an inquiry? Our team
             is standing by to assist you.
           </p>
-        </div>
+        </RevealMotion>
 
         <div className="grid lg:grid-cols-12 gap-8 sm:gap-10 items-start max-w-5xl mx-auto">
           {/* Left Info Column */}

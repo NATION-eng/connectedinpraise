@@ -19,6 +19,8 @@ const iconMap = {
   neverleft: <CustomHolyFlameEmoji className="w-6 h-6" />,
 };
 
+import { RevealMotion, StaggerContainer, StaggerItem } from "../ui/RevealMotion";
+
 export function WhyPraise() {
   const [selectedId, setSelectedId] = useState(praiseReasons[0].id);
   const [, startTransition] = useTransition();
@@ -35,15 +37,22 @@ export function WhyPraise() {
   );
 
   return (
-    <section id="why-praise" className="relative py-20 sm:py-28 md:py-36 overflow-hidden bg-obsidian">
-      {/* Background Ambient Aura */}
-      <div className="absolute inset-0 bg-gradient-to-b from-espresso via-obsidian to-espresso" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-primary/10 rounded-full blur-[150px] pointer-events-none animate-pulse-glow" />
+    <section id="why-praise" className="relative py-20 sm:py-28 md:py-36 overflow-hidden bg-[#0D0404]">
+      {/* Radiant Sunburst Glow Background Canvas */}
+      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+        <img
+          src="/images/cip-sunburst-bg.jpg"
+          alt="Sunburst Ambient Backdrop"
+          className="w-full h-full object-cover object-center opacity-15 filter blur-sm scale-110"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0D0404] via-[#1A0405]/95 to-[#0D0404]" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-primary/10 rounded-full blur-[150px] pointer-events-none animate-pulse-glow" />
+      </div>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Title */}
-        <div className="text-center mb-14 sm:mb-18">
-          <div className="inline-flex items-center gap-2 bg-black/50 backdrop-blur-xl rounded-full px-4 sm:px-5 py-2 mb-4 border border-primary/30">
+        <RevealMotion className="text-center mb-14 sm:mb-18">
+          <div className="inline-flex items-center gap-2 bg-black/60 backdrop-blur-xl rounded-full px-4 sm:px-5 py-2 mb-4 border border-primary/30">
             <Sparkles className="w-4 h-4 text-primary" />
             <span className="font-montserrat text-xs uppercase tracking-[0.2em] text-white/80 font-bold">
               Interactive Voice Engine
@@ -55,11 +64,11 @@ export function WhyPraise() {
               Praise?
             </span>
           </h2>
-          <p className="text-white/70 max-w-xl mx-auto text-sm sm:text-base font-normal">
+          <p className="text-white/75 max-w-xl mx-auto text-sm sm:text-base font-normal">
             Every voice carries an eternal frequency. Tap a pillar that resonates with your soul to
             reveal its connection to our collective worship.
           </p>
-        </div>
+        </RevealMotion>
 
         {/* 5 Interactive Selectable Cards */}
         <div className="grid grid-cols-2 md:grid-cols-5 gap-3 sm:gap-4 mb-12 sm:mb-16 max-w-5xl mx-auto">

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Image as ImageIcon, X, Maximize2 } from "lucide-react";
+import { RevealMotion, StaggerContainer, StaggerItem } from "../ui/RevealMotion";
 
 // 100% Authentic Photos from CIP MEDIA archives with precise, factual descriptions
 const galleryItems = [
@@ -142,14 +143,23 @@ export function Gallery() {
       : galleryItems.filter((item) => item.category === activeCategory);
 
   return (
-    <section id="gallery" className="relative py-20 sm:py-28 md:py-36 overflow-hidden bg-espresso text-white">
-      <div className="absolute top-1/3 left-0 w-80 h-80 bg-secondary/10 rounded-full blur-[140px] pointer-events-none animate-pulse-glow" />
-      <div className="absolute bottom-10 right-0 w-96 h-96 bg-primary/10 rounded-full blur-[150px] pointer-events-none animate-pulse-glow-slow" />
+    <section id="gallery" className="relative py-20 sm:py-28 md:py-36 overflow-hidden bg-[#0D0404] text-white">
+      {/* Radiant Sunburst Glow Background Canvas */}
+      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+        <img
+          src="/images/cip-sunburst-bg.jpg"
+          alt="Sunburst Ambient Backdrop"
+          className="w-full h-full object-cover object-center opacity-15 filter blur-sm scale-110"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0D0404] via-[#1A0405]/95 to-[#0D0404]" />
+        <div className="absolute top-1/3 left-0 w-80 h-80 bg-secondary/15 rounded-full blur-[150px] pointer-events-none animate-pulse-glow" />
+        <div className="absolute bottom-10 right-0 w-96 h-96 bg-primary/10 rounded-full blur-[150px] pointer-events-none animate-pulse-glow-slow" />
+      </div>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Heading */}
-        <div className="text-center mb-12 sm:mb-16">
-          <div className="inline-flex items-center gap-2 bg-black/50 backdrop-blur-xl rounded-full px-4 sm:px-5 py-2 mb-4 border border-primary/30">
+        <RevealMotion className="text-center mb-12 sm:mb-16">
+          <div className="inline-flex items-center gap-2 bg-black/60 backdrop-blur-xl rounded-full px-4 sm:px-5 py-2 mb-4 border border-primary/30">
             <ImageIcon className="w-4 h-4 text-primary" />
             <span className="font-montserrat text-xs uppercase tracking-[0.2em] text-white/80 font-bold">
               Visual Archives · Authentic CIP Moments
@@ -165,7 +175,7 @@ export function Gallery() {
             Authentic photographs capturing the spirit of Connected in Praise — from anointed choral
             worship on stage to free community dental and healthcare outreach for the vulnerable.
           </p>
-        </div>
+        </RevealMotion>
 
         {/* Filter Categories */}
         <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-12">

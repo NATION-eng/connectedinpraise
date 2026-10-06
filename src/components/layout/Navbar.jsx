@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Radio, Menu, X, Eye, ExternalLink } from "lucide-react";
+import { Radio, Menu, X, ExternalLink } from "lucide-react";
 import { Logo } from "../ui/Logo";
 import { LiquidButton } from "../ui/LiquidButton";
 import { CustomTikTokEmoji } from "../ui/CustomEmoji";
@@ -24,7 +24,6 @@ export const SOCIAL_LINKS = {
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isHighContrast, setIsHighContrast] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -33,10 +32,6 @@ export function Navbar() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  useEffect(() => {
-    document.body.classList.toggle("high-contrast", isHighContrast);
-  }, [isHighContrast]);
 
   useEffect(() => {
     document.body.style.overflow = isMenuOpen ? "hidden" : "";
@@ -60,7 +55,7 @@ export function Navbar() {
         className="fixed top-0 left-0 right-0 z-50 transition-all duration-500 py-3 sm:py-4 px-3 sm:px-6 lg:px-8 pointer-events-none"
       >
         <nav
-          className={`max-w-6xl mx-auto flex items-center justify-between flex-nowrap gap-3 sm:gap-4 px-4 sm:px-6 lg:px-7 py-2 sm:py-2.5 rounded-full pointer-events-auto transition-all duration-500 overflow-hidden ${
+          className={`max-w-6xl mx-auto flex items-center justify-between flex-nowrap gap-3 sm:gap-6 px-4 sm:px-6 lg:px-8 py-2 sm:py-2.5 rounded-full pointer-events-auto transition-all duration-500 overflow-hidden ${
             isScrolled
               ? "bg-[#0D0404]/90 backdrop-blur-2xl border border-primary/35 shadow-[0_12px_45px_rgba(0,0,0,0.85)] ring-1 ring-primary/20"
               : "bg-black/55 backdrop-blur-xl border border-white/15 shadow-[0_8px_30px_rgba(0,0,0,0.6)]"
@@ -76,8 +71,8 @@ export function Navbar() {
             <Logo size="nav" />
           </a>
 
-          {/* Desktop Nav Items - Clean & Perfectly Spaced */}
-          <ul className="hidden lg:flex items-center gap-3.5 xl:gap-5 flex-shrink-0">
+          {/* Desktop Nav Items - Clean, Perfectly Situated & Centered */}
+          <ul className="hidden lg:flex items-center gap-4 xl:gap-6 flex-shrink-0">
             {navLinks.map((link) => (
               <li key={link.href} className="flex-shrink-0">
                 <a
@@ -92,18 +87,8 @@ export function Navbar() {
             ))}
           </ul>
 
-          {/* Action Area: Contrast Toggle + FTLOM Liquid CTA */}
+          {/* Action Area: FTLOM Liquid CTA & Mobile Drawer Toggle */}
           <div className="flex items-center gap-2 sm:gap-3 flex-shrink-0">
-            <button
-              onClick={() => setIsHighContrast(!isHighContrast)}
-              className="hidden md:inline-flex items-center gap-1.5 text-xs font-bold text-white/90 hover:text-primary transition-colors px-2.5 py-1.5 rounded-full border border-primary/30 hover:border-primary bg-black/50 flex-shrink-0 cursor-pointer select-none"
-              aria-label="Toggle High Contrast Mode"
-              title="Toggle High Contrast Mode"
-            >
-              <Eye className={`w-3.5 h-3.5 ${isHighContrast ? "text-secondary" : "text-primary"}`} />
-              <span className="whitespace-nowrap">{isHighContrast ? "Contrast: On" : "Contrast"}</span>
-            </button>
-
             {/* Signature Liquid Fill Button */}
             <LiquidButton
               href={SOCIAL_LINKS.youtube}
