@@ -35,17 +35,17 @@ export function Hero() {
       {/* Main Hero Container */}
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center my-auto">
         {/* Concentric Decorative Aura Rings */}
-        <div className="relative mb-3">
+        <div className="relative mb-2">
           <AuraRings size="sm" className="opacity-40" />
 
-          {/* Top Collaboration Badge (From Flyer) */}
-          <div className="inline-flex items-center gap-2 sm:gap-3 bg-black/75 backdrop-blur-xl rounded-full px-4 sm:px-6 py-2 border border-primary/35 shadow-[0_0_25px_rgba(255,200,59,0.25)] animate-fade-in select-none">
+          {/* Top Collaboration Badge (From Flyer: Jerusalem Choir x APM) */}
+          <div className="inline-flex items-center gap-2 sm:gap-2.5 bg-black/75 backdrop-blur-xl rounded-full px-4 sm:px-5 py-1.5 border border-primary/35 shadow-[0_0_25px_rgba(255,200,59,0.25)] animate-fade-in select-none">
             <span className="w-2 h-2 rounded-full bg-secondary animate-pulse" />
-            <span className="font-montserrat text-[11px] sm:text-xs font-black uppercase tracking-[0.16em] text-white">
+            <span className="font-montserrat text-[11px] sm:text-xs font-black uppercase tracking-[0.16em] text-milk">
               Jerusalem Choir
             </span>
-            <span className="text-primary text-[10px] sm:text-xs font-semibold tracking-wider">
-              _in collaboration with_
+            <span className="font-montserrat text-primary text-xs sm:text-sm font-black px-0.5">
+              ✕
             </span>
             <span className="font-montserrat text-[11px] sm:text-xs font-black uppercase tracking-[0.16em] text-primary">
               APM
@@ -54,44 +54,45 @@ export function Hero() {
         </div>
 
         {/* Festival Eyebrow: PH CITY MEGA MUSICAL EXPERIENCE */}
-        <div className="mb-3 animate-fade-in-up">
-          <span className="font-montserrat text-xs sm:text-sm md:text-base font-black uppercase tracking-[0.28em] text-secondary drop-shadow-[0_2px_12px_rgba(242,101,34,0.6)]">
+        <div className="mb-2 animate-fade-in-up">
+          <span className="font-montserrat text-[11px] sm:text-xs md:text-sm font-black uppercase tracking-[0.28em] text-secondary drop-shadow-[0_2px_12px_rgba(242,101,34,0.6)]">
             PRESENTS
           </span>
-          <h2 className="font-montserrat font-black text-xl sm:text-2xl md:text-3xl uppercase tracking-[0.2em] text-white mt-1 drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]">
+          <h2 className="font-montserrat font-black text-base sm:text-xl md:text-2xl uppercase tracking-[0.2em] text-milk mt-0.5 drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]">
             PH CITY MEGA MUSICAL EXPERIENCE
           </h2>
         </div>
 
-        {/* Title: Connected in Praise (High-Impact Brush Wordmark with Full Overflow & Zero Clipping) */}
-        <div className="relative my-3 sm:my-6 py-2 px-4 select-none animate-fade-in-scale overflow-visible w-full max-w-4xl">
+        {/* Title: Connected in Praise (Full Clearance, Zero Cut-offs) */}
+        <div className="relative my-2 sm:my-3 py-4 sm:py-6 px-4 sm:px-8 select-none animate-fade-in-scale overflow-visible w-full max-w-4xl">
           {/* Floating Musical Clef from Flyer */}
-          <span className="absolute -top-6 sm:-top-8 -left-4 sm:left-4 text-primary text-3xl sm:text-5xl font-black drop-shadow-[0_4px_16px_rgba(255,200,59,0.8)] animate-float pointer-events-none">
+          <span className="absolute -top-3 sm:-top-5 left-1 sm:left-8 text-primary text-3xl sm:text-5xl font-black drop-shadow-[0_4px_16px_rgba(255,200,59,0.8)] animate-float pointer-events-none">
             𝄞
           </span>
 
-          <h1 className="font-brush text-5xl xs:text-6xl sm:text-8xl md:text-9xl leading-[1.18] tracking-wide text-transparent bg-clip-text bg-gradient-to-b from-milk via-primary to-secondary drop-shadow-[0_6px_25px_rgba(242,101,34,0.7)] py-1">
+          <h1 className="font-brush text-5xl xs:text-6xl sm:text-7xl md:text-8xl lg:text-9xl leading-[1.3] tracking-wide text-transparent bg-clip-text bg-gradient-to-b from-milk via-primary to-secondary drop-shadow-[0_6px_25px_rgba(242,101,34,0.7)] py-2 block overflow-visible">
             Connected
           </h1>
+
           <div className="flex items-center justify-center gap-2 sm:gap-4 pt-1 sm:pt-2 overflow-visible">
-            <span className="font-montserrat text-sm sm:text-xl font-black uppercase tracking-[0.3em] text-milk drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
+            <span className="font-montserrat text-sm sm:text-lg md:text-xl font-black uppercase tracking-[0.3em] text-milk drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
               in
             </span>
-            <span className="font-brush text-5xl xs:text-6xl sm:text-8xl md:text-9xl leading-[1.18] text-transparent bg-clip-text bg-gradient-to-b from-milk via-primary to-secondary drop-shadow-[0_6px_25px_rgba(242,101,34,0.7)] py-1">
+            <span className="font-brush text-5xl xs:text-6xl sm:text-7xl md:text-8xl lg:text-9xl leading-[1.3] text-transparent bg-clip-text bg-gradient-to-b from-milk via-primary to-secondary drop-shadow-[0_6px_25px_rgba(242,101,34,0.7)] py-2 px-2 block overflow-visible">
               Praise
             </span>
-            <span className="text-secondary text-2xl sm:text-4xl animate-bounce-slow drop-shadow-[0_2px_10px_rgba(242,101,34,0.8)]">
+            <span className="text-secondary text-2xl sm:text-3xl md:text-4xl animate-bounce-slow drop-shadow-[0_2px_10px_rgba(242,101,34,0.8)]">
               ♫
             </span>
           </div>
 
           {/* Golden & Milk Sunburst Horizon Arc */}
-          <div className="mx-auto mt-4 h-1.5 w-48 sm:w-80 rounded-full bg-gradient-to-r from-transparent via-primary to-transparent shadow-[0_0_20px_rgba(255,200,59,0.8)]" />
+          <div className="mx-auto mt-2 h-1.5 w-48 sm:w-80 rounded-full bg-gradient-to-r from-transparent via-primary to-transparent shadow-[0_0_20px_rgba(255,200,59,0.8)]" />
         </div>
 
-        {/* Movement Description (High Contrast Scrim Container: Pure Radiant Milk with Atkinson Gold Accent) */}
-        <div className="relative my-5 max-w-2xl mx-auto px-5 py-4 rounded-2xl bg-black/55 backdrop-blur-md border border-milk/15 shadow-[0_8px_30px_rgba(0,0,0,0.6)]">
-          <p className="text-sm sm:text-base md:text-lg text-milk max-w-2xl mx-auto leading-relaxed font-normal">
+        {/* Movement Description (Well Spaced, High Contrast Scrim Container) */}
+        <div className="relative my-3 max-w-2xl mx-auto px-5 py-3 rounded-2xl bg-black/55 backdrop-blur-md border border-milk/15 shadow-[0_8px_30px_rgba(0,0,0,0.6)]">
+          <p className="text-xs sm:text-sm md:text-base text-milk max-w-2xl mx-auto leading-relaxed font-normal">
             An annual praise and worship evangelism concert hosted by{" "}
             <strong className="text-milk font-extrabold underline decoration-primary/50 underline-offset-4">
               Jerusalem Choir
@@ -108,16 +109,16 @@ export function Hero() {
         </div>
 
         {/* FTLOM-Style Floating Shimmering Countdown Pill */}
-        <div className="mb-7 animate-fade-in-up">
+        <div className="my-4 animate-fade-in-up">
           <FloatingCountdown targetDate="2026-11-04T18:00:00" />
         </div>
 
-        {/* Dual Signature Liquid CTAs (From FTLOM) */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 mb-8 w-full max-w-lg">
+        {/* Dual Signature Liquid CTAs */}
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-5 mb-5 w-full max-w-lg">
           <LiquidButton
             onClick={() => scrollTo("#experience")}
             variant="primary"
-            className="w-full sm:w-auto min-w-[210px]"
+            className="w-full sm:w-auto min-w-[200px]"
           >
             <span>Explore Program</span>
           </LiquidButton>
@@ -127,7 +128,7 @@ export function Hero() {
             target="_blank"
             rel="noopener noreferrer"
             variant="secondary"
-            className="w-full sm:w-auto min-w-[210px]"
+            className="w-full sm:w-auto min-w-[200px]"
           >
             <Radio className="w-4 h-4 text-secondary group-hover:text-white animate-pulse" />
             <span>Livestream Channel</span>
@@ -135,7 +136,7 @@ export function Hero() {
         </div>
 
         {/* Schedule & Venue Pill Badge (From Official Flyer) */}
-        <div className="inline-flex flex-col sm:flex-row items-center gap-2 sm:gap-4 px-4 sm:px-6 py-2.5 rounded-2xl sm:rounded-full bg-black/60 backdrop-blur-xl border border-milk/15 shadow-xl max-w-full">
+        <div className="inline-flex flex-col sm:flex-row items-center gap-2 sm:gap-4 px-4 sm:px-6 py-2 rounded-2xl sm:rounded-full bg-black/60 backdrop-blur-xl border border-milk/15 shadow-xl max-w-full">
           <div className="flex items-center gap-2">
             <Calendar className="w-3.5 h-3.5 text-primary flex-shrink-0" />
             <span className="font-montserrat text-xs sm:text-sm font-extrabold text-milk">
