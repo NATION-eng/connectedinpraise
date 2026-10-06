@@ -37,10 +37,10 @@
     @apply bg-maroon-deep;
   }
   ::-webkit-scrollbar-thumb {
-    @apply rounded-full bg-crimson;
+    @apply rounded-full bg-secondary;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background-color: rgba(242, 118, 10, 0.7);
+    background-color: rgba(255, 200, 59, 0.85);
   }
 
   *:focus-visible {

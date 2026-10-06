@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Radio, Menu, X, Eye, ExternalLink } from "lucide-react";
 import { Logo } from "../ui/Logo";
+import { LiquidButton } from "../ui/LiquidButton";
+import { CustomTikTokEmoji } from "../ui/CustomEmoji";
 
 const navLinks = [
   { label: "Home", href: "#home" },
@@ -55,69 +57,72 @@ export function Navbar() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled
-            ? "glass shadow-2xl shadow-black/80 py-2.5 sm:py-3 border-b border-gold/20"
-            : "bg-gradient-to-b from-maroon-deep/95 via-maroon-deep/75 to-transparent py-3.5 sm:py-5"
-        }`}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 py-3 sm:py-4 px-3 sm:px-6 lg:px-8`}
       >
-        <nav className="container-max flex items-center justify-between flex-nowrap gap-2 sm:gap-4 px-3 sm:px-6 lg:px-8 w-full">
-          {/* CIP 2026 Logo */}
+        <nav
+          className={`max-w-7xl mx-auto flex items-center justify-between flex-nowrap gap-2 sm:gap-4 px-4 sm:px-6 lg:px-8 py-2.5 sm:py-3 rounded-full transition-all duration-500 ${
+            isScrolled
+              ? "bg-black/75 backdrop-blur-2xl border border-primary/30 shadow-[0_12px_45px_rgba(0,0,0,0.8)]"
+              : "bg-black/35 backdrop-blur-xl border border-white/10 shadow-[0_8px_30px_rgba(0,0,0,0.5)]"
+          }`}
+        >
+          {/* Brand Identity */}
           <a
             href="#home"
             onClick={(e) => handleNavClick(e, "#home")}
-            className="flex items-center group flex-shrink-0"
+            className="flex items-center group flex-shrink-0 cursor-pointer"
             aria-label="CIP 2026 Home"
           >
             <Logo size="nav" />
           </a>
 
           {/* Desktop Nav Items */}
-          <ul className="hidden xl:flex items-center gap-3.5 2xl:gap-5 flex-shrink-0">
+          <ul className="hidden xl:flex items-center gap-4 2xl:gap-6 flex-shrink-0">
             {navLinks.map((link) => (
               <li key={link.href} className="flex-shrink-0">
                 <a
                   href={link.href}
                   onClick={(e) => handleNavClick(e, link.href)}
-                  className="text-xs 2xl:text-sm font-extrabold text-ivory/85 hover:text-gold-bright transition-colors duration-200 relative group py-1 tracking-wide whitespace-nowrap"
+                  className="font-montserrat text-xs 2xl:text-sm font-bold uppercase tracking-wider text-white/85 hover:text-primary transition-colors duration-200 relative group py-1 whitespace-nowrap select-none"
                 >
                   {link.label}
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-neon group-hover:w-full transition-all duration-300 rounded-full" />
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-secondary group-hover:w-full transition-all duration-300 rounded-full" />
                 </a>
               </li>
             ))}
           </ul>
 
-          {/* Action Area: Contrast Toggle + Watch Live CTA */}
+          {/* Action Area: Contrast Toggle + FTLOM Liquid CTA */}
           <div className="flex items-center gap-2 sm:gap-3 flex-shrink-0">
             <button
               onClick={() => setIsHighContrast(!isHighContrast)}
-              className="hidden sm:inline-flex items-center gap-1.5 text-xs font-bold text-ivory/85 hover:text-gold-bright transition-colors px-3 py-1.5 rounded-full border border-gold/30 hover:border-gold-bright bg-black/40 flex-shrink-0 cursor-pointer"
+              className="hidden sm:inline-flex items-center gap-1.5 text-xs font-bold text-white/85 hover:text-primary transition-colors px-3 py-1.5 rounded-full border border-primary/30 hover:border-primary bg-black/40 flex-shrink-0 cursor-pointer select-none"
               aria-label="Toggle High Contrast Mode"
               title="Toggle High Contrast Mode"
             >
-              <Eye className={`w-3.5 h-3.5 ${isHighContrast ? "text-neon" : "text-gold-bright"}`} />
+              <Eye className={`w-3.5 h-3.5 ${isHighContrast ? "text-secondary" : "text-primary"}`} />
               <span className="whitespace-nowrap">{isHighContrast ? "Contrast: On" : "Contrast"}</span>
             </button>
 
-            <a
+            {/* Signature Liquid Fill Button */}
+            <LiquidButton
               href={SOCIAL_LINKS.youtube}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-gold inline-flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm font-black px-3.5 sm:px-5 py-2 sm:py-2.5 shadow-lg group flex-shrink-0 whitespace-nowrap"
+              variant="primary"
+              className="!px-5 sm:!px-7 !py-2 sm:!py-2.5 !text-xs sm:!text-sm flex-shrink-0 shadow-lg"
             >
-              <Radio className="w-3.5 h-3.5 text-maroon-deep animate-pulse" />
+              <Radio className="w-3.5 h-3.5 text-primary group-hover:text-obsidian animate-pulse flex-shrink-0" />
               <span>Watch Live</span>
-              <ExternalLink className="hidden sm:inline w-3 h-3 text-maroon-deep/70 group-hover:translate-x-0.5 transition-transform" />
-            </a>
+            </LiquidButton>
 
             {/* Mobile Hamburger */}
             <button
               onClick={() => setIsMenuOpen(true)}
-              className="xl:hidden text-ivory p-2 rounded-xl bg-gold/15 hover:bg-gold/25 transition-colors border border-gold/30 flex-shrink-0 cursor-pointer"
+              className="xl:hidden text-white p-2 sm:p-2.5 rounded-full bg-primary/15 hover:bg-primary/25 transition-colors border border-primary/30 flex-shrink-0 cursor-pointer"
               aria-label="Open navigation menu"
             >
-              <Menu className="w-5 h-5 sm:w-6 sm:h-6 text-gold-bright" />
+              <Menu className="w-5 h-5 text-primary" />
             </button>
           </div>
         </nav>
@@ -125,37 +130,36 @@ export function Navbar() {
 
       {/* Full-Screen Mobile Drawer */}
       <div
-        className={`fixed inset-0 z-[60] xl:hidden transition-all duration-300 ${
+        className={`fixed inset-0 z-[60] xl:hidden transition-all duration-500 ${
           isMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
       >
         <div
-          className="absolute inset-0 bg-maroon-deep/98 backdrop-blur-2xl"
+          className="absolute inset-0 bg-obsidian/95 backdrop-blur-2xl"
           onClick={() => setIsMenuOpen(false)}
         />
         <div className="relative h-full flex flex-col justify-between p-6 sm:p-8 overflow-y-auto">
           {/* Drawer Top */}
-          <div className="flex items-center justify-between pb-4 border-b border-gold/20">
-            <div className="flex items-center gap-2">
-              <Logo size="nav" />
-            </div>
+          <div className="flex items-center justify-between pb-4 border-b border-primary/20">
+            <Logo size="nav" />
             <button
               onClick={() => setIsMenuOpen(false)}
-              className="text-ivory p-2 rounded-full glass border border-gold/30 hover:bg-gold/20 cursor-pointer"
+              className="text-white p-2.5 rounded-full bg-black/50 border border-primary/30 hover:bg-primary/20 cursor-pointer"
               aria-label="Close menu"
             >
-              <X className="w-6 h-6 text-gold-bright" />
+              <X className="w-6 h-6 text-primary" />
             </button>
           </div>
 
           {/* Drawer Links */}
-          <ul className="flex flex-col items-center gap-5 my-8">
-            {navLinks.map((link) => (
-              <li key={link.href}>
+          <ul className="flex flex-col items-center gap-4 my-8">
+            {navLinks.map((link, idx) => (
+              <li key={link.href} className="w-full text-center">
                 <a
                   href={link.href}
                   onClick={(e) => handleNavClick(e, link.href)}
-                  className="text-2xl font-display font-extrabold text-ivory hover:text-gold-bright transition-colors"
+                  className="font-montserrat font-extrabold text-xl sm:text-2xl text-white hover:text-primary transition-colors py-2 block uppercase tracking-wide"
+                  style={{ animationDelay: `${idx * 0.05}s` }}
                 >
                   {link.label}
                 </a>
@@ -163,54 +167,39 @@ export function Navbar() {
             ))}
           </ul>
 
-          {/* Drawer Footer Actions */}
-          <div className="flex flex-col items-center gap-4 pt-6 border-t border-gold/20">
-            <a
+          {/* Drawer Bottom Actions */}
+          <div className="space-y-4 pt-4 border-t border-primary/20">
+            <LiquidButton
               href={SOCIAL_LINKS.youtube}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-gold w-full text-center py-3.5 flex items-center justify-center gap-2 text-sm font-extrabold"
+              variant="primary"
+              className="w-full !py-3.5 text-center justify-center"
             >
-              <Radio className="w-4 h-4" />
+              <Radio className="w-4 h-4 text-primary group-hover:text-obsidian animate-pulse" />
               <span>Watch Live on YouTube</span>
-            </a>
+            </LiquidButton>
 
-            <div className="flex items-center gap-4 pt-2">
+            <div className="flex items-center justify-center gap-4 pt-2">
               <a
                 href={SOCIAL_LINKS.tiktok}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-xs font-bold text-ivory/80 hover:text-gold-bright"
+                className="w-11 h-11 rounded-full bg-black/60 border border-primary/30 flex items-center justify-center text-white hover:text-primary transition-colors"
+                aria-label="TikTok"
               >
-                TikTok
+                <CustomTikTokEmoji className="w-4 h-4" />
               </a>
-              <span className="text-gold/40">•</span>
               <a
                 href={SOCIAL_LINKS.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-xs font-bold text-ivory/80 hover:text-gold-bright"
+                className="w-11 h-11 rounded-full bg-black/60 border border-primary/30 flex items-center justify-center text-white hover:text-primary transition-colors"
+                aria-label="Facebook"
               >
-                Facebook
-              </a>
-              <span className="text-gold/40">•</span>
-              <a
-                href={SOCIAL_LINKS.youtube}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-xs font-bold text-ivory/80 hover:text-gold-bright"
-              >
-                YouTube
+                <span className="font-bold text-sm">f</span>
               </a>
             </div>
-
-            <button
-              onClick={() => setIsHighContrast(!isHighContrast)}
-              className="flex items-center gap-2 text-xs font-bold text-ivory/70 hover:text-gold-bright mt-2"
-            >
-              <Eye className="w-4 h-4 text-gold-bright" />
-              <span>Toggle High Contrast</span>
-            </button>
           </div>
         </div>
       </div>

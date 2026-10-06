@@ -142,38 +142,41 @@ export function Gallery() {
       : galleryItems.filter((item) => item.category === activeCategory);
 
   return (
-    <section id="gallery" className="relative section-padding overflow-hidden bg-maroon-deep">
-      <div className="absolute top-1/3 left-0 w-80 h-80 bg-neon/8 rounded-full blur-[130px] pointer-events-none" />
-      <div className="absolute bottom-10 right-0 w-96 h-96 bg-gold/8 rounded-full blur-[150px] pointer-events-none" />
+    <section id="gallery" className="relative py-20 sm:py-28 md:py-36 overflow-hidden bg-espresso text-white">
+      <div className="absolute top-1/3 left-0 w-80 h-80 bg-secondary/10 rounded-full blur-[140px] pointer-events-none animate-pulse-glow" />
+      <div className="absolute bottom-10 right-0 w-96 h-96 bg-primary/10 rounded-full blur-[150px] pointer-events-none animate-pulse-glow-slow" />
 
-      <div className="relative container-max">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Heading */}
-        <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-2 glass rounded-full px-4 py-2 mb-4 border border-gold/30">
-            <ImageIcon className="w-4 h-4 text-gold-bright" />
-            <span className="text-xs uppercase tracking-widest text-gold-bright font-black">
+        <div className="text-center mb-12 sm:mb-16">
+          <div className="inline-flex items-center gap-2 bg-black/50 backdrop-blur-xl rounded-full px-4 sm:px-5 py-2 mb-4 border border-primary/30">
+            <ImageIcon className="w-4 h-4 text-primary" />
+            <span className="font-montserrat text-xs uppercase tracking-[0.2em] text-white/80 font-bold">
               Visual Archives · Authentic CIP Moments
             </span>
           </div>
-          <h2 className="font-display font-black text-3xl sm:text-4xl md:text-5xl text-ivory mb-4">
-            Moments in <span className="text-gold-bright gold-text">Glory & Service</span>
+          <h2 className="font-montserrat font-black text-3xl sm:text-4xl md:text-5xl text-white mb-4">
+            Moments in{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-sunburst to-secondary">
+              Glory & Service
+            </span>
           </h2>
-          <p className="text-ivory/80 max-w-2xl mx-auto text-sm sm:text-base font-semibold">
+          <p className="text-white/75 max-w-2xl mx-auto text-sm sm:text-base font-normal">
             Authentic photographs capturing the spirit of Connected in Praise — from anointed choral
             worship on stage to free community dental and healthcare outreach for the vulnerable.
           </p>
         </div>
 
         {/* Filter Categories */}
-        <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-10">
+        <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-12">
           {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
-              className={`px-4 py-2 rounded-full text-xs sm:text-sm font-black transition-all duration-300 cursor-pointer ${
+              className={`px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-montserrat font-bold transition-all duration-300 cursor-pointer select-none ${
                 activeCategory === cat
-                  ? "bg-gold-bright text-maroon-deep shadow-[0_0_15px_rgba(255,196,0,0.5)] scale-105"
-                  : "glass-card text-ivory/70 hover:text-ivory hover:border-gold/30"
+                  ? "bg-primary text-obsidian shadow-[0_0_20px_rgba(255,200,59,0.4)] scale-105"
+                  : "bg-black/40 backdrop-blur-xl border border-white/10 text-white/70 hover:text-white hover:border-primary/40"
               }`}
             >
               {cat}

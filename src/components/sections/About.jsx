@@ -1,114 +1,143 @@
 import React from "react";
-import { Accessibility, Volume2, Heart, Quote, CheckCircle } from "lucide-react";
+import { Ear, Accessibility, HandMetal, Eye, Quote, CheckCircle, HeartHandshake } from "lucide-react";
+import { AuraRings } from "../ui/AuraRings";
 
 const pillars = [
   {
-    icon: <Accessibility className="w-8 h-8 text-gold-bright" />,
-    title: "Physical Accessibility",
+    icon: <Ear className="w-7 h-7 text-primary" />,
+    title: "Hearing & Deaf Inclusion",
+    tagline: "Stage & Screen Sign Interpretation",
     description:
-      "Engineered ramps, reserved front-row spaces for persons with disabilities, wheelchair-integrated aisles, barrier-free restrooms, and trained hospitality volunteers at every entrance.",
-    accent: "gold",
-    features: ["Ramps & step-free access", "Reserved seating zones", "Accessible parking & assistance"],
+      "Certified Nigerian Sign Language (NSL) interpreters embedded directly on main stage and live screens, ensuring every lyrical anthem and preached word is fully accessible.",
+    features: ["Stage Sign Language interpreters", "Projected live captions", "Vibrational bass experience"],
   },
   {
-    icon: <Volume2 className="w-8 h-8 text-neon" />,
-    title: "Audio & Visual Adaptations",
+    icon: <Accessibility className="w-7 h-7 text-secondary" />,
+    title: "Mobility & Physical Access",
+    tagline: "100% Step-Free Campus Transit",
     description:
-      "Certified sign language interpreters on main screens, real-time live captions, tactile sensory experiences, calm/low-light areas, and audio description services.",
-    accent: "neon",
-    features: ["Stage Sign Language interpreters", "Live projected captioning", "Gentle-lighting sensory spaces"],
+      "Engineered wheelchair ramps, reserved front-row priority zones at Convocation Arena, step-free access aisles, barrier-free restrooms, and dedicated hospitality marshals.",
+    features: ["Step-free arena ramps", "Reserved priority front seating", "Accessible parking & assistance"],
   },
   {
-    icon: <Heart className="w-8 h-8 text-gold-bright" />,
-    title: "Belonging & Dignity",
+    icon: <HandMetal className="w-7 h-7 text-primary" />,
+    title: "Active Ministry & Signing Choir",
+    tagline: "Dignity-First Leadership",
     description:
-      "Possibility is always bigger than limitation. Every individual is warmly welcomed as an active worshipper and minister — never as an afterthought or spectator.",
-    accent: "gold",
-    features: ["Full inclusion in choir & ministry", "Warm welcoming team", "Dignity-first worship atmosphere"],
+      "Possibility is always bigger than limitation. Persons with disabilities are not spectators; they are featured choir ministers, vocalists, and vital leaders in God's holy house.",
+    features: ["Full inclusion in choir roster", "Hands-in-praise worship signing", "Honored ministry leaders"],
+  },
+  {
+    icon: <Eye className="w-7 h-7 text-secondary" />,
+    title: "Visual & Low-Vision Access",
+    tagline: "High-Contrast & Audio Guidance",
+    description:
+      "Dedicated sighted guides to assist visually impaired worshippers from arrival to seating, clear high-contrast materials, and descriptive audio worship guidance.",
+    features: ["Dedicated sighted guides", "High-contrast digital portal", "Audio-described event guides"],
   },
 ];
 
 export function About() {
   return (
-    <section id="about" className="relative section-padding overflow-hidden bg-maroon-deep">
-      {/* Background Lighting */}
-      <div className="absolute top-1/2 -translate-y-1/2 -left-20 w-96 h-96 bg-gold/5 rounded-full blur-[140px] pointer-events-none" />
-      <div className="absolute top-20 right-0 w-80 h-80 bg-neon/8 rounded-full blur-[120px] pointer-events-none" />
+    <section id="about" className="relative py-20 sm:py-28 md:py-36 overflow-hidden bg-espresso text-white">
+      {/* Background Lighting & Glows */}
+      <div className="absolute top-1/3 -left-20 w-96 h-96 bg-primary/10 rounded-full blur-[140px] pointer-events-none animate-pulse-glow" />
+      <div className="absolute bottom-10 right-0 w-96 h-96 bg-secondary/10 rounded-full blur-[140px] pointer-events-none animate-pulse-glow-slow" />
 
-      <div className="relative container-max">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="flex items-center gap-3 mb-4">
-          <div className="w-12 h-0.5 bg-gradient-to-r from-neon to-gold" />
-          <span className="text-xs uppercase tracking-widest text-gold-bright font-bold">
+          <div className="w-12 h-1 bg-gradient-to-r from-secondary to-primary rounded-full" />
+          <span className="font-montserrat text-xs sm:text-sm uppercase tracking-[0.22em] text-primary font-black">
             Adventist Possibility Ministries (APM)
           </span>
         </div>
 
-        <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center mb-16">
+        {/* Narrative & Quote Split */}
+        <div className="grid lg:grid-cols-12 gap-8 lg:gap-14 items-center mb-16 sm:mb-24">
           <div className="lg:col-span-7">
-            <h2 className="font-display font-bold text-3xl sm:text-4xl md:text-5xl text-ivory leading-tight mb-6">
-              Everyone Has a Sacred Place{" "}
-              <span className="text-gold-bright gold-text">in Praise</span>
+            <h2 className="font-montserrat font-black text-3xl sm:text-4xl md:text-5xl text-white leading-[1.15] mb-6">
+              Breaking Disability Barriers{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-sunburst to-secondary">
+                in Holy Praise
+              </span>
             </h2>
-            <p className="text-ivory/80 text-base sm:text-lg leading-relaxed mb-6 font-normal">
-              This year, <strong className="text-ivory font-semibold">Connected in Praise</strong> is
-              partnering with <strong className="text-gold-bright font-semibold">Adventist Possibility Ministries</strong> to
-              deliberately create a movement where people with physical, sensory, and cognitive
-              challenges are not merely observers, but honored leaders in worship.
+            <p className="text-white/80 text-base sm:text-lg leading-relaxed mb-6 font-normal">
+              This year, <strong className="text-white font-black">Connected in Praise</strong> is
+              strategically partnering with <strong className="text-primary font-black">Adventist Possibility Ministries (APM)</strong> to
+              deliberately dismantle every physical, sensory, and social obstacle so that worshippers with disabilities are honored as central ministers of grace.
             </p>
-            <p className="text-ivory/60 text-sm sm:text-base leading-relaxed">
-              We believe every person is made in the image of God with boundless spiritual potential.
-              Through music, love, and dedicated infrastructure, we are dismantling barriers so that all
-              hearts beat as one before the Throne.
+            <p className="text-white/65 text-sm sm:text-base leading-relaxed font-normal">
+              We believe every person is crafted in the divine image of God with limitless spiritual potential.
+              Through consecrated vocals, intentional barrier-free architecture, and unconditional love, we unite as one harmonious body before the Throne of Grace.
             </p>
           </div>
 
-          <div className="lg:col-span-5">
-            <div className="glass-card-warm p-5 sm:p-8 relative overflow-hidden rounded-2xl sm:rounded-3xl border border-gold/30 shadow-[0_0_25px_rgba(242,169,0,0.15)] group hover:border-gold/50 transition-all duration-300">
-              <Quote className="w-8 h-8 sm:w-10 sm:h-10 text-gold-bright/30 mb-3 sm:mb-4" />
-              <blockquote className="font-display text-lg sm:text-2xl text-ivory/95 italic leading-relaxed mb-4">
-                &ldquo;Praise has no barrier. Where there is a heart to worship, there is a way to
-                include. Possibility is infinitely greater than limitation.&rdquo;
+          <div className="lg:col-span-5 relative">
+            {/* Concentric Rotating Rings Framing the Quote */}
+            <AuraRings size="sm" className="opacity-30" />
+
+            <div className="relative z-10 bg-black/50 backdrop-blur-2xl p-6 sm:p-10 rounded-3xl border border-primary/30 shadow-[0_12px_40px_rgba(0,0,0,0.6)] group hover:border-primary/60 transition-all duration-300">
+              <Quote className="w-8 h-8 sm:w-10 sm:h-10 text-primary/40 mb-4" />
+              <blockquote className="font-montserrat font-bold text-lg sm:text-xl text-white italic leading-relaxed mb-6">
+                &ldquo;Praise has no barrier. Where there is a heart to worship, there is a way to glorify God together as one.&rdquo;
               </blockquote>
-              <div className="flex items-center gap-3 pt-4 border-t border-gold/20">
-                <div className="w-2.5 h-2.5 rounded-full bg-neon animate-pulse" />
-                <span className="text-xs uppercase tracking-wider text-gold-bright font-semibold">
-                  The APM 2026 Movement Creed
-                </span>
+              <div className="flex items-center gap-3 pt-4 border-t border-white/10">
+                <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary border border-primary/40">
+                  <HeartHandshake className="w-5 h-5" />
+                </div>
+                <div>
+                  <h4 className="font-montserrat font-black text-white text-sm">Every Voice Matters</h4>
+                  <p className="text-xs text-primary/90 font-medium">Core Principle of Possibility Ministry</p>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
-        {/* 3 Inclusion Pillars */}
-        <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
-          {pillars.map((pillar, idx) => (
-            <div
-              key={idx}
-              className="glass-card p-5 sm:p-8 h-full flex flex-col justify-between rounded-2xl sm:rounded-3xl border border-gold/15 hover:border-gold/40 transition-all duration-300 hover:-translate-y-2 group shadow-lg"
-            >
-              <div>
-                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-gold/15 to-neon/15 flex items-center justify-center mb-6 border border-gold/25 group-hover:scale-110 transition-transform duration-300">
-                  {pillar.icon}
-                </div>
-                <h3 className="font-display font-bold text-2xl text-ivory mb-3 group-hover:text-gold-bright transition-colors">
-                  {pillar.title}
-                </h3>
-                <p className="text-ivory/70 text-sm leading-relaxed mb-6 font-normal">
-                  {pillar.description}
-                </p>
-              </div>
+        {/* 4 Official Disability Category Pillars (From Flyer) */}
+        <div>
+          <div className="text-center mb-10">
+            <span className="font-montserrat text-xs uppercase tracking-[0.24em] text-secondary font-black">
+              Official Inclusion Infrastructure
+            </span>
+            <h3 className="font-montserrat font-black text-2xl sm:text-3xl text-white mt-1">
+              4 Pillars of Accessibility at Convocation Arena
+            </h3>
+          </div>
 
-              <div className="pt-4 border-t border-gold/10 space-y-2">
-                {pillar.features.map((feature, fIdx) => (
-                  <div key={fIdx} className="flex items-center gap-2 text-xs text-ivory/80 font-medium">
-                    <CheckCircle className="w-3.5 h-3.5 text-gold-bright flex-shrink-0" />
-                    <span>{feature}</span>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+            {pillars.map((pillar, idx) => (
+              <div
+                key={idx}
+                className="bg-black/45 backdrop-blur-xl p-6 sm:p-7 rounded-3xl border border-white/10 hover:border-primary/40 shadow-xl transition-all duration-300 hover:-translate-y-1.5 group flex flex-col justify-between"
+              >
+                <div>
+                  <div className="w-13 h-13 rounded-2xl bg-white/5 border border-white/10 group-hover:border-primary/50 group-hover:bg-primary/10 transition-colors flex items-center justify-center mb-5">
+                    {pillar.icon}
                   </div>
-                ))}
+                  <h4 className="font-montserrat font-black text-base sm:text-lg text-white mb-1 group-hover:text-primary transition-colors">
+                    {pillar.title}
+                  </h4>
+                  <span className="text-[11px] font-bold text-secondary uppercase tracking-wider block mb-3">
+                    {pillar.tagline}
+                  </span>
+                  <p className="text-xs sm:text-sm text-white/70 leading-relaxed font-normal mb-5">
+                    {pillar.description}
+                  </p>
+                </div>
+
+                <ul className="space-y-2 pt-4 border-t border-white/10 text-xs font-semibold text-white/80">
+                  {pillar.features.map((feat, fIdx) => (
+                    <li key={fIdx} className="flex items-center gap-2">
+                      <CheckCircle className="w-3.5 h-3.5 text-primary flex-shrink-0" />
+                      <span>{feat}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>
