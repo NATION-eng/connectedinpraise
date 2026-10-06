@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Sparkles } from "lucide-react";
+import React, { useState, useTransition, useCallback, useMemo } from "react";
+import { Sparkles, Heart } from "lucide-react";
 import { praiseReasons } from "../../data/reasons";
 import { Waveform } from "../ui/Waveform";
 import {
@@ -21,8 +21,18 @@ const iconMap = {
 
 export function WhyPraise() {
   const [selectedId, setSelectedId] = useState(praiseReasons[0].id);
+  const [, startTransition] = useTransition();
 
-  const activeReason = praiseReasons.find((r) => r.id === selectedId) || praiseReasons[0];
+  const handleSelect = useCallback((id) => {
+    startTransition(() => {
+      setSelectedId(id);
+    });
+  }, []);
+
+  const activeReason = useMemo(
+    () => praiseReasons.find((r) => r.id === selectedId) || praiseReasons[0],
+    [selectedId]
+  );
 
   return (
     <section id="why-praise" className="relative section-padding overflow-hidden bg-midnight-950">
@@ -56,11 +66,11 @@ export function WhyPraise() {
               <button
                 key={reason.id}
                 type="button"
-                onClick={() => setSelectedId(reason.id)}
-                className={`p-4 sm:p-6 rounded-2xl sm:rounded-3xl flex flex-col items-center text-center transition-all duration-300 cursor-pointer last:col-span-2 md:last:col-span-1 ${
+                onClick={() => handleSelect(reason.id)}
+                className={`p-4 sm:p-6 rounded-2xl sm:rounded-3xl flex flex-col items-center text-center transition-[transform,opacity,border-color,background-color] duration-150 transform-gpu touch-manipulation cursor-pointer last:col-span-2 md:last:col-span-1 select-none ${
                   isSelected
-                    ? "glass-card-warm border-2 border-gold-bright shadow-[0_0_25px_rgba(255,196,0,0.3)] scale-105"
-                    : "glass-card border border-gold/15 hover:border-gold/30 hover:-translate-y-1 opacity-70 hover:opacity-100"
+                    ? "glass-card-warm border-2 border-gold-bright shadow-[0_0_20px_rgba(255,196,0,0.25)] scale-[1.03] opacity-100"
+                    : "glass-card border border-gold/15 hover:border-gold/35 hover:-translate-y-0.5 opacity-75 hover:opacity-100"
                 }`}
                 aria-pressed={isSelected}
               >
@@ -90,7 +100,7 @@ export function WhyPraise() {
 
         {/* Expanded Revelation Card */}
         <div className="max-w-3xl mx-auto">
-          <div className="glass-card-warm p-5 sm:p-10 rounded-2xl sm:rounded-3xl border border-gold/30 shadow-2xl relative overflow-hidden text-center transition-all duration-500">
+          <div className="glass-card-warm p-5 sm:p-10 rounded-2xl sm:rounded-3xl border border-gold/30 shadow-2xl relative overflow-hidden text-center transition-opacity duration-200">
             <div className="absolute top-0 right-0 w-44 h-44 bg-gradient-to-bl from-gold/15 to-transparent rounded-full blur-2xl pointer-events-none" />
 
             <div className="inline-block px-3 py-1 rounded-full border border-gold/30 bg-gold/10 text-[10px] sm:text-xs font-bold text-gold-bright uppercase tracking-widest mb-3">
