@@ -184,41 +184,38 @@ export function Gallery() {
           ))}
         </div>
 
-        {/* Photos Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+        {/* Pure Visual Photography Grid - Intriguing FTLOM Experience without Card Text */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 sm:gap-6">
           {filteredItems.map((item) => (
             <div
               key={item.id}
               onClick={() => setSelectedPhoto(item)}
-              className="group relative rounded-3xl overflow-hidden glass-card border border-gold/20 cursor-pointer shadow-xl transition-all duration-500 hover:-translate-y-2 hover:border-gold/60"
+              className="group relative rounded-3xl overflow-hidden bg-black/60 border border-primary/20 cursor-pointer shadow-2xl transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] hover:-translate-y-2 hover:border-primary/80 hover:shadow-[0_15px_35px_rgba(255,200,59,0.25)] select-none"
             >
-              <div className="aspect-[4/3] overflow-hidden bg-black/40">
+              <div className="aspect-[4/3] sm:aspect-[1/1] xl:aspect-[4/3] overflow-hidden relative">
                 <img
                   src={item.src}
                   alt={item.title}
                   loading="lazy"
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 filter brightness-95 group-hover:brightness-105"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] filter brightness-90 group-hover:brightness-105"
                 />
-              </div>
 
-              {/* Gradient Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-maroon-deep via-maroon-deep/40 to-transparent opacity-85 group-hover:opacity-95 transition-opacity" />
+                {/* Ambient Cinematic Vignette */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20 opacity-60 group-hover:opacity-40 transition-opacity duration-500" />
 
-              {/* Caption Card */}
-              <div className="absolute bottom-0 left-0 right-0 p-4 flex items-end justify-between">
-                <div>
-                  <span className="text-[10px] uppercase tracking-wider text-neon font-black block mb-1">
-                    {item.category}
-                  </span>
-                  <h4 className="font-display font-extrabold text-base text-ivory group-hover:text-gold-bright transition-colors line-clamp-1">
-                    {item.title}
-                  </h4>
-                  <p className="text-[11px] text-ivory/70 line-clamp-1 mt-0.5 font-medium">
-                    {item.caption}
-                  </p>
+                {/* Golden Radial Halo on Hover */}
+                <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 via-transparent to-secondary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+
+                {/* Intriguing Center Focus / View Lens Icon */}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="w-12 h-12 rounded-full bg-black/60 backdrop-blur-md border border-primary/40 flex items-center justify-center text-primary opacity-0 group-hover:opacity-100 scale-75 group-hover:scale-100 transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] shadow-[0_0_20px_rgba(255,200,59,0.5)]">
+                    <Maximize2 className="w-5 h-5 text-primary group-hover:rotate-12 transition-transform duration-300" />
+                  </div>
                 </div>
-                <div className="w-8 h-8 rounded-full bg-gold/20 flex items-center justify-center text-gold-bright opacity-0 group-hover:opacity-100 transition-opacity flex-shrink-0 ml-2">
-                  <Maximize2 className="w-4 h-4" />
+
+                {/* Subtle Floating Corner Indicator */}
+                <div className="absolute bottom-3 right-3 text-[10px] font-montserrat uppercase tracking-widest text-white/50 bg-black/60 backdrop-blur-md px-2.5 py-1 rounded-full border border-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  View
                 </div>
               </div>
             </div>

@@ -13,24 +13,24 @@ export function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-[100svh] flex flex-col justify-between overflow-hidden pt-28 sm:pt-36 pb-12 sm:pb-16 bg-obsidian"
+      className="relative min-h-[100svh] flex flex-col justify-between overflow-hidden pt-32 sm:pt-40 pb-12 sm:pb-16 bg-[#0D0404]"
     >
-      {/* Background with Radiant Sunburst Flyer Art */}
+      {/* Background with Radiant Sunburst Flyer Art & Deepening Contrast Overlay */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
         <img
           src="/images/cip-sunburst-bg.jpg"
           alt="Connected in Praise Celestial Sunburst Glow"
-          className="w-full h-full object-cover object-center scale-105 animate-slow-pan filter brightness-95 contrast-110"
+          className="w-full h-full object-cover object-center scale-105 animate-slow-pan filter brightness-75 contrast-125"
         />
-        {/* Sunburst Gradient Blending into Rich Mahogany and Velvet Obsidian */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-obsidian" />
-        <div className="absolute inset-0 bg-gradient-to-t from-obsidian via-mahogany/40 to-transparent" />
-        <div className="absolute inset-0 bg-radial from-transparent via-black/30 to-obsidian/80" />
+        {/* Contrast Scrims - Protect write-up legibility from bright center sunburst */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/55 to-[#0D0404]" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0D0404] via-[#2A0608]/70 to-transparent" />
+        <div className="absolute inset-0 bg-radial from-transparent via-black/40 to-[#0D0404]/90" />
       </div>
 
       {/* Ambient Pulsing Atmospheric Glows */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] sm:w-[800px] h-[400px] bg-primary/15 rounded-full blur-[150px] animate-pulse-glow pointer-events-none" />
-      <div className="absolute bottom-1/4 right-10 w-96 h-96 bg-secondary/15 rounded-full blur-[130px] animate-pulse-glow-slow pointer-events-none" />
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] sm:w-[800px] h-[400px] bg-primary/10 rounded-full blur-[160px] animate-pulse-glow pointer-events-none" />
+      <div className="absolute bottom-1/4 right-10 w-96 h-96 bg-secondary/15 rounded-full blur-[140px] animate-pulse-glow-slow pointer-events-none" />
 
       {/* Main Hero Container */}
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center my-auto">
@@ -39,7 +39,7 @@ export function Hero() {
           <AuraRings size="sm" className="opacity-40" />
 
           {/* Top Collaboration Badge (From Flyer) */}
-          <div className="inline-flex items-center gap-2 sm:gap-3 bg-black/60 backdrop-blur-xl rounded-full px-4 sm:px-6 py-2 border border-primary/30 shadow-[0_0_25px_rgba(255,200,59,0.25)] animate-fade-in select-none">
+          <div className="inline-flex items-center gap-2 sm:gap-3 bg-black/75 backdrop-blur-xl rounded-full px-4 sm:px-6 py-2 border border-primary/35 shadow-[0_0_25px_rgba(255,200,59,0.25)] animate-fade-in select-none">
             <span className="w-2 h-2 rounded-full bg-secondary animate-pulse" />
             <span className="font-montserrat text-[11px] sm:text-xs font-black uppercase tracking-[0.16em] text-white">
               Jerusalem Choir
@@ -55,10 +55,10 @@ export function Hero() {
 
         {/* Festival Eyebrow: PH CITY MEGA MUSICAL EXPERIENCE */}
         <div className="mb-3 animate-fade-in-up">
-          <span className="font-montserrat text-xs sm:text-sm md:text-base font-black uppercase tracking-[0.28em] text-secondary drop-shadow-[0_2px_12px_rgba(242,101,34,0.4)]">
+          <span className="font-montserrat text-xs sm:text-sm md:text-base font-black uppercase tracking-[0.28em] text-secondary drop-shadow-[0_2px_12px_rgba(242,101,34,0.6)]">
             PRESENTS
           </span>
-          <h2 className="font-montserrat font-black text-lg sm:text-2xl md:text-3xl uppercase tracking-[0.2em] text-white mt-1 drop-shadow-md">
+          <h2 className="font-montserrat font-black text-xl sm:text-2xl md:text-3xl uppercase tracking-[0.2em] text-white mt-1 drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]">
             PH CITY MEGA MUSICAL EXPERIENCE
           </h2>
         </div>
@@ -66,21 +66,21 @@ export function Hero() {
         {/* Title: Connected in Praise (High-Impact Brush Wordmark) */}
         <div className="relative my-2 sm:my-4 select-none animate-fade-in-scale">
           {/* Floating Musical Clef from Flyer */}
-          <span className="absolute -top-4 sm:-top-6 -left-6 sm:-left-10 text-primary text-3xl sm:text-5xl font-black drop-shadow-[0_4px_16px_rgba(255,200,59,0.6)] animate-float">
+          <span className="absolute -top-4 sm:-top-6 -left-6 sm:-left-10 text-primary text-3xl sm:text-5xl font-black drop-shadow-[0_4px_16px_rgba(255,200,59,0.8)] animate-float">
             𝄞
           </span>
 
-          <h1 className="font-brush text-6xl sm:text-8xl md:text-9xl leading-[1.05] tracking-wide text-transparent bg-clip-text bg-gradient-to-b from-sunburst via-primary to-secondary drop-shadow-[0_6px_25px_rgba(242,101,34,0.5)]">
+          <h1 className="font-brush text-6xl sm:text-8xl md:text-9xl leading-[1.05] tracking-wide text-transparent bg-clip-text bg-gradient-to-b from-sunburst via-primary to-secondary drop-shadow-[0_6px_25px_rgba(242,101,34,0.7)]">
             Connected
           </h1>
           <div className="flex items-center justify-center gap-2 sm:gap-4 -mt-2 sm:-mt-5">
-            <span className="font-montserrat text-sm sm:text-xl font-black uppercase tracking-[0.3em] text-white/80">
+            <span className="font-montserrat text-sm sm:text-xl font-black uppercase tracking-[0.3em] text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
               in
             </span>
-            <span className="font-brush text-5xl sm:text-7xl md:text-8xl leading-none text-transparent bg-clip-text bg-gradient-to-b from-sunburst via-primary to-secondary drop-shadow-[0_6px_25px_rgba(242,101,34,0.5)]">
+            <span className="font-brush text-5xl sm:text-7xl md:text-8xl leading-none text-transparent bg-clip-text bg-gradient-to-b from-sunburst via-primary to-secondary drop-shadow-[0_6px_25px_rgba(242,101,34,0.7)]">
               Praise
             </span>
-            <span className="text-secondary text-2xl sm:text-4xl animate-bounce-slow">
+            <span className="text-secondary text-2xl sm:text-4xl animate-bounce-slow drop-shadow-[0_2px_10px_rgba(242,101,34,0.8)]">
               ♫
             </span>
           </div>
@@ -89,17 +89,23 @@ export function Hero() {
           <div className="mx-auto mt-2 h-1.5 w-48 sm:w-80 rounded-full bg-gradient-to-r from-transparent via-primary to-transparent shadow-[0_0_20px_rgba(255,200,59,0.8)]" />
         </div>
 
-        {/* Movement Description (White with White Highlights & Gold Barrier Breakthrough) */}
-        <p className="text-sm sm:text-base md:text-lg text-white/80 max-w-2xl mx-auto my-5 leading-relaxed font-normal">
-          An annual praise and worship evangelism concert hosted by{" "}
-          <strong className="text-white font-black">Jerusalem Choir</strong> in strategic
-          partnership with{" "}
-          <strong className="text-white font-black">Adventist Possibility Ministries</strong>{" "}
-          dedicated this year to{" "}
-          <span className="font-atkinson text-primary font-black tracking-wide">
-            breaking disability barriers
-          </span>.
-        </p>
+        {/* Movement Description (High Contrast Scrim Container: Pure White with Atkinson Gold Accent) */}
+        <div className="relative my-5 max-w-2xl mx-auto px-5 py-3.5 rounded-2xl bg-black/50 backdrop-blur-md border border-white/10 shadow-[0_8px_30px_rgba(0,0,0,0.6)]">
+          <p className="text-sm sm:text-base md:text-lg text-white max-w-2xl mx-auto leading-relaxed font-normal">
+            An annual praise and worship evangelism concert hosted by{" "}
+            <strong className="text-white font-extrabold underline decoration-primary/40 underline-offset-4">
+              Jerusalem Choir
+            </strong>{" "}
+            in strategic partnership with{" "}
+            <strong className="text-white font-extrabold underline decoration-primary/40 underline-offset-4">
+              Adventist Possibility Ministries
+            </strong>{" "}
+            dedicated this year to{" "}
+            <span className="font-atkinson text-primary font-black tracking-wide drop-shadow-[0_2px_8px_rgba(255,200,59,0.5)]">
+              breaking disability barriers
+            </span>.
+          </p>
+        </div>
 
         {/* FTLOM-Style Floating Shimmering Countdown Pill */}
         <div className="mb-7 animate-fade-in-up">
