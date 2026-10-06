@@ -34,6 +34,7 @@ export default {
         cormorant: ['Cormorant Garamond', 'serif'],
         syne: ['Syne', 'sans-serif'],
         body: ['Jost', 'sans-serif'],
+        atkinson: ['"Atkinson Hyperlegible"', 'sans-serif'],
       },
       animation: {
         float: 'float 6s ease-in-out infinite',

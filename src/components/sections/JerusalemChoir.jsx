@@ -80,7 +80,8 @@ export function JerusalemChoir() {
             </p>
 
             <p className="text-ivory/60 text-sm leading-relaxed mb-8 font-normal">
-              For 2026, the choir is dedicating its flagship concert to breaking disability barriers,
+              For 2026, the choir is dedicating its flagship concert to{" "}
+              <span className="font-atkinson text-gold-bright font-bold">breaking disability barriers</span>,
               welcoming every voice into God&apos;s holy sanctuary.
             </p>
 

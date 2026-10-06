@@ -72,8 +72,11 @@ export function Hero() {
           An annual praise and worship evangelism concert hosted by{" "}
           <span className="text-gold-bright font-extrabold">Jerusalem Choir</span> in strategic
           partnership with{" "}
-          <span className="text-gold-bright font-extrabold">Adventist Possibility Ministries</span> —
-          dedicated this year to <span className="underline decoration-neon decoration-2 font-black text-ivory">breaking disability barriers</span>.
+          <span className="text-gold-bright font-extrabold">Adventist Possibility Ministries</span>{" "}
+          dedicated this year to{" "}
+          <span className="font-atkinson text-gold-bright font-bold tracking-wide">
+            breaking disability barriers
+          </span>.
         </p>
 
         {/* Properly Structured Schedule Times */}
