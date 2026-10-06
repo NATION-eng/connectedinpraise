@@ -87,26 +87,29 @@ export function Navbar() {
             ))}
           </ul>
 
-          {/* Action Area: FTLOM Liquid CTA & Mobile Drawer Toggle */}
-          <div className="flex items-center gap-3 flex-shrink-0">
-            {/* Signature Liquid Fill Button - Highly Visible, Radiant Milk & Gold Accent */}
-            <LiquidButton
+          {/* Action Area: Live Radio Icon Button & Mobile Drawer Toggle */}
+          <div className="flex items-center gap-2.5 sm:gap-3 flex-shrink-0">
+            {/* Live Broadcast Button - Icon Only, Perfectly Situating the Nav */}
+            <a
               href={SOCIAL_LINKS.youtube}
               target="_blank"
               rel="noopener noreferrer"
-              variant="primary"
-              className="!px-5 sm:!px-7 !py-2 sm:!py-2.5 !text-xs sm:!text-sm flex-shrink-0 shadow-[0_0_20px_rgba(255,200,59,0.35)] !border-primary"
+              aria-label="Watch Live Broadcast on YouTube"
+              title="Watch Live on YouTube"
+              className="relative group flex items-center justify-center w-10 h-10 sm:w-11 sm:h-11 rounded-full border-2 border-primary bg-primary/10 hover:bg-primary text-primary hover:text-obsidian transition-all duration-300 delay-75 ease-[cubic-bezier(0.23,1,0.32,1)] shadow-[0_0_20px_rgba(255,200,59,0.35)] hover:shadow-[0_0_30px_rgba(255,200,59,0.6)] hover:scale-105 active:scale-95 flex-shrink-0"
             >
-              <Radio className="w-4 h-4 text-primary group-hover:text-obsidian animate-pulse flex-shrink-0" />
-              <span className="font-montserrat font-extrabold tracking-wide uppercase text-milk group-hover:text-obsidian">
-                Watch Live
+              <Radio className="w-4 h-4 sm:w-5 sm:h-5 text-primary group-hover:text-obsidian animate-pulse transition-colors" />
+              {/* Subtle Live Dot Ping */}
+              <span className="absolute -top-1 -right-1 flex h-3 w-3">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75" />
+                <span className="relative inline-flex rounded-full h-3 w-3 bg-secondary" />
               </span>
-            </LiquidButton>
+            </a>
 
             {/* Mobile Hamburger (Visible on < lg screens) */}
             <button
               onClick={() => setIsMenuOpen(true)}
-              className="lg:hidden text-milk p-2.5 rounded-full bg-primary/20 hover:bg-primary/30 transition-colors border border-primary/40 flex-shrink-0 cursor-pointer"
+              className="lg:hidden text-milk p-2 sm:p-2.5 rounded-full bg-primary/15 hover:bg-primary/25 transition-colors border border-primary/40 flex-shrink-0 cursor-pointer"
               aria-label="Open navigation menu"
             >
               <Menu className="w-5 h-5 text-primary" />
@@ -117,7 +120,7 @@ export function Navbar() {
 
       {/* Full-Screen Mobile Drawer */}
       <div
-        className={`fixed inset-0 z-[60] xl:hidden transition-all duration-500 ${
+        className={`fixed inset-0 z-[60] lg:hidden transition-all duration-500 ${
           isMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
       >
