@@ -19,7 +19,7 @@ export function FloatingCountdown({ targetDate = "2026-11-04T18:00:00", classNam
         <div className="relative z-10 flex items-center gap-1.5 sm:gap-3.5 select-none">
           {/* Days */}
           <div className="flex flex-col items-center leading-none min-w-[30px] sm:min-w-[40px]">
-            <span className="font-syne font-extrabold text-lg sm:text-2xl tabular-nums bg-gradient-to-br from-sunburst via-primary to-secondary bg-clip-text text-transparent drop-shadow-[0_2px_10px_rgba(255,200,59,0.35)]">
+            <span className="font-montserrat font-black text-lg sm:text-2xl tabular-nums bg-gradient-to-br from-sunburst via-primary to-secondary bg-clip-text text-transparent drop-shadow-[0_2px_10px_rgba(255,200,59,0.35)]">
               {format(days)}
             </span>
             <span className="text-[9px] sm:text-[10px] text-white/70 uppercase tracking-[0.14em] font-bold mt-1">
@@ -31,7 +31,7 @@ export function FloatingCountdown({ targetDate = "2026-11-04T18:00:00", classNam
 
           {/* Hours */}
           <div className="flex flex-col items-center leading-none min-w-[30px] sm:min-w-[40px]">
-            <span className="font-syne font-extrabold text-lg sm:text-2xl tabular-nums bg-gradient-to-br from-sunburst via-primary to-secondary bg-clip-text text-transparent drop-shadow-[0_2px_10px_rgba(255,200,59,0.35)]">
+            <span className="font-montserrat font-black text-lg sm:text-2xl tabular-nums bg-gradient-to-br from-sunburst via-primary to-secondary bg-clip-text text-transparent drop-shadow-[0_2px_10px_rgba(255,200,59,0.35)]">
               {format(hours)}
             </span>
             <span className="text-[9px] sm:text-[10px] text-white/70 uppercase tracking-[0.14em] font-bold mt-1">
@@ -43,7 +43,7 @@ export function FloatingCountdown({ targetDate = "2026-11-04T18:00:00", classNam
 
           {/* Minutes */}
           <div className="flex flex-col items-center leading-none min-w-[30px] sm:min-w-[40px]">
-            <span className="font-syne font-extrabold text-lg sm:text-2xl tabular-nums bg-gradient-to-br from-sunburst via-primary to-secondary bg-clip-text text-transparent drop-shadow-[0_2px_10px_rgba(255,200,59,0.35)]">
+            <span className="font-montserrat font-black text-lg sm:text-2xl tabular-nums bg-gradient-to-br from-sunburst via-primary to-secondary bg-clip-text text-transparent drop-shadow-[0_2px_10px_rgba(255,200,59,0.35)]">
               {format(minutes)}
             </span>
             <span className="text-[9px] sm:text-[10px] text-white/70 uppercase tracking-[0.14em] font-bold mt-1">
@@ -55,7 +55,7 @@ export function FloatingCountdown({ targetDate = "2026-11-04T18:00:00", classNam
 
           {/* Seconds */}
           <div className="flex flex-col items-center leading-none min-w-[30px] sm:min-w-[40px]">
-            <span className="font-syne font-extrabold text-lg sm:text-2xl tabular-nums bg-gradient-to-br from-sunburst via-primary to-secondary bg-clip-text text-transparent drop-shadow-[0_2px_10px_rgba(255,200,59,0.35)]">
+            <span className="font-montserrat font-black text-lg sm:text-2xl tabular-nums bg-gradient-to-br from-sunburst via-primary to-secondary bg-clip-text text-transparent drop-shadow-[0_2px_10px_rgba(255,200,59,0.35)]">
               {format(seconds)}
             </span>
             <span className="text-[9px] sm:text-[10px] text-white/70 uppercase tracking-[0.14em] font-bold mt-1">
