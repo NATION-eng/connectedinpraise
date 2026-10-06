@@ -17,7 +17,7 @@ export function Footer({ onOpenAdmin }) {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-primary/15">
           {/* Brand & Wordmark */}
           <div className="md:col-span-5 space-y-4">
-            <Logo size="nav" />
+            <Logo size="footer" />
             <p className="text-xs sm:text-sm text-white/80 max-w-sm leading-relaxed font-medium">
               Connected in Praise is an annual praise and worship evangelism concert hosted by
               Jerusalem Choir in strategic partnership with Adventist Possibility Ministries (APM).

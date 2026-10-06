@@ -61,17 +61,14 @@ export function Hero() {
           </h2>
         </div>
 
-        {/* Master Festival Headline: CONNECTED IN on line 1, PRAISE on line 2 */}
-        <div className="relative my-2 sm:my-3 select-none animate-fade-in-scale w-full max-w-4xl mx-auto px-2">
-          <h1 className="font-montserrat font-black text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5rem] uppercase tracking-wide sm:tracking-tight leading-[1.05] text-white drop-shadow-[0_4px_30px_rgba(0,0,0,0.9)]">
-            <span className="block text-milk">CONNECTED IN</span>
-            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-primary via-sunburst to-secondary drop-shadow-[0_4px_25px_rgba(242,101,34,0.4)] mt-1">
-              PRAISE
-            </span>
-          </h1>
-
-          {/* Golden & Milk Sunburst Horizon Ray */}
-          <div className="mx-auto mt-2 sm:mt-3 h-1 w-24 sm:w-48 rounded-full bg-gradient-to-r from-transparent via-primary to-transparent shadow-[0_0_15px_rgba(255,200,59,0.8)]" />
+        {/* Official Master Festival Logo Emblem */}
+        <div className="relative my-2 sm:my-3 select-none animate-fade-in-scale w-full max-w-sm xs:max-w-md sm:max-w-lg md:max-w-xl mx-auto px-2 flex flex-col items-center">
+          <img
+            src="/images/cip-official-logo.png"
+            alt="Connected in Praise Official Logo"
+            className="w-full h-auto max-h-[190px] xs:max-h-[230px] sm:max-h-[290px] md:max-h-[330px] object-contain drop-shadow-[0_8px_35px_rgba(242,101,34,0.45)] hover:scale-105 transition-transform duration-700 delay-150 ease-[cubic-bezier(0.23,1,0.32,1)]"
+          />
+          <h1 className="sr-only">Connected in Praise 2026</h1>
         </div>
 
         {/* Movement Description - Clean High-Contrast Milk Writeup */}
