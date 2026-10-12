@@ -3,10 +3,12 @@ import { supabase, isSupabaseConfigured } from "../lib/supabase";
 const PRAYERS_STORAGE_KEY = "cip_prayer_wall_notes";
 const CONTACTS_STORAGE_KEY = "cip_contact_messages";
 
+const AMEN_STORAGE_KEY = "cip_prayer_amen_counts";
+
 /**
- * Fetch the latest 5 prayer requests for the public prayer wall
+ * Fetch the latest entries for the public prayer & testimony wall
  */
-export async function getLatestPrayers(limit = 5) {
+export async function getLatestPrayers(limit = 20) {
   if (isSupabaseConfigured && supabase) {
     try {
       const { data, error } = await supabase
@@ -17,10 +19,14 @@ export async function getLatestPrayers(limit = 5) {
 
       if (!error && Array.isArray(data)) {
         if (data.length > 0) {
+          const amens = getAmenCounts();
           return data.map((item) => ({
             id: item.id,
             author: item.name || item.author || "A Believer",
             text: item.text || item.message || "",
+            type: item.type || (item.text && item.text.toLowerCase().includes("testimony") ? "testimony" : "prayer"),
+            category: item.category || "General",
+            amens: (item.amens || 0) + (amens[item.id] || 0),
             time: formatRelativeTime(item.created_at),
             created_at: item.created_at,
           }));
@@ -34,13 +40,18 @@ export async function getLatestPrayers(limit = 5) {
   }
 
   // Local fallback strictly capped to limit
-  return getLocalPrayers().slice(0, limit);
+  const local = getLocalPrayers();
+  const amens = getAmenCounts();
+  return local.slice(0, limit).map((p) => ({
+    ...p,
+    amens: (p.amens || 0) + (amens[p.id] || 0),
+  }));
 }
 
 /**
- * Save a new prayer request directly to Supabase cloud database
+ * Save a new prayer request or testimony directly to Supabase cloud database
  */
-export async function savePrayerRequest(name, text) {
+export async function savePrayerRequest(name, text, type = "prayer", category = "General") {
   const author = name.trim() || "A Believer";
   const prayerText = text.trim();
   const createdAt = new Date().toISOString();
@@ -49,6 +60,9 @@ export async function savePrayerRequest(name, text) {
     id: `prayer-${Date.now()}`,
     author,
     text: prayerText,
+    type,
+    category,
+    amens: 0,
     time: "Just now",
     created_at: createdAt,
   };
@@ -62,18 +76,40 @@ export async function savePrayerRequest(name, text) {
           {
             name: author,
             text: prayerText,
+            type,
+            category,
           },
         ])
         .select();
 
       if (error) {
-        console.error("Supabase prayer insert error:", error);
+        // If type/category column don't exist yet, retry with base columns
+        const { data: retryData, error: retryError } = await supabase
+          .from("prayer_requests")
+          .insert([
+            {
+              name: author,
+              text: `[${type.toUpperCase()}] ${prayerText}`,
+            },
+          ])
+          .select();
+
+        if (retryError) {
+          console.error("Supabase prayer insert error:", retryError);
+        } else if (retryData && retryData.length > 0) {
+          const row = retryData[0];
+          createdEntry.id = row.id;
+          createdEntry.created_at = row.created_at || createdAt;
+        }
       } else if (data && data.length > 0) {
         const row = data[0];
         createdEntry = {
           id: row.id,
           author: row.name || author,
           text: row.text || prayerText,
+          type: row.type || type,
+          category: row.category || category,
+          amens: 0,
           time: "Just now",
           created_at: row.created_at || createdAt,
         };
@@ -93,6 +129,29 @@ export async function savePrayerRequest(name, text) {
   }
 
   return createdEntry;
+}
+
+/**
+ * Increment Amen / Prayed reaction
+ */
+export function incrementAmenCount(id) {
+  try {
+    const current = getAmenCounts();
+    current[id] = (current[id] || 0) + 1;
+    localStorage.setItem(AMEN_STORAGE_KEY, JSON.stringify(current));
+    return current[id];
+  } catch {
+    return 1;
+  }
+}
+
+function getAmenCounts() {
+  try {
+    const raw = localStorage.getItem(AMEN_STORAGE_KEY);
+    return raw ? JSON.parse(raw) : {};
+  } catch {
+    return {};
+  }
 }
 
 /**

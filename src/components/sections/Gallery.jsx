@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Image as ImageIcon, X, Maximize2 } from "lucide-react";
 import { RevealMotion, StaggerContainer, StaggerItem } from "../ui/RevealMotion";
 
-// 100% Authentic Photos from CIP MEDIA archives with precise, factual descriptions
+// 100% Authentic Photos from CIP MEDIA archives with precise, verified files
 const galleryItems = [
   {
     id: 1,
@@ -41,45 +41,45 @@ const galleryItems = [
   },
   {
     id: 6,
-    title: "Choral Soloist in Robes",
-    category: "Choir & Soloists",
-    src: "/images/gallery/DSC09568.jpg",
-    caption: "Robed soloist rendering an inspiring hymn alongside the choir section.",
+    title: "Mass Choir Vibrant Praises",
+    category: "Mass Choir",
+    src: "/images/gallery/DSC09674.jpg",
+    caption: "Mass choir standing together on the elevated altar risers lifting high praises in vibrant African fabrics.",
   },
   {
     id: 7,
-    title: "Full Choir Stage Ministration",
+    title: "Altar Praise Ministration",
     category: "Mass Choir",
-    src: "/images/gallery/DSC09575.jpg",
-    caption: "Mass choir singing together with radiant joy from the elevated altar risers.",
+    src: "/images/gallery/DSC09678.jpg",
+    caption: "Choristers rendering soul-stirring four-part harmonies before the sanctuary congregation.",
   },
   {
     id: 8,
-    title: "Worship in the Congregation",
-    category: "Worship & Audience",
-    src: "/images/gallery/DSC09600.jpg",
-    caption: "Congregants lifting hands in deep spiritual fellowship, swept into the presence of God.",
+    title: "Choristers in Sacred Harmony",
+    category: "Mass Choir",
+    src: "/images/gallery/DSC09680.jpg",
+    caption: "Full choral section singing with heartfelt expression and unity of spirit during the praise festival.",
   },
   {
     id: 9,
-    title: "Young Believers Singing Praise",
+    title: "United Congregation in Worship",
     category: "Worship & Audience",
-    src: "/images/gallery/DSC09618.jpg",
-    caption: "Young worshippers actively participating and singing heartfelt praises during the session.",
+    src: "/images/gallery/DSC09744.jpg",
+    caption: "Believers standing in awe, joining voices with the choir in joyful community adoration.",
   },
   {
     id: 10,
-    title: "Choir Director Guiding the Harmony",
-    category: "Choral Direction",
-    src: "/images/gallery/DSC09624.jpg",
-    caption: "Choir director passionately leading choral timing and four-part vocal harmony from the front.",
+    title: "Hands Lifted in Surrender",
+    category: "Worship & Audience",
+    src: "/images/gallery/DSC09749.jpg",
+    caption: "Worshippers lifting holy hands without wrath or doubting as the atmosphere fills with divine presence.",
   },
   {
     id: 11,
-    title: "The Assembly in Sacred Adoration",
+    title: "Worshippers in Deep Reverence",
     category: "Worship & Audience",
-    src: "/images/gallery/DSC09763.jpg",
-    caption: "Panoramic view of the congregation standing united in praise and reverence.",
+    src: "/images/gallery/DSC09760.jpg",
+    caption: "Young and mature believers alike captivated by the presence of the Lord during the musical experience.",
   },
   {
     id: 12,
@@ -97,10 +97,10 @@ const galleryItems = [
   },
   {
     id: 14,
-    title: "Free Medical & Dental Outreach Clinic",
+    title: "Free Medical Consultation Clinic",
     category: "Medical & Outreach",
     src: "/images/gallery/EMD_2415.jpg",
-    caption: "Volunteer medical doctors and dental team providing free healthcare consultations and check-ups to community members.",
+    caption: "Volunteer medical doctors providing free healthcare consultations and diagnostic check-ups to community members.",
   },
   {
     id: 15,
@@ -111,38 +111,17 @@ const galleryItems = [
   },
   {
     id: 16,
-    title: "Free Dental Cleaning & Treatment",
+    title: "Compassionate Healthcare Mission",
     category: "Medical & Outreach",
-    src: "/images/gallery/EMD_2448.jpg",
-    caption: "Dental specialist examining community residents as part of Connected in Praise's compassion and healing mission.",
+    src: "/images/gallery/EMD_2424.jpg",
+    caption: "Clinical team attending to patient care, vitals testing, and compassionate counseling in Jesus' name.",
   },
   {
     id: 17,
-    title: "Elderly Care & Health Checkup",
+    title: "Outreach Medical Team & Doctors",
     category: "Medical & Outreach",
-    src: "/images/gallery/EMD_2484.jpg",
-    caption: "Volunteer medical officer taking blood pressure and providing compassionate geriatric care for an elderly community member.",
-  },
-  {
-    id: 18,
-    title: "Free Pharmaceutical Dispensary",
-    category: "Medical & Outreach",
-    src: "/images/gallery/EMD_2489.jpg",
-    caption: "Pharmacy dispensary team preparing and distributing free prescribed medications to attending families.",
-  },
-  {
-    id: 19,
-    title: "Compassionate Dental Care",
-    category: "Medical & Outreach",
-    src: "/images/gallery/EMD_2520.jpg",
-    caption: "Licensed dentist gently administering clinical dental care to a community patient.",
-  },
-  {
-    id: 20,
-    title: "Full Outreach Medical Mission Team",
-    category: "Medical & Outreach",
-    src: "/images/gallery/EMD_2542.jpg",
-    caption: "Dedicated medical volunteers, nurses, and doctors who served hundreds of vulnerable residents freely in Jesus' name.",
+    src: "/images/gallery/EMD_2433.jpg",
+    caption: "Dedicated medical volunteers, nurses, and doctors serving hundreds of vulnerable residents freely.",
   },
 ];
 

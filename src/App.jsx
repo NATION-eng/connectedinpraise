@@ -1,24 +1,38 @@
-import React from "react";
+import React, { Suspense, lazy } from "react";
 import { NavigationProvider, useNavigation } from "./context/NavigationContext";
 import { Navbar } from "./components/layout/Navbar";
 import { Footer } from "./components/layout/Footer";
 import { HomePage } from "./components/pages/HomePage";
-import { About } from "./components/sections/About";
-import { WhyPraise } from "./components/sections/WhyPraise";
-import { JerusalemChoir } from "./components/sections/JerusalemChoir";
-import { Gallery } from "./components/sections/Gallery";
-import { Stories } from "./components/sections/Stories";
-import { Contact } from "./components/sections/Contact";
-import { CallToAction } from "./components/sections/CallToAction";
-import { DonatePage } from "./components/pages/DonatePage";
-import { AdminDashboard } from "./components/admin/AdminDashboard";
+
+// Code-split other routes to minimize main bundle size and eliminate INP latency
+const About = lazy(() => import("./components/sections/About").then((m) => ({ default: m.About })));
+const WhyPraise = lazy(() => import("./components/sections/WhyPraise").then((m) => ({ default: m.WhyPraise })));
+const JerusalemChoir = lazy(() => import("./components/sections/JerusalemChoir").then((m) => ({ default: m.JerusalemChoir })));
+const Gallery = lazy(() => import("./components/sections/Gallery").then((m) => ({ default: m.Gallery })));
+const Stories = lazy(() => import("./components/sections/Stories").then((m) => ({ default: m.Stories })));
+const Contact = lazy(() => import("./components/sections/Contact").then((m) => ({ default: m.Contact })));
+const CallToAction = lazy(() => import("./components/sections/CallToAction").then((m) => ({ default: m.CallToAction })));
+const DonatePage = lazy(() => import("./components/pages/DonatePage").then((m) => ({ default: m.DonatePage })));
+const AdminDashboard = lazy(() => import("./components/admin/AdminDashboard").then((m) => ({ default: m.AdminDashboard })));
+
+function PageFallback() {
+  return (
+    <div className="min-h-[60vh] flex items-center justify-center">
+      <div className="w-8 h-8 rounded-full border-2 border-primary border-t-transparent animate-spin" />
+    </div>
+  );
+}
 
 function AppContent() {
   const { currentPath, navigate } = useNavigation();
 
   // Full-Page Admin Dashboard Portal
   if (currentPath === "/admin") {
-    return <AdminDashboard onBackToHome={() => navigate("/")} />;
+    return (
+      <Suspense fallback={<PageFallback />}>
+        <AdminDashboard onBackToHome={() => navigate("/")} />
+      </Suspense>
+    );
   }
 
   // Render individual page based on current route
@@ -64,7 +78,9 @@ function AppContent() {
 
       {/* Main Page View */}
       <main id="main-content" className="flex-grow">
-        {renderCurrentPage()}
+        <Suspense fallback={<PageFallback />}>
+          {renderCurrentPage()}
+        </Suspense>
       </main>
 
       {/* Persistent Footer */}

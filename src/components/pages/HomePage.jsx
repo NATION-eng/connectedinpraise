@@ -79,7 +79,7 @@ export function HomePage() {
         <div className="absolute top-1/4 right-0 w-72 sm:w-96 h-72 sm:h-96 bg-primary/10 rounded-full blur-[140px] pointer-events-none" />
         <div className="absolute bottom-1/4 left-0 w-72 sm:w-96 h-72 sm:h-96 bg-secondary/15 rounded-full blur-[140px] pointer-events-none" />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-3 xs:px-4 sm:px-6 lg:px-8">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <RevealMotion className="text-center max-w-3xl mx-auto mb-10 xs:mb-14 sm:mb-20">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/15 border border-primary/30 text-primary font-montserrat text-[11px] xs:text-xs uppercase tracking-widest font-black mb-3 xs:mb-4">
               <span>Explore The Movement</span>
@@ -95,47 +95,47 @@ export function HomePage() {
             </p>
           </RevealMotion>
 
-          <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3.5 xs:gap-5 sm:gap-6">
+          <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {sectionsList.map((item, idx) => (
               <StaggerItem key={idx}>
                 <div
                   onClick={() => navigate(item.path)}
-                  className={`group relative h-full rounded-2xl p-4.5 xs:p-5 sm:p-7 transition-all duration-500 delay-75 cursor-pointer flex flex-col justify-between ${
+                  className={`group relative h-full rounded-2xl sm:rounded-3xl p-5 sm:p-7 transition-all duration-300 cursor-pointer flex flex-col justify-between ${
                     item.featured
-                      ? "bg-gradient-to-b from-primary/20 via-[#1C0508] to-[#120305] border-2 border-primary/50 shadow-[0_12px_40px_rgba(255,200,59,0.25)] hover:border-primary hover:shadow-[0_16px_50px_rgba(255,200,59,0.4)]"
-                      : "bg-[#130305]/90 backdrop-blur-md border border-white/10 hover:border-primary/40 hover:bg-[#1A0407] hover:shadow-[0_12px_35px_rgba(0,0,0,0.7)]"
-                  } hover:-translate-y-1.5`}
+                      ? "bg-gradient-to-b from-primary/20 via-[#1C0508] to-[#120305] border-2 border-primary/50 shadow-[0_12px_40px_rgba(255,200,59,0.2)] hover:border-primary hover:shadow-[0_16px_50px_rgba(255,200,59,0.35)]"
+                      : "bg-[#130305]/95 backdrop-blur-xl border border-white/10 hover:border-primary/40 hover:bg-[#1A0407] hover:shadow-[0_12px_35px_rgba(0,0,0,0.7)]"
+                  } hover:-translate-y-1 active:scale-[0.99]`}
                 >
                   <div>
-                    <div className="flex items-center justify-between mb-3.5 xs:mb-5">
-                      <div className="w-10 h-10 xs:w-12 xs:h-12 rounded-xl bg-white/5 border border-white/10 group-hover:border-primary/40 flex items-center justify-center transition-colors">
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-white/5 border border-white/10 group-hover:border-primary/40 flex items-center justify-center transition-colors flex-shrink-0">
                         {item.icon}
                       </div>
 
-                      <span className="font-montserrat text-[9px] xs:text-[10px] sm:text-[11px] font-black uppercase tracking-wider px-2 xs:px-2.5 py-0.5 xs:py-1 rounded-full bg-white/5 text-white/70 border border-white/10 group-hover:border-primary/30 group-hover:text-primary transition-colors">
+                      <span className="font-montserrat text-[10px] sm:text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-white/5 text-white/70 border border-white/10 group-hover:border-primary/30 group-hover:text-primary transition-colors">
                         {item.badge}
                       </span>
                     </div>
 
-                    <div className="text-[10px] xs:text-[11px] font-montserrat font-bold text-secondary uppercase tracking-widest mb-1">
+                    <div className="text-[10px] sm:text-[11px] font-montserrat font-bold text-secondary uppercase tracking-widest mb-1.5">
                       {item.category}
                     </div>
 
-                    <h3 className="font-syne font-black text-lg xs:text-xl text-white group-hover:text-primary transition-colors mb-2 xs:mb-3">
+                    <h3 className="font-montserrat font-black text-lg sm:text-xl text-white group-hover:text-primary transition-colors mb-2.5 leading-snug tracking-tight">
                       {item.title}
                     </h3>
 
-                    <p className="text-xs sm:text-sm text-white/70 font-sans leading-relaxed mb-4 xs:mb-6">
+                    <p className="text-xs sm:text-sm text-white/75 font-sans leading-relaxed mb-5">
                       {item.desc}
                     </p>
                   </div>
 
-                  <div className="flex items-center justify-between pt-3 xs:pt-4 border-t border-white/10 group-hover:border-primary/20 transition-colors">
-                    <span className="font-montserrat text-[11px] xs:text-xs font-bold uppercase tracking-wider text-milk group-hover:text-primary transition-colors">
+                  <div className="flex items-center justify-between pt-3.5 sm:pt-4 border-t border-white/10 group-hover:border-primary/20 transition-colors">
+                    <span className="font-montserrat text-xs font-bold uppercase tracking-wider text-milk group-hover:text-primary transition-colors">
                       Open Page
                     </span>
-                    <div className="w-7 h-7 xs:w-8 xs:h-8 rounded-full bg-white/5 group-hover:bg-primary group-hover:text-black flex items-center justify-center text-white/60 transition-all duration-300">
-                      <ArrowRight className="w-3.5 h-3.5 xs:w-4 xs:h-4 group-hover:translate-x-0.5 transition-transform" />
+                    <div className="w-8 h-8 rounded-full bg-white/5 group-hover:bg-primary group-hover:text-black flex items-center justify-center text-white/60 transition-all duration-300">
+                      <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
                     </div>
                   </div>
                 </div>

@@ -46,18 +46,22 @@ export function Navbar() {
 
   const handleNavClick = (e, path) => {
     e.preventDefault();
+    if (currentPath === path) {
+      setIsMenuOpen(false);
+      return;
+    }
     setIsMenuOpen(false);
     navigate(path);
   };
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-500 py-2 sm:py-3.5 px-2 xs:px-3 sm:px-6 lg:px-8 pointer-events-none">
+      <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-2 sm:py-3.5 px-2 xs:px-3 sm:px-6 lg:px-8 pointer-events-none">
         <nav
-          className={`max-w-7xl mx-auto flex items-center justify-between gap-1.5 xs:gap-2 sm:gap-4 px-2.5 xs:px-3.5 sm:px-6 py-1.5 xs:py-2 sm:py-2.5 rounded-full pointer-events-auto transition-all duration-500 overflow-visible ${
+          className={`max-w-7xl mx-auto flex items-center justify-between gap-1.5 xs:gap-2 sm:gap-4 px-2.5 xs:px-3.5 sm:px-6 py-1.5 xs:py-2 sm:py-2.5 rounded-full pointer-events-auto transition-all duration-300 overflow-visible ${
             isScrolled
               ? "bg-[#0E0304]/95 backdrop-blur-2xl border border-primary/35 shadow-[0_12px_45px_rgba(0,0,0,0.85)] ring-1 ring-primary/20"
-              : "bg-black/70 backdrop-blur-xl border border-white/15 shadow-[0_8px_30px_rgba(0,0,0,0.6)]"
+              : "bg-black/75 backdrop-blur-xl border border-white/15 shadow-[0_8px_30px_rgba(0,0,0,0.6)]"
           }`}
         >
           {/* Brand Identity */}
@@ -79,13 +83,13 @@ export function Navbar() {
                   <a
                     href={link.path}
                     onClick={(e) => handleNavClick(e, link.path)}
-                    className={`font-montserrat text-xs 2xl:text-[13px] font-bold uppercase tracking-wider transition-colors duration-500 delay-150 ease-[cubic-bezier(0.23,1,0.32,1)] relative group py-1 px-1 whitespace-nowrap select-none ${
+                    className={`font-montserrat text-xs 2xl:text-[13px] font-bold uppercase tracking-wider transition-colors duration-200 relative group py-1 px-1 whitespace-nowrap select-none ${
                       isActive ? "text-primary" : "text-white/90 hover:text-primary"
                     }`}
                   >
                     {link.label}
                     <span
-                      className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-primary to-secondary transition-all duration-500 delay-150 ease-[cubic-bezier(0.23,1,0.32,1)] rounded-full ${
+                      className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-primary to-secondary transition-all duration-300 rounded-full ${
                         isActive ? "w-full" : "w-0 group-hover:w-full"
                       }`}
                     />
@@ -101,9 +105,9 @@ export function Navbar() {
             <button
               onClick={() => {
                 setIsMenuOpen(false);
-                navigate("/donate");
+                if (currentPath !== "/donate") navigate("/donate");
               }}
-              className={`relative inline-flex items-center gap-1 xs:gap-1.5 px-2.5 xs:px-3 sm:px-4 py-1.5 sm:py-2 rounded-full font-montserrat font-black text-[10px] xs:text-[11px] sm:text-xs uppercase tracking-wider transition-all duration-300 delay-75 cursor-pointer shadow-md hover:scale-105 active:scale-95 flex-shrink-0 ${
+              className={`relative inline-flex items-center gap-1 xs:gap-1.5 px-2.5 xs:px-3 sm:px-4 py-1.5 sm:py-2 rounded-full font-montserrat font-black text-[10px] xs:text-[11px] sm:text-xs uppercase tracking-wider transition-transform duration-200 cursor-pointer shadow-md hover:scale-105 active:scale-95 flex-shrink-0 ${
                 currentPath === "/donate"
                   ? "bg-gradient-to-r from-primary via-sunburst to-secondary text-obsidian ring-2 ring-primary shadow-[0_0_20px_rgba(255,200,59,0.5)]"
                   : "bg-gradient-to-r from-primary via-sunburst to-secondary text-obsidian hover:shadow-[0_0_20px_rgba(255,200,59,0.4)]"

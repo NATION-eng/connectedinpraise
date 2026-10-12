@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect, useCallback } from "react";
+import React, { createContext, useContext, useState, useEffect, useCallback, startTransition } from "react";
 
 const NavigationContext = createContext({
   currentPath: "/",
@@ -32,25 +32,39 @@ export function NavigationProvider({ children }) {
 
   const navigate = useCallback((toPath) => {
     const normalized = normalizePath(toPath);
-    setCurrentPath(normalized);
 
     // Update history state cleanly
     if (window.location.pathname !== normalized) {
       window.history.pushState(null, "", normalized);
     }
 
-    // Scroll to top with smooth motion
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    // High performance transition: yields immediately to paint user interaction
+    startTransition(() => {
+      setCurrentPath(normalized);
+    });
+
+    // Instant scroll avoids fighting with concurrent React renders
+    try {
+      window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+    } catch {
+      window.scrollTo(0, 0);
+    }
   }, []);
 
   useEffect(() => {
     const handlePopState = () => {
-      if (window.location.hash) {
-        setCurrentPath(normalizePath(window.location.hash));
-      } else {
-        setCurrentPath(normalizePath(window.location.pathname));
+      const nextPath = window.location.hash
+        ? normalizePath(window.location.hash)
+        : normalizePath(window.location.pathname);
+
+      startTransition(() => {
+        setCurrentPath(nextPath);
+      });
+      try {
+        window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+      } catch {
+        window.scrollTo(0, 0);
       }
-      window.scrollTo({ top: 0, behavior: "smooth" });
     };
 
     window.addEventListener("popstate", handlePopState);
