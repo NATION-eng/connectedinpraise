@@ -83,14 +83,14 @@ export function Navbar() {
                   <a
                     href={link.path}
                     onClick={(e) => handleNavClick(e, link.path)}
-                    className={`font-montserrat text-xs 2xl:text-[13px] font-bold uppercase tracking-wider transition-colors duration-200 relative group py-1 px-1 whitespace-nowrap select-none ${
+                    className={`font-montserrat text-xs 2xl:text-[13px] font-bold uppercase tracking-wider transition-colors duration-200 relative group py-1 px-1 whitespace-nowrap select-none touch-manipulation cursor-pointer ${
                       isActive ? "text-primary" : "text-white/90 hover:text-primary"
                     }`}
                   >
                     {link.label}
                     <span
-                      className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-primary to-secondary transition-all duration-300 rounded-full ${
-                        isActive ? "w-full" : "w-0 group-hover:w-full"
+                      className={`absolute bottom-0 left-0 h-0.5 w-full bg-gradient-to-r from-primary to-secondary transition-transform duration-200 origin-left rounded-full pointer-events-none ${
+                        isActive ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
                       }`}
                     />
                   </a>

@@ -2,9 +2,8 @@ import React, { Suspense, lazy } from "react";
 import { NavigationProvider, useNavigation } from "./context/NavigationContext";
 import { Navbar } from "./components/layout/Navbar";
 import { Footer } from "./components/layout/Footer";
-import { HomePage } from "./components/pages/HomePage";
-
-// Code-split other routes to minimize main bundle size and eliminate INP latency
+// Code-split all page routes to minimize main bundle size and eliminate INP latency
+const HomePage = lazy(() => import("./components/pages/HomePage").then((m) => ({ default: m.HomePage })));
 const About = lazy(() => import("./components/sections/About").then((m) => ({ default: m.About })));
 const WhyPraise = lazy(() => import("./components/sections/WhyPraise").then((m) => ({ default: m.WhyPraise })));
 const JerusalemChoir = lazy(() => import("./components/sections/JerusalemChoir").then((m) => ({ default: m.JerusalemChoir })));
