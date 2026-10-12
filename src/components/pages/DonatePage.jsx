@@ -96,68 +96,75 @@ export function DonatePage() {
         {/* Master Official Bank Account Card */}
         <RevealMotion className="max-w-2xl mx-auto mb-12 xs:mb-16 sm:mb-20">
           <div className="relative rounded-2xl sm:rounded-3xl p-0.5 sm:p-1 bg-gradient-to-b from-primary/60 via-secondary/40 to-primary/20 shadow-[0_20px_60px_rgba(255,200,59,0.25)] group">
-            <div className="relative rounded-[15px] sm:rounded-[22px] bg-[#140406]/95 backdrop-blur-2xl p-4.5 xs:p-6 sm:p-10 border border-white/10 overflow-hidden">
+            <div className="relative rounded-[15px] sm:rounded-[22px] bg-[#140406]/95 backdrop-blur-2xl p-5 sm:p-8 md:p-10 border border-white/10 overflow-hidden">
               {/* Subtle Watermark Emblems */}
               <div className="absolute -top-12 -right-12 w-48 h-48 bg-primary/10 rounded-full blur-2xl pointer-events-none" />
               <div className="absolute -bottom-10 -left-10 w-44 h-44 bg-secondary/15 rounded-full blur-2xl pointer-events-none" />
 
-              {/* Verified Badge */}
-              <div className="flex flex-row items-center justify-between gap-2 pb-3.5 sm:pb-6 mb-4 sm:mb-6 border-b border-white/10 flex-wrap">
+              {/* Verified Badge Header */}
+              <div className="flex items-center justify-between gap-2 pb-4 mb-5 border-b border-white/10 flex-wrap">
                 <div className="flex items-center gap-1.5 xs:gap-2 text-[11px] xs:text-xs font-montserrat font-black uppercase tracking-wider text-primary">
-                  <ShieldCheck className="w-3.5 h-3.5 xs:w-4 xs:h-4 text-primary" />
+                  <ShieldCheck className="w-4 h-4 text-primary flex-shrink-0" />
                   <span>Official Church Account</span>
                 </div>
-                <div className="flex items-center gap-1 xs:gap-1.5 px-2.5 xs:px-3 py-1 rounded-full bg-secondary/20 border border-secondary/40 text-[10px] xs:text-[11px] font-montserrat font-bold text-secondary uppercase tracking-wider">
-                  <Sparkles className="w-3 h-3 text-secondary" />
+                <div className="flex items-center gap-1 px-2.5 py-1 rounded-full bg-secondary/20 border border-secondary/40 text-[10px] xs:text-[11px] font-montserrat font-bold text-secondary uppercase tracking-wider">
+                  <Sparkles className="w-3 h-3 text-secondary flex-shrink-0" />
                   <span>Direct Bank Transfer</span>
                 </div>
               </div>
 
-              {/* Account Rows */}
-              <div className="space-y-3.5 xs:space-y-5 sm:space-y-6">
-                {/* Bank Name */}
-                <div className="flex flex-col xs:flex-row xs:items-center justify-between gap-1 p-3 xs:p-3.5 rounded-xl sm:rounded-2xl bg-white/5 border border-white/5">
-                  <div className="flex items-center gap-2.5 text-white/70">
-                    <Building className="w-4 h-4 xs:w-5 xs:h-5 text-primary flex-shrink-0" />
-                    <span className="text-[11px] xs:text-xs uppercase tracking-wider font-montserrat font-bold">Bank Name</span>
-                  </div>
-                  <span className="text-base sm:text-lg font-montserrat font-black text-white xs:text-right pl-6.5 xs:pl-0">
-                    {accountDetails.bank}
-                  </span>
-                </div>
-
-                {/* Account Name */}
-                <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-1.5 p-3 xs:p-3.5 rounded-xl sm:rounded-2xl bg-white/5 border border-white/5">
-                  <div className="flex items-center gap-2.5 text-white/70">
-                    <User className="w-4 h-4 xs:w-5 xs:h-5 text-secondary flex-shrink-0" />
-                    <span className="text-[11px] xs:text-xs uppercase tracking-wider font-montserrat font-bold">Account Name</span>
-                  </div>
-                  <span className="text-xs xs:text-sm sm:text-base font-montserrat font-bold text-primary sm:text-right pl-6.5 sm:pl-0 max-w-sm leading-snug">
-                    {accountDetails.accountName}
-                  </span>
-                </div>
-
-                {/* Account Number Box (Huge, Prominent, Copyable) */}
-                <div className="relative p-4 sm:p-6 rounded-xl sm:rounded-2xl bg-black/60 border-2 border-primary/50 shadow-[0_8px_30px_rgba(0,0,0,0.6)]">
-                  <div className="flex items-center justify-between text-[11px] xs:text-xs font-montserrat font-black uppercase tracking-wider text-white/60 mb-2">
-                    <span className="flex items-center gap-1.5 xs:gap-2">
-                      <CreditCard className="w-3.5 h-3.5 xs:w-4 xs:h-4 text-primary" />
-                      Account Number
+              {/* Account Details Architecture */}
+              <div className="space-y-4">
+                {/* Unified Bank & Account Holder Container */}
+                <div className="bg-black/40 rounded-xl sm:rounded-2xl border border-white/10 p-4 sm:p-5 space-y-3.5">
+                  {/* Bank Row */}
+                  <div className="flex items-center justify-between gap-3 border-b border-white/10 pb-3">
+                    <div className="flex items-center gap-2 text-white/60">
+                      <Building className="w-4 h-4 text-primary flex-shrink-0" />
+                      <span className="text-[10px] sm:text-xs uppercase tracking-wider font-montserrat font-bold">Bank Name</span>
+                    </div>
+                    <span className="font-montserrat font-black text-sm sm:text-base text-white text-right">
+                      UBA (United Bank for Africa)
                     </span>
-                    <span className="text-[10px] xs:text-[11px] text-primary font-bold">NUBAN Verified</span>
                   </div>
 
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4">
-                    <div className="font-mono text-2xl xs:text-3xl sm:text-4xl font-black tracking-widest text-white selection:bg-primary selection:text-black">
+                  {/* Account Name Row */}
+                  <div className="space-y-1 sm:space-y-0 sm:flex sm:items-start sm:justify-between sm:gap-3">
+                    <div className="flex items-center gap-2 text-white/60">
+                      <User className="w-4 h-4 text-secondary flex-shrink-0" />
+                      <span className="text-[10px] sm:text-xs uppercase tracking-wider font-montserrat font-bold">Account Name</span>
+                    </div>
+                    <div className="font-montserrat font-bold text-xs sm:text-sm text-primary sm:text-right leading-snug">
+                      Seventh-day Adventist Church, Rumuokwuta District
+                    </div>
+                  </div>
+                </div>
+
+                {/* Account Number & Copy Action Box */}
+                <div className="relative p-4 sm:p-6 rounded-xl sm:rounded-2xl bg-gradient-to-br from-[#1C0508] via-black/80 to-[#120305] border-2 border-primary/50 shadow-[0_8px_30px_rgba(255,200,59,0.2)]">
+                  <div className="flex items-center justify-between text-[10px] sm:text-xs font-montserrat font-bold uppercase tracking-wider text-white/60 mb-2">
+                    <span className="flex items-center gap-1.5 text-primary">
+                      <CreditCard className="w-4 h-4 text-primary" />
+                      <span>Account Number</span>
+                    </span>
+                    <span className="inline-flex items-center gap-1 text-[10px] sm:text-[11px] text-emerald-400 font-bold bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/30">
+                      <Check className="w-3 h-3" />
+                      <span>NUBAN Verified</span>
+                    </span>
+                  </div>
+
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4 pt-1">
+                    <div className="font-mono text-2xl xs:text-3xl sm:text-4xl font-black tracking-[0.16em] text-white selection:bg-primary selection:text-black">
                       {accountDetails.accountNumber}
                     </div>
 
                     <button
+                      type="button"
                       onClick={handleCopy}
-                      className={`w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl font-montserrat font-black text-xs uppercase tracking-wider transition-all duration-300 cursor-pointer shadow-lg active:scale-95 ${
+                      className={`w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl font-montserrat font-black text-xs uppercase tracking-wider transition-all duration-200 cursor-pointer shadow-lg active:scale-95 touch-manipulation ${
                         copied
                           ? "bg-emerald-500 text-black border border-emerald-400 shadow-emerald-500/40"
-                          : "bg-gradient-to-r from-primary via-sunburst to-secondary text-obsidian hover:shadow-[0_4px_20px_rgba(255,200,59,0.5)] hover:scale-105"
+                          : "bg-gradient-to-r from-primary via-sunburst to-secondary text-obsidian hover:shadow-[0_4px_25px_rgba(255,200,59,0.5)] hover:scale-105"
                       }`}
                       aria-label="Copy account number to clipboard"
                     >
@@ -168,7 +175,7 @@ export function DonatePage() {
                         </>
                       ) : (
                         <>
-                          <Copy className="w-4 h-4" />
+                          <Copy className="w-4 h-4 text-obsidian" />
                           <span>Copy Number</span>
                         </>
                       )}
@@ -177,11 +184,11 @@ export function DonatePage() {
                 </div>
 
                 {/* Transfer Narration Note */}
-                <div className="p-3 xs:p-4 rounded-xl bg-primary/10 border border-primary/25 text-[11px] xs:text-xs text-white/90 leading-relaxed flex items-start gap-2.5 xs:gap-3">
-                  <div className="w-2 h-2 rounded-full bg-secondary flex-shrink-0 mt-1" />
+                <div className="p-3.5 sm:p-4 rounded-xl bg-primary/10 border border-primary/25 text-[11px] xs:text-xs text-white/90 leading-relaxed flex items-start gap-2.5">
+                  <div className="w-2 h-2 rounded-full bg-secondary flex-shrink-0 mt-1 animate-pulse" />
                   <div>
                     <strong className="text-primary font-bold">Transfer Remark / Narration:</strong> Please input{" "}
-                    <span className="font-mono font-bold text-white bg-black/50 px-1.5 xs:px-2 py-0.5 rounded border border-white/20">
+                    <span className="font-mono font-bold text-white bg-black/60 px-1.5 py-0.5 rounded border border-white/20">
                       CIP 2026
                     </span>{" "}
                     or <span className="font-semibold text-white">Connected in Praise</span> so your donation can be
