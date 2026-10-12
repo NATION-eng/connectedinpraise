@@ -145,7 +145,7 @@ export function Gallery() {
       : galleryItems.filter((item) => item.category === activeCategory);
 
   return (
-    <section id="gallery" className="relative pt-20 xs:pt-24 sm:pt-36 md:pt-40 pb-16 sm:pb-32 overflow-hidden bg-[#0D0404] text-white min-h-screen">
+    <section id="gallery" className="relative pt-28 xs:pt-32 sm:pt-36 md:pt-40 pb-16 sm:pb-32 overflow-hidden bg-[#0D0404] text-white min-h-screen">
       {/* Radiant Sunburst Glow Background Canvas */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
         <img

@@ -56,14 +56,24 @@ export function Navbar() {
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-2 sm:py-3.5 px-2 xs:px-3 sm:px-6 lg:px-8 pointer-events-none">
-        <nav
-          className={`max-w-7xl mx-auto flex items-center justify-between gap-1.5 xs:gap-2 sm:gap-4 px-2.5 xs:px-3.5 sm:px-6 py-1.5 xs:py-2 sm:py-2.5 rounded-full pointer-events-auto transition-all duration-300 overflow-visible ${
+      <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 pointer-events-none">
+        {/* Full-width backdrop shield so content never peeks awkwardly above the navbar pill on mobile */}
+        <div
+          className={`absolute inset-0 pointer-events-none transition-all duration-300 ${
             isScrolled
-              ? "bg-[#0E0304]/95 backdrop-blur-2xl border border-primary/35 shadow-[0_12px_45px_rgba(0,0,0,0.85)] ring-1 ring-primary/20"
-              : "bg-black/75 backdrop-blur-xl border border-white/15 shadow-[0_8px_30px_rgba(0,0,0,0.6)]"
+              ? "bg-[#0E0304]/90 backdrop-blur-xl border-b border-white/10 shadow-[0_4px_25px_rgba(0,0,0,0.7)]"
+              : "bg-gradient-to-b from-[#0E0304] via-[#0E0304]/80 to-transparent sm:from-transparent sm:to-transparent"
           }`}
-        >
+        />
+
+        <div className="relative py-2 sm:py-3.5 px-2 xs:px-3 sm:px-6 lg:px-8">
+          <nav
+            className={`max-w-7xl mx-auto flex items-center justify-between gap-1.5 xs:gap-2 sm:gap-4 px-2.5 xs:px-3.5 sm:px-6 py-1.5 xs:py-2 sm:py-2.5 rounded-full pointer-events-auto transition-all duration-300 overflow-visible ${
+              isScrolled
+                ? "bg-[#0E0304]/95 backdrop-blur-2xl border border-primary/35 shadow-[0_12px_45px_rgba(0,0,0,0.85)] ring-1 ring-primary/20"
+                : "bg-black/75 backdrop-blur-xl border border-white/15 shadow-[0_8px_30px_rgba(0,0,0,0.6)]"
+            }`}
+          >
           {/* Brand Identity */}
           <a
             href="/"
@@ -144,7 +154,8 @@ export function Navbar() {
               <Menu className="w-4 h-4 xs:w-5 xs:h-5 text-primary" />
             </button>
           </div>
-        </nav>
+          </nav>
+        </div>
       </header>
 
       {/* Exceptional Full-Screen Mobile Drawer */}

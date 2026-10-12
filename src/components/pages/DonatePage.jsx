@@ -66,7 +66,7 @@ export function DonatePage() {
   ];
 
   return (
-    <div className="relative min-h-screen pt-20 xs:pt-24 sm:pt-36 pb-16 sm:pb-24 overflow-hidden bg-[#0A0203] text-white">
+    <div className="relative min-h-screen pt-28 xs:pt-32 sm:pt-40 pb-16 sm:pb-24 overflow-hidden bg-[#0A0203] text-white">
       {/* Radiant Sunburst Ambient Canvas */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div className="absolute top-1/6 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-primary/15 rounded-full blur-[160px] pointer-events-none" />
@@ -74,20 +74,20 @@ export function DonatePage() {
         <div className="absolute top-3/4 left-0 w-[450px] h-[450px] bg-primary/10 rounded-full blur-[150px] pointer-events-none" />
       </div>
 
-      <div className="relative z-10 max-w-6xl mx-auto px-3 xs:px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header Breadcrumb & Tag */}
         <RevealMotion className="text-center max-w-3xl mx-auto mb-8 xs:mb-12 sm:mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-primary/15 border border-primary/30 text-primary font-montserrat text-[11px] xs:text-xs uppercase tracking-widest font-black mb-3 xs:mb-5 shadow-[0_2px_15px_rgba(255,200,59,0.2)]">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary/15 border border-primary/30 text-primary font-montserrat text-[11px] xs:text-xs uppercase tracking-widest font-black mb-3 xs:mb-5 shadow-[0_2px_15px_rgba(255,200,59,0.2)]">
             <Heart className="w-3.5 h-3.5 fill-current text-secondary animate-pulse" />
             <span>Support The Movement</span>
           </div>
 
-          <h1 className="font-syne font-black text-2xl xs:text-3xl sm:text-5xl md:text-6xl text-white tracking-tight leading-[1.15] mb-3 xs:mb-5">
+          <h1 className="font-montserrat font-black text-2xl xs:text-3xl sm:text-5xl md:text-6xl text-white tracking-tight leading-tight mb-3 xs:mb-5">
             Partner In <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-sunburst to-secondary">Praise</span> &{" "}
             <span className="text-milk">Possibility</span>
           </h1>
 
-          <p className="text-xs xs:text-sm sm:text-base md:text-lg text-white/80 leading-relaxed font-sans max-w-2xl mx-auto px-1">
+          <p className="text-xs xs:text-sm sm:text-base md:text-lg text-white/80 leading-relaxed font-sans max-w-2xl mx-auto px-2">
             Your sacrificial giving elevates worship, breaks disability barriers across Port Harcourt City, and ensures
             every worshipper—regardless of physical limitation—experiences God&apos;s love without obstacle.
           </p>
@@ -95,26 +95,26 @@ export function DonatePage() {
 
         {/* Master Official Bank Account Card */}
         <RevealMotion className="max-w-2xl mx-auto mb-12 xs:mb-16 sm:mb-20">
-          <div className="relative rounded-2xl sm:rounded-3xl p-1 bg-gradient-to-b from-primary/60 via-secondary/40 to-primary/20 shadow-[0_20px_60px_rgba(255,200,59,0.25)] group">
+          <div className="relative rounded-2xl sm:rounded-3xl p-0.5 sm:p-1 bg-gradient-to-b from-primary/60 via-secondary/40 to-primary/20 shadow-[0_20px_60px_rgba(255,200,59,0.25)] group">
             <div className="relative rounded-[15px] sm:rounded-[22px] bg-[#140406]/95 backdrop-blur-2xl p-4.5 xs:p-6 sm:p-10 border border-white/10 overflow-hidden">
               {/* Subtle Watermark Emblems */}
               <div className="absolute -top-12 -right-12 w-48 h-48 bg-primary/10 rounded-full blur-2xl pointer-events-none" />
               <div className="absolute -bottom-10 -left-10 w-44 h-44 bg-secondary/15 rounded-full blur-2xl pointer-events-none" />
 
               {/* Verified Badge */}
-              <div className="flex flex-col xs:flex-row items-start xs:items-center justify-between gap-2 pb-4 sm:pb-6 mb-4 sm:mb-6 border-b border-white/10">
+              <div className="flex flex-row items-center justify-between gap-2 pb-3.5 sm:pb-6 mb-4 sm:mb-6 border-b border-white/10 flex-wrap">
                 <div className="flex items-center gap-1.5 xs:gap-2 text-[11px] xs:text-xs font-montserrat font-black uppercase tracking-wider text-primary">
                   <ShieldCheck className="w-3.5 h-3.5 xs:w-4 xs:h-4 text-primary" />
                   <span>Official Church Account</span>
                 </div>
-                <div className="flex items-center gap-1 xs:gap-1.5 px-2.5 xs:px-3 py-0.5 xs:py-1 rounded-full bg-secondary/20 border border-secondary/40 text-[10px] xs:text-[11px] font-montserrat font-bold text-secondary uppercase tracking-wider">
+                <div className="flex items-center gap-1 xs:gap-1.5 px-2.5 xs:px-3 py-1 rounded-full bg-secondary/20 border border-secondary/40 text-[10px] xs:text-[11px] font-montserrat font-bold text-secondary uppercase tracking-wider">
                   <Sparkles className="w-3 h-3 text-secondary" />
                   <span>Direct Bank Transfer</span>
                 </div>
               </div>
 
               {/* Account Rows */}
-              <div className="space-y-4 xs:space-y-6">
+              <div className="space-y-3.5 xs:space-y-5 sm:space-y-6">
                 {/* Bank Name */}
                 <div className="flex flex-col xs:flex-row xs:items-center justify-between gap-1 p-3 xs:p-3.5 rounded-xl sm:rounded-2xl bg-white/5 border border-white/5">
                   <div className="flex items-center gap-2.5 text-white/70">
@@ -127,34 +127,34 @@ export function DonatePage() {
                 </div>
 
                 {/* Account Name */}
-                <div className="flex flex-col xs:flex-row xs:items-start justify-between gap-1 p-3 xs:p-3.5 rounded-xl sm:rounded-2xl bg-white/5 border border-white/5">
+                <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-1.5 p-3 xs:p-3.5 rounded-xl sm:rounded-2xl bg-white/5 border border-white/5">
                   <div className="flex items-center gap-2.5 text-white/70">
                     <User className="w-4 h-4 xs:w-5 xs:h-5 text-secondary flex-shrink-0" />
                     <span className="text-[11px] xs:text-xs uppercase tracking-wider font-montserrat font-bold">Account Name</span>
                   </div>
-                  <span className="text-xs xs:text-sm sm:text-base font-montserrat font-bold text-primary xs:text-right pl-6.5 xs:pl-0 max-w-sm">
+                  <span className="text-xs xs:text-sm sm:text-base font-montserrat font-bold text-primary sm:text-right pl-6.5 sm:pl-0 max-w-sm leading-snug">
                     {accountDetails.accountName}
                   </span>
                 </div>
 
                 {/* Account Number Box (Huge, Prominent, Copyable) */}
-                <div className="relative p-4 xs:p-5 sm:p-6 rounded-xl sm:rounded-2xl bg-black/60 border-2 border-primary/50 shadow-[0_8px_30px_rgba(0,0,0,0.6)]">
-                  <div className="flex items-center justify-between text-[11px] xs:text-xs font-montserrat font-black uppercase tracking-wider text-white/60 mb-1.5 xs:mb-2">
+                <div className="relative p-4 sm:p-6 rounded-xl sm:rounded-2xl bg-black/60 border-2 border-primary/50 shadow-[0_8px_30px_rgba(0,0,0,0.6)]">
+                  <div className="flex items-center justify-between text-[11px] xs:text-xs font-montserrat font-black uppercase tracking-wider text-white/60 mb-2">
                     <span className="flex items-center gap-1.5 xs:gap-2">
                       <CreditCard className="w-3.5 h-3.5 xs:w-4 xs:h-4 text-primary" />
                       Account Number
                     </span>
-                    <span className="text-[10px] xs:text-[11px] text-primary">NUBAN Verified</span>
+                    <span className="text-[10px] xs:text-[11px] text-primary font-bold">NUBAN Verified</span>
                   </div>
 
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 xs:gap-4">
-                    <div className="font-mono text-xl xs:text-2xl sm:text-4xl font-black tracking-widest text-white selection:bg-primary selection:text-black">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4">
+                    <div className="font-mono text-2xl xs:text-3xl sm:text-4xl font-black tracking-widest text-white selection:bg-primary selection:text-black">
                       {accountDetails.accountNumber}
                     </div>
 
                     <button
                       onClick={handleCopy}
-                      className={`w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 xs:px-5 py-2.5 xs:py-3 rounded-xl font-montserrat font-black text-xs uppercase tracking-wider transition-all duration-300 cursor-pointer shadow-lg active:scale-95 ${
+                      className={`w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl font-montserrat font-black text-xs uppercase tracking-wider transition-all duration-300 cursor-pointer shadow-lg active:scale-95 ${
                         copied
                           ? "bg-emerald-500 text-black border border-emerald-400 shadow-emerald-500/40"
                           : "bg-gradient-to-r from-primary via-sunburst to-secondary text-obsidian hover:shadow-[0_4px_20px_rgba(255,200,59,0.5)] hover:scale-105"
@@ -196,7 +196,7 @@ export function DonatePage() {
         {/* Where Your Giving Goes Section */}
         <div className="mb-12 xs:mb-16 sm:mb-24">
           <RevealMotion className="text-center max-w-2xl mx-auto mb-8 xs:mb-10">
-            <h2 className="font-syne font-black text-xl xs:text-2xl sm:text-4xl text-white mb-2 xs:mb-3">
+            <h2 className="font-montserrat font-black text-xl xs:text-2xl sm:text-3xl md:text-4xl text-white mb-2 xs:mb-3 tracking-tight">
               How Your Seed Creates Impact
             </h2>
             <p className="text-xs sm:text-sm text-white/75 font-sans px-1">
@@ -205,10 +205,10 @@ export function DonatePage() {
             </p>
           </RevealMotion>
 
-          <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5 xs:gap-4 sm:gap-6">
+          <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {impactAreas.map((area, index) => (
               <StaggerItem key={index}>
-                <div className="h-full rounded-2xl p-4.5 xs:p-5 sm:p-6 bg-[#130304]/80 backdrop-blur-md border border-white/10 hover:border-primary/40 hover:shadow-[0_12px_35px_rgba(255,200,59,0.15)] transition-all duration-300 flex flex-col justify-between">
+                <div className="h-full rounded-2xl p-5 sm:p-6 bg-[#130304]/80 backdrop-blur-md border border-white/10 hover:border-primary/40 hover:shadow-[0_12px_35px_rgba(255,200,59,0.15)] transition-all duration-300 flex flex-col justify-between">
                   <div>
                     <div className="w-10 h-10 xs:w-12 xs:h-12 rounded-xl bg-primary/15 border border-primary/30 flex items-center justify-center mb-3 xs:mb-4">
                       {area.icon}
@@ -225,7 +225,7 @@ export function DonatePage() {
         {/* Direct Inquiries & Transparency Hotline */}
         <RevealMotion className="rounded-2xl sm:rounded-3xl p-5 xs:p-6 sm:p-10 bg-gradient-to-r from-[#170406] via-[#100304] to-[#170406] border border-primary/30 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-5 sm:gap-6">
           <div className="space-y-1.5 xs:space-y-2 text-center md:text-left">
-            <h3 className="font-syne font-bold text-lg xs:text-xl sm:text-2xl text-white">
+            <h3 className="font-montserrat font-black text-lg xs:text-xl sm:text-2xl text-white">
               Questions or Corporate Sponsorships?
             </h3>
             <p className="text-xs sm:text-sm text-white/70 max-w-xl">
