@@ -2,7 +2,6 @@ import React from "react";
 import { ArrowRight, Heart, Sparkles, BookOpen, Music, Image, MessageSquare, MapPin } from "lucide-react";
 import { Hero } from "../sections/Hero";
 import { StatsBar } from "../sections/StatsBar";
-import { GrandChoirBanner } from "../sections/GrandChoirBanner";
 import { MassChoirShowcase } from "../sections/MassChoirShowcase";
 import { RevealMotion, StaggerContainer, StaggerItem } from "../ui/RevealMotion";
 import { useNavigation } from "../../context/NavigationContext";
@@ -74,7 +73,6 @@ export function HomePage() {
     <div className="relative">
       <Hero />
       <StatsBar />
-      <GrandChoirBanner />
       <MassChoirShowcase />
 
       {/* Interactive Hub: Explore Each Dedicated Page */}

@@ -13,17 +13,20 @@ export function Hero() {
       id="home"
       className="relative min-h-[100svh] flex flex-col justify-between overflow-hidden pt-20 xs:pt-24 sm:pt-36 md:pt-40 lg:pt-44 pb-3 xs:pb-4 sm:pb-8 bg-[#0E0304]"
     >
-      {/* Background with Luminous Flyer Sunburst Art & Royal Burgundy Radial Blending */}
+      {/* Background with Luminous Mass Choir Stage Photography & Gradient Scrim */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
         <img
-          src="/images/cip-sunburst-bg.jpg"
-          alt="Connected in Praise Celestial Sunburst Glow"
-          className="w-full h-full object-cover object-center scale-105 animate-slow-pan opacity-25 filter brightness-90 contrast-125"
+          src="/images/mass-choir-scrim.jpg"
+          alt="Connected in Praise Mass Choir Stage Experience"
+          className="w-full h-full object-cover object-[center_20%] scale-105 animate-slow-pan filter brightness-[0.78] sm:brightness-[0.85] contrast-[1.12]"
         />
 
-        {/* Optical Sunburst Lens Gradient - Warm Celestial Glow Radiating from Core */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_36%,rgba(255,200,59,0.25)_0%,rgba(242,101,34,0.18)_35%,rgba(32,5,7,0.85)_70%,#0E0304_100%)]" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0E0304]/80 via-transparent to-[#0E0304]" />
+        {/* Optical Sunburst Lens Gradient - Warm Celestial Glow Radiating from Core Behind Logo */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_36%,rgba(255,200,59,0.28)_0%,rgba(242,101,34,0.18)_35%,rgba(14,3,4,0.75)_65%,#0E0304_100%)]" />
+
+        {/* Cinematic Gradient Scrim: Darkens bottom for Dock/Countdown & top for navbar clearance */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0E0304]/85 via-transparent to-[#0E0304] via-40%" />
+        <div className="absolute bottom-0 inset-x-0 h-2/3 bg-gradient-to-t from-[#0E0304] via-[#0E0304]/85 via-45% to-transparent" />
       </div>
 
       {/* Atmospheric Ambient Glow Orbs */}
