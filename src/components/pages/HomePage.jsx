@@ -2,6 +2,7 @@ import React from "react";
 import { ArrowRight, Heart, Sparkles, BookOpen, Music, Image, MessageSquare, MapPin } from "lucide-react";
 import { Hero } from "../sections/Hero";
 import { StatsBar } from "../sections/StatsBar";
+import { MassChoirShowcase } from "../sections/MassChoirShowcase";
 import { RevealMotion, StaggerContainer, StaggerItem } from "../ui/RevealMotion";
 import { useNavigation } from "../../context/NavigationContext";
 
@@ -72,6 +73,7 @@ export function HomePage() {
     <div className="relative">
       <Hero />
       <StatsBar />
+      <MassChoirShowcase />
 
       {/* Interactive Hub: Explore Each Dedicated Page */}
       <section className="relative py-14 xs:py-18 sm:py-28 bg-gradient-to-b from-[#0E0304] via-[#150406] to-[#0A0203] text-white overflow-hidden">
