@@ -14,25 +14,28 @@ export function Hero() {
     >
       {/* 1. CINEMATIC BACKGROUND: High-Resolution Mass Choir Photography + Eased Gradient Scrim */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden select-none">
-        {/* Choir Stage Photo with Higher Focal Alignment for Heavenly Amphitheater Framing */}
+        {/* Choir Stage Photo Darkened to Perfect Proportion */}
         <img
           src="/images/mass-choir-scrim.jpg"
           alt="Connected in Praise Mass Choir Stage Experience"
-          className="w-full h-full object-cover object-[center_10%] sm:object-[center_14%] filter brightness-[0.82] sm:brightness-[0.88] contrast-[1.12] scale-[1.03] animate-slow-pan"
+          className="w-full h-full object-cover object-[center_10%] sm:object-[center_14%] filter brightness-[0.38] sm:brightness-[0.42] contrast-[1.18] saturate-[0.9] opacity-70 sm:opacity-75 scale-[1.03] animate-slow-pan"
         />
 
-        {/* Optical Center Lens Halo - Creates Heavenly Gold Backlight Behind Logo & Separates Choir Gowns */}
-        <div className="absolute top-[32%] sm:top-[34%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[340px] xs:w-[480px] sm:w-[700px] h-[340px] xs:h-[480px] sm:h-[700px] bg-[radial-gradient(circle_at_center,rgba(255,200,59,0.32)_0%,rgba(242,101,34,0.18)_35%,rgba(14,3,4,0.7)_65%,transparent_85%)] blur-2xl pointer-events-none" />
+        {/* Global Dark Atmospheric Veil */}
+        <div className="absolute inset-0 bg-[#0E0304]/55 mix-blend-multiply pointer-events-none" />
+
+        {/* Optical Center Lens Halo - Creates Subtle Heavenly Gold Backlight Behind Logo */}
+        <div className="absolute top-[32%] sm:top-[34%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[340px] xs:w-[480px] sm:w-[700px] h-[340px] xs:h-[480px] sm:h-[700px] bg-[radial-gradient(circle_at_center,rgba(255,200,59,0.20)_0%,rgba(242,101,34,0.10)_35%,rgba(14,3,4,0.85)_65%,transparent_85%)] blur-2xl pointer-events-none" />
 
         {/* Top Vignette Scrim - Ensures Floating Navbar & Header Badges Stand Out in Pure Elegance */}
-        <div className="absolute top-0 inset-x-0 h-36 sm:h-44 bg-gradient-to-b from-[#0E0304]/90 via-[#0E0304]/50 to-transparent pointer-events-none" />
+        <div className="absolute top-0 inset-x-0 h-48 sm:h-64 bg-gradient-to-b from-[#0E0304] via-[#0E0304]/80 to-transparent pointer-events-none" />
 
         {/* Non-Linear Directional Bottom Gradient Scrim - Buttery Smooth Transition for Text & Command Dock */}
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
             background:
-              "linear-gradient(to top, #0E0304 0%, rgba(14,3,4,0.96) 24%, rgba(14,3,4,0.78) 46%, rgba(14,3,4,0.25) 70%, transparent 100%)",
+              "linear-gradient(to top, #0E0304 0%, rgba(14,3,4,0.95) 28%, rgba(14,3,4,0.75) 55%, rgba(14,3,4,0.50) 80%, rgba(14,3,4,0.35) 100%)",
           }}
         />
 
@@ -112,7 +115,7 @@ export function Hero() {
             </div>
             <div className="min-w-0">
               <div className="font-montserrat font-black text-xs xs:text-xs sm:text-sm text-milk tracking-wide flex items-center gap-2">
-                <span>4TH – 7TH NOV, 2026</span>
+                <span>9TH – 12TH DEC, 2026</span>
                 <span className="text-[8px] xs:text-[9px] sm:text-[10px] text-secondary font-black bg-secondary/20 px-2 py-0.5 rounded-full border border-secondary/40 uppercase tracking-wider animate-pulse">
                   Live
                 </span>
@@ -126,7 +129,7 @@ export function Hero() {
 
           {/* Center: Live Tabular Countdown */}
           <div className="w-full lg:w-auto flex justify-center py-0.5">
-            <FloatingCountdown targetDate="2026-11-04T18:00:00" />
+            <FloatingCountdown targetDate="2026-12-12T08:00:00" />
           </div>
 
           {/* Right: Dual Luminous Action Buttons */}

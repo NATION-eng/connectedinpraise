@@ -27,7 +27,7 @@ export function Experience() {
           <div className="inline-flex items-center gap-2 bg-black/60 backdrop-blur-xl rounded-full px-4 sm:px-5 py-2 mb-4 border border-primary/30">
             <Calendar className="w-4 h-4 text-primary" />
             <span className="font-montserrat text-xs uppercase tracking-[0.2em] text-white/80 font-bold">
-              4–7 November 2026
+              9–12 December 2026
             </span>
           </div>
           <h2 className="font-montserrat font-black text-3xl sm:text-4xl md:text-5xl text-white mb-4">

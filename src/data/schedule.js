@@ -5,7 +5,7 @@ export const VENUE_MAIN = `${VENUE_NAME}, RSU, Oroworukwo, Port Harcourt`;
 export const scheduleData = [
   {
     day: "Day 1",
-    date: "Wednesday, Nov 4",
+    date: "Wednesday, Dec 9",
     timeSpan: "6:00 PM – 8:00 PM",
     title: "Opening Celebration & Invocation of Praise",
     description: "The connection begins. An evening of explosive praise, welcoming worship, and the official opening of Connected in Praise 2026.",
@@ -49,7 +49,7 @@ export const scheduleData = [
   },
   {
     day: "Day 2",
-    date: "Thursday, Nov 5",
+    date: "Thursday, Dec 10",
     timeSpan: "6:00 PM – 8:00 PM",
     title: "The Connected Experience & Story Circle",
     description: "An evening of deep worship, personal testimony, and community connection — forging bonds across every background and ability.",
@@ -93,7 +93,7 @@ export const scheduleData = [
   },
   {
     day: "Day 3",
-    date: "Friday, Nov 6",
+    date: "Friday, Dec 11",
     timeSpan: "6:00 PM – 8:00 PM",
     title: "Worship, Prayer & APM Inclusion Spotlight",
     description: "The heart of the movement. Dedicated to prayer, healing, and celebrating persons of all abilities ministering before God.",
@@ -137,7 +137,7 @@ export const scheduleData = [
   },
   {
     day: "Day 4",
-    date: "Sabbath, Nov 7",
+    date: "Sabbath, Dec 12",
     timeSpan: "8:00 AM – 12:00 PM",
     title: "Sabbath Grand Finale Concert & Celebration",
     description: "The summit celebration. A full Sabbath morning of divine worship, fellowship banquet, and the climactic Grand Finale concert.",

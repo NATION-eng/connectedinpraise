@@ -47,7 +47,7 @@ export function Footer() {
               Convocation Arena, Rivers State University, Oroworukwo, Port Harcourt City
             </div>
             <div className="text-[11px] xs:text-xs text-secondary font-montserrat font-black tracking-wider uppercase">
-              Nov 4–6: 6:00 PM – 8:00 PM · Sabbath Nov 7: 8:00 AM – 12:00 PM
+              Dec 9–11: 6:00 PM – 8:00 PM · Sabbath Dec 12: 8:00 AM – 12:00 PM
             </div>
           </div>
 

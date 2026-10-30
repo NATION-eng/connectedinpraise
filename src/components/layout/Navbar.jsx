@@ -202,7 +202,7 @@ export function Navbar() {
             </div>
             <div className="text-[11px] text-milk/75 mt-1 flex items-center gap-1.5">
               <Calendar className="w-3.5 h-3.5 text-primary flex-shrink-0" />
-              <span>Nov 4–7, 2026 · RSU Convocation Arena</span>
+              <span>Dec 9–12, 2026 · RSU Convocation Arena</span>
             </div>
           </div>
 

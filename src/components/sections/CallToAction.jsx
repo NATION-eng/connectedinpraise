@@ -39,7 +39,7 @@ export function CallToAction() {
 
         <p className="text-[11px] xs:text-xs sm:text-sm text-primary font-bold mb-6 xs:mb-10 tracking-wider flex items-center justify-center gap-1.5 xs:gap-2">
           <CustomSparkleEmoji className="w-3 h-3 xs:w-3.5 xs:h-3.5 text-secondary" />
-          <span>Nov 4–6: 6:00 PM – 8:00 PM · Sabbath Nov 7: 8:00 AM – 12:00 PM</span>
+          <span>Dec 9–11: 6:00 PM – 8:00 PM · Sabbath Dec 12: 8:00 AM – 12:00 PM</span>
           <CustomSparkleEmoji className="w-3 h-3 xs:w-3.5 xs:h-3.5 text-secondary" />
         </p>
 

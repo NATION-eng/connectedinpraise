@@ -1,7 +1,7 @@
 import React from "react";
 import { useCountdown } from "../../hooks/useCountdown";
 
-export function FloatingCountdown({ targetDate = "2026-11-04T18:00:00", className = "" }) {
+export function FloatingCountdown({ targetDate = "2026-12-12T08:00:00", className = "" }) {
   const { days, hours, minutes, seconds } = useCountdown(targetDate);
 
   const format = (n) => String(n).padStart(2, "0");
