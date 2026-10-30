@@ -14,25 +14,28 @@ export function Hero() {
     >
       {/* 1. CINEMATIC BACKGROUND: High-Resolution Mass Choir Photography + Eased Gradient Scrim */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden select-none">
-        {/* Choir Stage Photo - Bright enough to clearly show, balanced with subtle darkening */}
+        {/* Choir Stage Photo - Tastefully calibrated to show clearly with ideal gentle darkening */}
         <img
           src="/images/mass-choir-scrim.jpg"
           alt="Connected in Praise Mass Choir Stage Experience"
-          className="w-full h-full object-cover object-[center_10%] sm:object-[center_14%] filter brightness-[0.66] sm:brightness-[0.70] contrast-[1.10] scale-[1.03] animate-slow-pan"
+          className="w-full h-full object-cover object-[center_10%] sm:object-[center_14%] filter brightness-[0.54] sm:brightness-[0.58] contrast-[1.12] scale-[1.03] animate-slow-pan"
         />
 
+        {/* Subtle Dark Velvet Tint Layer */}
+        <div className="absolute inset-0 bg-[#0E0304]/25 pointer-events-none" />
+
         {/* Optical Center Lens Halo - Creates Subtle Heavenly Gold Backlight Behind Logo */}
-        <div className="absolute top-[32%] sm:top-[34%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[340px] xs:w-[480px] sm:w-[700px] h-[340px] xs:h-[480px] sm:h-[700px] bg-[radial-gradient(circle_at_center,rgba(255,200,59,0.25)_0%,rgba(242,101,34,0.12)_35%,transparent_75%)] blur-2xl pointer-events-none" />
+        <div className="absolute top-[32%] sm:top-[34%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[340px] xs:w-[480px] sm:w-[700px] h-[340px] xs:h-[480px] sm:h-[700px] bg-[radial-gradient(circle_at_center,rgba(255,200,59,0.22)_0%,rgba(242,101,34,0.10)_35%,transparent_75%)] blur-2xl pointer-events-none" />
 
         {/* Top Vignette Scrim - Ensures Floating Navbar & Header Badges Stand Out in Pure Elegance */}
-        <div className="absolute top-0 inset-x-0 h-32 sm:h-40 bg-gradient-to-b from-[#0E0304]/80 via-[#0E0304]/30 to-transparent pointer-events-none" />
+        <div className="absolute top-0 inset-x-0 h-36 sm:h-44 bg-gradient-to-b from-[#0E0304]/85 via-[#0E0304]/40 to-transparent pointer-events-none" />
 
         {/* Non-Linear Directional Bottom Gradient Scrim - Keeps Choir Clear While Protecting Dock Legibility */}
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
             background:
-              "linear-gradient(to top, #0E0304 0%, rgba(14,3,4,0.92) 22%, rgba(14,3,4,0.55) 45%, rgba(14,3,4,0.15) 68%, transparent 100%)",
+              "linear-gradient(to top, #0E0304 0%, rgba(14,3,4,0.94) 24%, rgba(14,3,4,0.60) 48%, rgba(14,3,4,0.20) 72%, transparent 100%)",
           }}
         />
 
